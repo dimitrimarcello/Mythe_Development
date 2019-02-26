@@ -60,7 +60,7 @@ public class PlayerInput : MonoBehaviour
         N3DS();
 #endif
 
-#if UNITY_EDITOR
+#if UNITY_EDITOR 
         EDITOR();
 #endif
     }
@@ -71,9 +71,9 @@ public class PlayerInput : MonoBehaviour
     {
         WiiU.GamePadState gamePadState = gamePad.state;
 
-        if (gamePadState.gamePadErr == WiiU.GamePadError.None)
+        if (gamePadState.gamePadErr == UnityEngine.WiiU.GamePadError.None)
         {
-            JumpInput = gamePadState.IsTriggered(WiiU.GamePadButton.A);
+            JumpInput = gamePadState.IsTriggered(UnityEngine.WiiU.GamePadButton.A) || gamePadState.IsTriggered(UnityEngine.WiiU.GamePadButton.B);
             JoystickMove = gamePadState.lStick;
         }
         else
