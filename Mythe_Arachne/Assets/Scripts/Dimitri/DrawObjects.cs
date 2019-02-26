@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class DrawObjects : MonoBehaviour {
 
+	public Camera drawingCam;
 	public GameObject rope;
 	public float maxDrawLenght;
 	public float zAxis;
@@ -15,7 +16,7 @@ public class DrawObjects : MonoBehaviour {
 	void Update()
 	{
 		if(Input.GetMouseButtonDown(0)){
-			mouseStart = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+			mouseStart = drawingCam.ScreenToWorldPoint(Input.mousePosition);
 			StartDrawing();
 		}
         if (Input.GetMouseButtonUp(0))
@@ -24,7 +25,7 @@ public class DrawObjects : MonoBehaviour {
         }
 		if(currentDraw != null){
 			//rotation of object that is drawn
-            Vector3 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+            Vector3 mousePosition = drawingCam.ScreenToWorldPoint(Input.mousePosition);
 			Vector2 dist = mousePosition - currentDraw.transform.position;
 			float angle = Mathf.Atan2(dist.y, dist.x) * Mathf.Rad2Deg;
 			currentDraw.transform.eulerAngles = new Vector3(0,0,angle);
@@ -41,7 +42,7 @@ public class DrawObjects : MonoBehaviour {
 	}
 
 	private void StartDrawing(){
-		Vector3 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+		Vector3 mousePosition = drawingCam.ScreenToWorldPoint(Input.mousePosition);
 		mousePosition.z = zAxis;
 		currentDraw = Instantiate(rope, mousePosition, transform.rotation);
 		currentDraw.transform.eulerAngles = new Vector3(0,0,90);
