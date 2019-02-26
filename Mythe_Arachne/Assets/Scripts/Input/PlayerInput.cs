@@ -4,21 +4,6 @@
 //////////////////////////////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////////////// -Sjors
 
-/*        
-____________________________
-|__________________________|
-||    * - Changes - *     ||
-||========================||
-|| ~25-2-2019 By Sjors ~  ||
-|| + Basic input for WiiU,||
-|| 3DS and EDITOR.        ||
-|| - POS on JOYSTICK INPUT||
-||  (for testing)         ||
-||________________________||
-
-Please note any changes, Thank you! ^-^*
-*/
-
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -35,6 +20,8 @@ using UnityEngine.N3DS;
 
 public class PlayerInput : MonoBehaviour
 {
+    //Values that can be get but not set by other scripts
+    public Vector2 MouseInput { get; private set; }
     public Vector2 JoystickMove { get; private set; }
     public Vector3 GyroInput { get; private set; }
     public bool AB { get; private set; }
@@ -47,12 +34,14 @@ public class PlayerInput : MonoBehaviour
     private void Start()
     {
 #if UNITY_WIIU && !UNITY_EDITOR
+        //Set the gamepad
         gamePad = UnityEngine.WiiU.GamePad.access;
 #endif       
     }
 
     private void Update()
     {
+        //Depending on the platform it will pick what will run
 #if UNITY_WIIU && !UNITY_EDITOR
         WiiU();
 #endif
@@ -64,13 +53,15 @@ public class PlayerInput : MonoBehaviour
 #if UNITY_EDITOR 
         EDITOR();
 #endif
+        GetMouse();
     }
 
 #if UNITY_WIIU && !UNITY_EDITOR
     void WiiU()
     {
         UnityEngine.WiiU.GamePadState gamePadState = gamePad.state;
-
+        
+        //Look if the gamepad is on, ifso check for inputs, if not, do nothing
         if (gamePadState.gamePadErr == UnityEngine.WiiU.GamePadError.None)
         {
             AB = gamePadState.IsTriggered(UnityEngine.WiiU.GamePadButton.A) || gamePadState.IsTriggered(UnityEngine.WiiU.GamePadButton.B);
@@ -88,18 +79,38 @@ public class PlayerInput : MonoBehaviour
 #if UNITY_N3DS && !UNITY_EDITOR
     void N3DS()
     {
+        //Look for input
         AB = UnityEngine.N3DS.GamePad.GetButtonTrigger(N3dsButton.A) || UnityEngine.N3DS.GamePad.GetButtonTrigger(N3dsButton.B);
         ZLZR = UnityEngine.N3DS.GamePad.GetButtonTrigger(N3dsButton.ZL) || UnityEngine.N3DS.GamePad.GetButtonTrigger(N3dsButton.ZR);
         JoystickMove = UnityEngine.N3DS.GamePad.CirclePad;
+        GyroInput = Input.gyro.rotationRate;
+    }
+#endif
+
+#if UNITY_ANDROID
+    void ANDROID()
+    {
+        //maybe someday
+        GyroInput = Input.gyro.rotationRate;
     }
 #endif
 
 #if UNITY_EDITOR
     void EDITOR()
     {
+        //Look for the input
         JoystickMove = new Vector2(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"));
         ZLZR = Input.GetKeyDown("z");
         AB = Input.GetKeyDown("x");
     }
 #endif
+
+    void GetMouse()
+    {
+        //When click, get mouse position
+        if (Input.GetMouseButtonDown(0))
+        {
+            MouseInput = Input.mousePosition;
+        }
+    }
 }

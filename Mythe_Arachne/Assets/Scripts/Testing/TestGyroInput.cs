@@ -1,4 +1,8 @@
-﻿using System.Collections;
+﻿////////////////////////////////////
+//THIS SCRIPT IS FOR TESTING ONLY///
+//////////////////////////////////// -Sjors
+
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
@@ -6,7 +10,6 @@ using UnityEngine.UI;
 [RequireComponent(typeof(Text))]
 public class TestGyroInput : MonoBehaviour
 {
-
     PlayerInput playerInput;
     [SerializeField] Text Values;
 
@@ -16,7 +19,6 @@ public class TestGyroInput : MonoBehaviour
         Values = GetComponent<Text>();
     }
 
-    // Update is called once per frame
     void Update()
     {
         Values.text = playerInput.GyroInput.ToString();
