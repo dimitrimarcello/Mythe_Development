@@ -23,11 +23,11 @@ using UnityEngine;
 [RequireComponent(typeof(Rigidbody2D))]
 [RequireComponent(typeof(PlayerInput))]
 public class PlayerMovement : MonoBehaviour {
-    [SerializeField]float Speed = 1f, ForceJump = 5f, CastLenght = 1.1f;
+    [SerializeField]float Speed = 1f, /*ForceJump = 5f,*/ CastLenght = 1.1f;
     PlayerInput playerInput;
     Rigidbody2D rb;
     int layerMask = ~(1 << 8);
-    bool Jumping = true;
+    //bool Jumping = true;
 
     [ExecuteInEditMode]
     void Awake () {
@@ -39,8 +39,8 @@ public class PlayerMovement : MonoBehaviour {
     private void FixedUpdate()
     {
         Move();
-        Jump();
         CheckCasts();
+        //Jump();
     }
 
     void Move () {
@@ -48,13 +48,15 @@ public class PlayerMovement : MonoBehaviour {
         transform.Translate(movementInput.x * (Speed * 10) * Time.deltaTime, 0, 0);
     }
 
+    /*
 	void Jump () {
-        if (playerInput.JumpInput && !Jumping)
+        if (playerInput.AB && !Jumping)
         {
             Jumping = true;
             rb.AddForce((Vector2.up * (ForceJump * 5000)) * Time.deltaTime);
         }
 	}
+    */
 
     void CheckCasts()
     {
@@ -62,11 +64,11 @@ public class PlayerMovement : MonoBehaviour {
 
         if (downWard.collider == null)
         {
-            Jumping = true;
+            //Jumping = true;
         }
         else
         {
-            Jumping = false;
+            //Jumping = false;
         }
     }
 

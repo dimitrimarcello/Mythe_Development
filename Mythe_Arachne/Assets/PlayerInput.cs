@@ -23,30 +23,31 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-//This section will only run on WiiU, It will make a reference to UnityEngine.WiiU.
+//This section will only run on WiiU.
 #if UNITY_WIIU
-using WiiU = UnityEngine.WiiU;
+using UnityEngine.WiiU;
 #endif
 
-//This section will only run on N3DS, It will make a reference to UnityEngine.N3DS.
+//This section will only run on N3DS.
 #if UNITY_N3DS
-using N3DS = UnityEngine.N3DS;
+using UnityEngine.N3DS;
 #endif
-
 
 public class PlayerInput : MonoBehaviour
 {
     public Vector2 JoystickMove { get; private set; }
-    public bool JumpInput { get; private set; }
+    public Vector3 GyroInput { get; private set; }
+    public bool AB { get; private set; }
+    public bool ZLZR { get; private set; }
 
 #if UNITY_WIIU
-    WiiU.GamePad gamePad;
+    UnityEngine.WiiU.GamePad gamePad;
 #endif
 
     private void Start()
     {
 #if UNITY_WIIU && !UNITY_EDITOR
-        gamePad = WiiU.GamePad.access;
+        gamePad = UnityEngine.WiiU.GamePad.access;
 #endif       
     }
 
@@ -65,16 +66,17 @@ public class PlayerInput : MonoBehaviour
 #endif
     }
 
-
 #if UNITY_WIIU && !UNITY_EDITOR
     void WiiU()
     {
-        WiiU.GamePadState gamePadState = gamePad.state;
+        UnityEngine.WiiU.GamePadState gamePadState = gamePad.state;
 
         if (gamePadState.gamePadErr == UnityEngine.WiiU.GamePadError.None)
         {
-            JumpInput = gamePadState.IsTriggered(UnityEngine.WiiU.GamePadButton.A) || gamePadState.IsTriggered(UnityEngine.WiiU.GamePadButton.B);
+            AB = gamePadState.IsTriggered(UnityEngine.WiiU.GamePadButton.A) || gamePadState.IsTriggered(UnityEngine.WiiU.GamePadButton.B);
+            ZLZR = gamePadState.IsTriggered(UnityEngine.WiiU.GamePadButton.ZL) || gamePadState.IsTriggered(UnityEngine.WiiU.GamePadButton.ZR);
             JoystickMove = gamePadState.lStick;
+            GyroInput = gamePadState.gyro;
         }
         else
         {
@@ -86,8 +88,9 @@ public class PlayerInput : MonoBehaviour
 #if UNITY_N3DS && !UNITY_EDITOR
     void N3DS()
     {
-        JumpInput = N3DS.GamePad.GetButtonTrigger(N3dsButton.A);
-        JoystickMove = N3DS.GamePad.CirclePad;
+        AB = UnityEngine.N3DS.GamePad.GetButtonTrigger(N3dsButton.A) || UnityEngine.N3DS.GamePad.GetButtonTrigger(N3dsButton.B);
+        ZLZR = UnityEngine.N3DS.GamePad.GetButtonTrigger(N3dsButton.ZL) || UnityEngine.N3DS.GamePad.GetButtonTrigger(N3dsButton.ZR);
+        JoystickMove = UnityEngine.N3DS.GamePad.CirclePad;
     }
 #endif
 
@@ -95,7 +98,8 @@ public class PlayerInput : MonoBehaviour
     void EDITOR()
     {
         JoystickMove = new Vector2(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"));
-        JumpInput = Input.GetKeyDown("space");
+        ZLZR = Input.GetKeyDown("z");
+        AB = Input.GetKeyDown("x");
     }
 #endif
 }
