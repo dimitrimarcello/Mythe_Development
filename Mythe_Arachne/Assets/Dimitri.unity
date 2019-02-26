@@ -482,7 +482,6 @@ GameObject:
   - component: {fileID: 896106960}
   - component: {fileID: 896106959}
   - component: {fileID: 896106958}
-  - component: {fileID: 896106957}
   m_Layer: 0
   m_Name: GampadCam
   m_TagString: MainCamera
@@ -490,13 +489,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!81 &896106957
-AudioListener:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 896106956}
-  m_Enabled: 1
 --- !u!124 &896106958
 Behaviour:
   m_ObjectHideFlags: 0
