@@ -53,6 +53,22 @@ public class PlayerInput : MonoBehaviour
     private void Update()
     {
 #if UNITY_WIIU && !UNITY_EDITOR
+        WiiU();
+#endif
+
+#if UNITY_N3DS && !UNITY_EDITOR
+        N3DS();
+#endif
+
+#if UNITY_EDITOR
+        EDITOR();
+#endif
+    }
+
+
+#if UNITY_WIIU && !UNITY_EDITOR
+    void WiiU()
+    {
         WiiU.GamePadState gamePadState = gamePad.state;
 
         if (gamePadState.gamePadErr == WiiU.GamePadError.None)
@@ -64,18 +80,22 @@ public class PlayerInput : MonoBehaviour
         {
             Debug.Log("The gamepad is required to play.");
         }
+    }
 #endif
-
 
 #if UNITY_N3DS && !UNITY_EDITOR
+    void N3DS()
+    {
         JumpInput = N3DS.GamePad.GetButtonTrigger(N3dsButton.A);
         JoystickMove = N3DS.GamePad.CirclePad;
+    }
 #endif
-
 
 #if UNITY_EDITOR
+    void EDITOR()
+    {
         JoystickMove = new Vector2(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"));
         JumpInput = Input.GetKeyDown("space");
-#endif
     }
+#endif
 }
