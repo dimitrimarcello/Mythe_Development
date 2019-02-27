@@ -107,7 +107,7 @@ public class PlayerInput : MonoBehaviour
 
     void GetMouse()
     {
-        //When click, get mouse position
+        //On click, get mouse position
         if (Input.GetMouseButtonDown(0))
         {
             MouseInput = Input.mousePosition;

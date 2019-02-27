@@ -18,7 +18,7 @@ public class PlayerMovement : MonoBehaviour
     Rigidbody2D rb;
     Collider2D col;
     RaycastHit2D sideL, sideR;
-    int layerMask = ~(1 << 8); //Geef aan waarmee de raycasts kunnen colliden(niet met speler zelf dus)
+    int layerMask = ~(1 << 8); //Give values with what the raycasts can interract(in this case excluding player layer)
 
     //bool Jumping = true;
 
@@ -74,7 +74,7 @@ public class PlayerMovement : MonoBehaviour
         }
         */
 
-        //See where colliders are at the sides by taking the size of the player, and basing it off that with a lenght distance. (match aka magic)
+        //See where colliders are at the sides by taking the size of the player, and basing it off that with a lenght distance. (math aka magic)
         sideL = Physics2D.Raycast(transform.position, Vector2.left, (CastLenght * col.bounds.size.x / 2), layerMask);
         sideR = Physics2D.Raycast(transform.position, Vector2.right, (CastLenght * col.bounds.size.x / 2), layerMask);
         Debug.DrawLine(transform.position, transform.position + new Vector3(-((CastLenght * col.bounds.size.x / 2)), 0));
