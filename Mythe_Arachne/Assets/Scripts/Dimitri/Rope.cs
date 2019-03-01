@@ -15,9 +15,7 @@ public class Rope : ScriptableObject {
 	public void ActivateMovement(){
 		foreach (GameObject piece in ropePieces)
 		{
-			if(piece != ropePieces[ropePieces.Count-1]){
-				piece.GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.None;
-			}
+			piece.GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.None;
 		}
 	}
 

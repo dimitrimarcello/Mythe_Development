@@ -358,8 +358,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   drawAmount: 3
-  limitSizePerPiece: 1
-  limitPieces: 10
+  limitSizePerPiece: 1.540176
+  limitPieces: 5
   offsetMark: 0.25
   parentToRope: {fileID: 1982643298}
   convert: {fileID: 896106960}
