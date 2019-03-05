@@ -4,67 +4,55 @@ using UnityEngine;
 
 public class Unit : MonoBehaviour {
 
-    [SerializeField]
-    private AllUnits allUnits;
+    public Vector2 position;
+    public Vector2 velocity;
+    public Vector2 acceleration;
 
-    private Vector3 ToPosition;
+    public AllUnits allUnits;
+    public UnitConfig unitConfig;
 
-    private Rigidbody2D rigidbody2D;
-
-    [SerializeField]
-    private float maxDistance;
+    private Vector2 wanderTarget;
 
 	// Use this for initialization
 	void Start () {
-        rigidbody2D = GetComponent<Rigidbody2D>();
+        allUnits = FindObjectOfType<AllUnits>();
+        unitConfig = FindObjectOfType<UnitConfig>();
+
+        position = transform.position;
+        velocity = new Vector2(Random.Range(-3, 3), Random.Range(-3, 3));
 	}
-	
-	// Update is called once per frame
-	void Update () {
-		
-	}
 
-    void FixedUpdate()
+    void Update()
     {
-        Move();
+        acceleration = Wander();
+
+        acceleration = Vector2.ClampMagnitude(acceleration, unitConfig.maxAcceleration);
+
+        velocity = velocity + acceleration * Time.deltaTime;
+        velocity = Vector2.ClampMagnitude(velocity, unitConfig.maxVelocity);
+
+        position = position + velocity * Time.deltaTime;
+
+        WrapAround(ref position, -allUnits.bounds, allUnits.bounds);
+
+        transform.position = position;
     }
 
-    private void Move()
+    protected Vector2 Wander()
     {
-        Unit nearestUnit = GetNearestUnit();
+        float jitter = unitConfig.wanderJitter * Time.deltaTime;
 
-        if (nearestUnit == null) return;
+        wanderTarget += new Vector2(RandomBinomial() * jitter, RandomBinomial() * jitter);
+        wanderTarget = wanderTarget.normalized;
+        wanderTarget *= unitConfig.wanderRadius;
 
-        transform.localPosition = Vector2.MoveTowards(transform.position, nearestUnit.transform.position, maxDistance);
-
+        Vector2 targetInLocalSpace = wanderTarget + new Vector2(0, unitConfig.wanderDistance);
+        Vector2 targetInWorldSpace = transform.TransformPoint(targetInLocalSpace);
+        targetInWorldSpace -= position;
+        return targetInWorldSpace.normalized;
     }
 
-    public Unit GetNearestUnit()
-    {
-        Unit nearestUnit = null;
-        
-        foreach (Unit unit in allUnits.unitList)
-        {
-            if (unit == this) continue;
-
-            if (nearestUnit == null)
-            {
-                nearestUnit = unit;
-
-                continue;
-            }
-
-            if (Vector2.Distance(unit.transform.position, transform.position) < Vector2.Distance(nearestUnit.transform.position, transform.position))
-            {
-                nearestUnit = unit;
-            }
-        }
-
-        return nearestUnit;
-    }
-
-
-    private void WrapAround(ref Vector3 vector, float min, float max)
+    private void WrapAround(ref Vector2 vector, float min, float max) // Set Unit to other side of screen when he goed off screen
     {
         vector.x = WrapAroundFloat(vector.x, min, max);
         vector.y = WrapAroundFloat(vector.y, min, max);

@@ -4,27 +4,23 @@ using UnityEngine;
 
 public class AllUnits : MonoBehaviour {
 
-    [SerializeField]
-    private Transform unitObject;
+    public Transform unitPrefab;
+    public int numberOfUnits;
+    public List<Unit> units;
+    public float bounds;
+    public float spawnRadius;
 
-    [Range(0, 200), SerializeField]
-    private int unitAmount;
-
-    [Range(0, 50), SerializeField]
-    private float spawnRadius;
-
-    [SerializeField]
-    private Transform playerTransform;
-
-    public List<Unit> unitList = new List<Unit>();
+    public Transform playerTransform;
 
 
     // Use this for initialization
     void Start () {
 
-        Spawn(unitObject, unitAmount);
+        units = new List<Unit>();
 
-        unitList.AddRange(FindObjectsOfType<Unit>());
+        Spawn(unitPrefab, numberOfUnits);
+
+        units.AddRange(FindObjectsOfType<Unit>());
 
     }
 	
@@ -41,7 +37,7 @@ public class AllUnits : MonoBehaviour {
 
             position += playerTransform.position;
 
-            Unit unit = Instantiate(unitObject, position, Quaternion.identity).GetComponent<Unit>();
+            Unit unit = Instantiate(unitPrefab, position, Quaternion.identity).GetComponent<Unit>();
 
             unit.transform.SetParent(transform);
         }
@@ -51,7 +47,7 @@ public class AllUnits : MonoBehaviour {
     {
         List<Unit> neighborsFound = new List<Unit>();
 
-        foreach (var otherUnit in unitList)
+        foreach (Unit otherUnit in units)
         {
             if (otherUnit == unit)
                 continue;

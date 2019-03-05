@@ -12,11 +12,19 @@ public class UnitConfig : MonoBehaviour{
     public float wanderJitter;
     public float wanderRadius;
     public float wanderDistance;
-    public float wanderpriority;
+    public float wanderPriority;
 
     // Cohesion variables
     public float cohesionRadius;
+    public float cohesionPriority;
+
+    // Alignment variables
+    public float alignmentRadius;
     public float alignmentPriority;
+
+    // Separation variables
+    public float separationRadius;
+    public float separationPriority;
 
     // Avoidance variables
     public float avoidanceRadius;
