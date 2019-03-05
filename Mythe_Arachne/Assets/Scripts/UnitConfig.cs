@@ -33,6 +33,14 @@ public class UnitConfig : MonoBehaviour{
     [Range(0, 100)]
     public float followPriority;
 
+    // Jump variable
+    [Range(0, 1000)]
+    public float jumpForce;
+    public float jumpCooldown;
+
+    [Range(0, 10)]
+    public float gravity;
+
     // Avoidance variables
     // public float avoidanceRadius;
     // public float avoidancePriority;

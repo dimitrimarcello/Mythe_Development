@@ -23,7 +23,7 @@ GameObject:
   - component: {fileID: 114234878843203232}
   - component: {fileID: 50587501811277914}
   - component: {fileID: 58526906740240122}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Unit
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -38,7 +38,7 @@ Transform:
   m_GameObject: {fileID: 1912580470661870}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 4.612318, y: -2.524705, z: 18.320099}
-  m_LocalScale: {x: 5, y: 5, z: 1}
+  m_LocalScale: {x: 2, y: 2, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -54,7 +54,7 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 100
+  m_Mass: 1
   m_LinearDrag: 0
   m_AngularDrag: 0.05
   m_GravityScale: 1
@@ -94,6 +94,10 @@ MonoBehaviour:
   acceleration: {x: 0, y: 0}
   allUnits: {fileID: 0}
   unitConfig: {fileID: 0}
+  grounded: 0
+  groundLayer:
+    serializedVersion: 2
+    m_Bits: 1
 --- !u!212 &212432589931978428
 SpriteRenderer:
   m_ObjectHideFlags: 1

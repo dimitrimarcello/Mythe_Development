@@ -444,7 +444,7 @@ Prefab:
     - target: {fileID: 114963169014026192, guid: cb63819c6a4752240958d12407ee6416,
         type: 2}
       propertyPath: bounds
-      value: 10
+      value: 20
       objectReference: {fileID: 0}
     - target: {fileID: 114963169014026192, guid: cb63819c6a4752240958d12407ee6416,
         type: 2}
@@ -477,7 +477,10 @@ MonoBehaviour:
   wanderRadius: 2
   wanderDistance: 3
   wanderPriority: 0
-  cohesionPriority: 90
-  separationRadius: 1.5
-  separationPriority: 90
-  followPriority: 0
+  cohesionPriority: 50
+  separationRadius: 10
+  separationPriority: 80
+  followPriority: 50
+  jumpForce: 5
+  jumpCooldown: 1
+  gravity: 0.5

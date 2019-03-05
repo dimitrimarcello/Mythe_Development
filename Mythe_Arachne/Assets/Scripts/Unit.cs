@@ -15,33 +15,50 @@ public class Unit : MonoBehaviour {
 
     private UnitHolder unitHolder;
 
-	// Use this for initialization
-	void Start () {
+    private Rigidbody2D rigidbody2D;
+
+    private bool canJump;
+
+    [SerializeField]
+    private bool grounded;
+
+    private Collider2D collider;
+
+    [SerializeField]
+    private LayerMask groundLayer;
+
+    // Use this for initialization
+    void Start () {
+
+        collider = GetComponent<Collider2D>();
+        canJump = true;
         allUnits = FindObjectOfType<AllUnits>();
         unitConfig = FindObjectOfType<UnitConfig>();
         unitHolder = FindObjectOfType<UnitHolder>();
 
+        rigidbody2D = GetComponent<Rigidbody2D>();
+
         position = transform.position;
         velocity = new Vector2(Random.Range(-1, 1), Random.Range(-1, 1));
-
-
-        Physics2D.IgnoreCollision(GetComponent<Collider2D>(), GameObject.Find("Player").GetComponent<Collider2D>(), true);
     }
 
     void Update()
     {
-        acceleration = Follow();
+
+        grounded = IsGrounded();
+
+        acceleration = Combine();
 
         acceleration = Vector2.ClampMagnitude(acceleration, unitConfig.maxAcceleration);
 
         velocity = velocity + acceleration * Time.deltaTime;
         velocity = Vector2.ClampMagnitude(velocity, unitConfig.maxVelocity);
 
+        velocity.y -= unitConfig.gravity;
 
+        rigidbody2D.velocity = velocity;
 
-        position = position + velocity * Time.deltaTime;
-
-        transform.position = position;
+        position = transform.position;
     }
 
     protected Vector2 Wander()
@@ -56,6 +73,16 @@ public class Unit : MonoBehaviour {
         Vector2 targetInWorldSpace = transform.TransformPoint(targetInLocalSpace);
         targetInWorldSpace -= position;
         return targetInWorldSpace.normalized;
+    }
+
+    private void Jump()
+    {
+        if (!canJump || !grounded) return;
+
+        //rigidbody2D.AddForce(new Vector2(0, unitConfig.jumpForce));
+        velocity.y = unitConfig.jumpForce;
+
+        StartCoroutine(JumpCooldown());
     }
 
     private Vector2 Follow()
@@ -94,22 +121,6 @@ public class Unit : MonoBehaviour {
 
         return cohesionVector;
     }
-    /*
-    Vector2 Alignment()
-    {
-        Vector2 alignVector = new Vector2();
-        var units = allUnits.GetNeighbors(this, unitConfig.alignmentRadius);
-        if (units.Count == 0)
-            return alignVector;
-
-        foreach (var unit in units)
-        {
-            if (IsInFOV(unit.position))
-                alignVector += unit.velocity;
-        }
-
-        return alignVector.normalized;
-    }*/
 
     private Vector2 Separation()
     {
@@ -138,7 +149,7 @@ public class Unit : MonoBehaviour {
     virtual protected Vector2 Combine()
     {
         Vector2 finalVec = unitConfig.cohesionPriority * Cohesion() + unitConfig.wanderPriority * Wander()
-            + unitConfig.separationPriority * Separation();
+            + unitConfig.separationPriority * Separation() + unitConfig.followPriority * Follow();
         return finalVec;
     }
 
@@ -150,5 +161,28 @@ public class Unit : MonoBehaviour {
     bool IsInFOV(Vector2 vec)
     {
         return Vector2.Angle(velocity, vec - position) <= unitConfig.maxFOV;
+    }
+
+    private IEnumerator JumpCooldown()
+    {
+        canJump = false;
+        yield return new WaitForSeconds(unitConfig.jumpCooldown);
+
+        canJump = true;
+    }
+
+    private bool IsGrounded()
+    {
+        Vector2 position = transform.position;
+        Vector2 direction = Vector2.down;
+        float distance = 0.5f;
+
+        RaycastHit2D hit = Physics2D.Raycast(position, direction, distance, groundLayer);
+        if (hit.collider != null)
+        {
+            return true;
+        }
+
+        return false;
     }
 }
