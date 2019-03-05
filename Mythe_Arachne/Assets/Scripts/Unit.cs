@@ -13,27 +13,33 @@ public class Unit : MonoBehaviour {
 
     private Vector2 wanderTarget;
 
+    private UnitHolder unitHolder;
+
 	// Use this for initialization
 	void Start () {
         allUnits = FindObjectOfType<AllUnits>();
         unitConfig = FindObjectOfType<UnitConfig>();
+        unitHolder = FindObjectOfType<UnitHolder>();
 
         position = transform.position;
-        velocity = new Vector2(Random.Range(-3, 3), Random.Range(-3, 3));
-	}
+        velocity = new Vector2(Random.Range(-1, 1), Random.Range(-1, 1));
+
+
+        Physics2D.IgnoreCollision(GetComponent<Collider2D>(), GameObject.Find("Player").GetComponent<Collider2D>(), true);
+    }
 
     void Update()
     {
-        acceleration = Wander();
+        acceleration = Follow();
 
         acceleration = Vector2.ClampMagnitude(acceleration, unitConfig.maxAcceleration);
 
         velocity = velocity + acceleration * Time.deltaTime;
         velocity = Vector2.ClampMagnitude(velocity, unitConfig.maxVelocity);
 
-        position = position + velocity * Time.deltaTime;
 
-        WrapAround(ref position, -allUnits.bounds, allUnits.bounds);
+
+        position = position + velocity * Time.deltaTime;
 
         transform.position = position;
     }
@@ -52,23 +58,97 @@ public class Unit : MonoBehaviour {
         return targetInWorldSpace.normalized;
     }
 
-    private void WrapAround(ref Vector2 vector, float min, float max) // Set Unit to other side of screen when he goed off screen
+    private Vector2 Follow()
     {
-        vector.x = WrapAroundFloat(vector.x, min, max);
-        vector.y = WrapAroundFloat(vector.y, min, max);
+        Vector2 followVector = new Vector2();
+
+        followVector = (Vector2) unitHolder.transform.position - position;
+
+        return followVector;
     }
 
-    private float WrapAroundFloat(float value, float min, float max)
+    private Vector2 Cohesion()
     {
-        if (value > max)
-            value = min;
-        else if (value < min)
-            value = max;
-        return value;
+        Vector2 cohesionVector = new Vector2();
+        int countUnits = 0;
+        var neighbors = allUnits.GetAllNeighbors();
+
+        if (neighbors.Count == 0)
+            return cohesionVector;
+
+        foreach (var unit in neighbors)
+        {
+            if (IsInFOV(unit.position))
+            {
+                cohesionVector += unit.position;
+                countUnits++;
+            }
+        }
+
+        if (countUnits == 0)
+            return cohesionVector;
+
+        cohesionVector /= countUnits;
+        cohesionVector = cohesionVector - position;
+        cohesionVector = Vector3.Normalize(cohesionVector);
+
+        return cohesionVector;
+    }
+    /*
+    Vector2 Alignment()
+    {
+        Vector2 alignVector = new Vector2();
+        var units = allUnits.GetNeighbors(this, unitConfig.alignmentRadius);
+        if (units.Count == 0)
+            return alignVector;
+
+        foreach (var unit in units)
+        {
+            if (IsInFOV(unit.position))
+                alignVector += unit.velocity;
+        }
+
+        return alignVector.normalized;
+    }*/
+
+    private Vector2 Separation()
+    {
+        Vector2 separateVector = new Vector2();
+        var units = allUnits.GetNeighbors(this, unitConfig.separationRadius);
+
+        if (units.Count == 0)
+            return separateVector;
+
+        foreach (var unit in units)
+        {
+            if (IsInFOV(unit.position))
+            {
+                Vector2 movingTowards = position - unit.position;
+
+                if (movingTowards.magnitude > 0)
+                {
+                    separateVector += movingTowards.normalized / movingTowards.magnitude;
+                }
+            }
+        }
+
+        return separateVector.normalized;
+    }
+
+    virtual protected Vector2 Combine()
+    {
+        Vector2 finalVec = unitConfig.cohesionPriority * Cohesion() + unitConfig.wanderPriority * Wander()
+            + unitConfig.separationPriority * Separation();
+        return finalVec;
     }
 
     private float RandomBinomial()
     {
         return Random.Range(0f, 1f) - Random.Range(0f, 1f);
+    }
+
+    bool IsInFOV(Vector2 vec)
+    {
+        return Vector2.Angle(velocity, vec - position) <= unitConfig.maxFOV;
     }
 }

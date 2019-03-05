@@ -12,21 +12,28 @@ public class UnitConfig : MonoBehaviour{
     public float wanderJitter;
     public float wanderRadius;
     public float wanderDistance;
+    [Range(0, 100)]
     public float wanderPriority;
 
     // Cohesion variables
-    public float cohesionRadius;
+    //  public float cohesionRadius;
+    [Range(0, 100)]
     public float cohesionPriority;
 
     // Alignment variables
-    public float alignmentRadius;
-    public float alignmentPriority;
+   // public float alignmentRadius;
+   // public float alignmentPriority;
 
     // Separation variables
     public float separationRadius;
+    [Range(0, 100)]
     public float separationPriority;
 
+    // Follow variables
+    [Range(0, 100)]
+    public float followPriority;
+
     // Avoidance variables
-    public float avoidanceRadius;
-    public float avoidancePriority;
+    // public float avoidanceRadius;
+    // public float avoidancePriority;
 }

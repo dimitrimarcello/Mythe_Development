@@ -5,23 +5,27 @@ using UnityEngine;
 public class UnitHolder : MonoBehaviour {
 
     [Range(0, 100), SerializeField]
-    private readonly float range;
+    private float range;
 
     [Range(0, 10), SerializeField]
-    private readonly float precision; // The lower this number the more precise the HoldInPlace calculation gets
+    private float precision; // The lower this number the more precise the HoldInPlace calculation gets
 
     [SerializeField]
     private Transform player;
 
     private float distanceGround;
 
+    [SerializeField]
     private bool grounded;
 
     [SerializeField]
     private readonly float checkDelay;
 
+    private bool checking;
+
 	// Use this for initialization
 	void Start () {
+
         distanceGround = player.GetComponent<Collider2D>().bounds.extents.y;
 
     }
@@ -33,11 +37,9 @@ public class UnitHolder : MonoBehaviour {
 
     void FixedUpdate()
     {
-        bool wasGrounded = grounded;
-        grounded = Physics2D.Raycast(transform.position, -Vector2.up, distanceGround + 0.1f);
+        grounded = Physics2D.Raycast(player.transform.position, Vector2.down, distanceGround + 0.1f);
 
-        FixHolder(wasGrounded);
-        
+     //   FixHolder(wasGrounded);
 
         HoldInPlace();
     }
@@ -46,7 +48,11 @@ public class UnitHolder : MonoBehaviour {
     {
         if (!(!wasGrounded && grounded)) return;
 
+        if (checking) return;
+
+
         StartCoroutine(CheckIfStillGrounded());
+
     }
 
     void HoldInPlace()
@@ -82,7 +88,10 @@ public class UnitHolder : MonoBehaviour {
 
     private IEnumerator CheckIfStillGrounded()
     {
+        checking = true;
         yield return new WaitForSeconds(checkDelay);
+
+        checking = false;
 
         while (grounded)
         {
@@ -91,7 +100,7 @@ public class UnitHolder : MonoBehaviour {
 
             transform.position = Vector2.Lerp(transform.position, position, 0.1f);
 
-            if (Vector2.Distance(transform.position, position) < 1f) break;
+            if (Vector2.Distance(transform.position, position) < .5f) break;
 
         }
     }

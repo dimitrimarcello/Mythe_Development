@@ -110,15 +110,15 @@ NavMeshSettings:
     tileSize: 256
     accuratePlacement: 0
   m_NavMeshData: {fileID: 0}
---- !u!1 &354660684
+--- !u!1 &363601514
 GameObject:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   serializedVersion: 5
   m_Component:
-  - component: {fileID: 354660686}
-  - component: {fileID: 354660685}
+  - component: {fileID: 363601516}
+  - component: {fileID: 363601515}
   m_Layer: 0
   m_Name: Unit Holder
   m_TagString: Untagged
@@ -126,36 +126,34 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &354660685
+--- !u!114 &363601515
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 354660684}
+  m_GameObject: {fileID: 363601514}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e4a16196b5119a043bc59adff7363361, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 1383262288}
---- !u!4 &354660686
+  range: 3
+  precision: 0.5
+  player: {fileID: 1800914701}
+  grounded: 0
+--- !u!4 &363601516
 Transform:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 354660684}
+  m_GameObject: {fileID: 363601514}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.07, y: -1.18, z: 0}
+  m_LocalPosition: {x: -3.6578846, y: -1.6929871, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!4 &1383262288 stripped
-Transform:
-  m_PrefabParentObject: {fileID: 4305138428873362, guid: c365a18711c46d441a689ea9a0ddb20d,
-    type: 2}
-  m_PrefabInternal: {fileID: 1800914700}
 --- !u!1001 &1800914700
 Prefab:
   m_ObjectHideFlags: 0
@@ -198,6 +196,11 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: c365a18711c46d441a689ea9a0ddb20d, type: 2}
   m_IsPrefabParent: 0
+--- !u!4 &1800914701 stripped
+Transform:
+  m_PrefabParentObject: {fileID: 4305138428873362, guid: c365a18711c46d441a689ea9a0ddb20d,
+    type: 2}
+  m_PrefabInternal: {fileID: 1800914700}
 --- !u!1 &1889561281
 GameObject:
   m_ObjectHideFlags: 0
@@ -436,7 +439,17 @@ Prefab:
     - target: {fileID: 114963169014026192, guid: cb63819c6a4752240958d12407ee6416,
         type: 2}
       propertyPath: numberOfUnits
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 114963169014026192, guid: cb63819c6a4752240958d12407ee6416,
+        type: 2}
+      propertyPath: bounds
       value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 114963169014026192, guid: cb63819c6a4752240958d12407ee6416,
+        type: 2}
+      propertyPath: spawnRadius
+      value: 5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: cb63819c6a4752240958d12407ee6416, type: 2}
@@ -459,16 +472,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxFOV: 120
   maxAcceleration: 40
-  maxVelocity: 25
+  maxVelocity: 5
   wanderJitter: 10
   wanderRadius: 2
   wanderDistance: 3
-  wanderPriority: 10
-  cohesionRadius: 0
-  cohesionPriority: 0
-  alignmentRadius: 0
-  alignmentPriority: 0
-  separationRadius: 0
-  separationPriority: 0
-  avoidanceRadius: 0
-  avoidancePriority: 0
+  wanderPriority: 0
+  cohesionPriority: 90
+  separationRadius: 1.5
+  separationPriority: 90
+  followPriority: 0

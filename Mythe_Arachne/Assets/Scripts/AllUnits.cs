@@ -33,7 +33,7 @@ public class AllUnits : MonoBehaviour {
     {
         for (int i = 0; i < count; i++)
         {
-            Vector3 position = new Vector3(Random.Range(-spawnRadius, spawnRadius), Random.Range(-spawnRadius, spawnRadius), 0);
+            Vector3 position = new Vector3(Random.Range(-spawnRadius, spawnRadius), Random.Range(0, spawnRadius), 0);
 
             position += playerTransform.position;
 
@@ -60,4 +60,7 @@ public class AllUnits : MonoBehaviour {
 
         return neighborsFound;
     }
+
+    public List<Unit> GetAllNeighbors() { return units; }
+    
 }
