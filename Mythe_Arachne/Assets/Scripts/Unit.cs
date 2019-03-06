@@ -2,7 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Unit : MonoBehaviour {
+public class Unit : MonoBehaviour
+{
 
     public Vector2 position;
     public Vector2 velocity;
@@ -28,7 +29,8 @@ public class Unit : MonoBehaviour {
     private LayerMask groundLayer;
 
     // Use this for initialization
-    void Start () {
+    void Start()
+    {
 
         collider = GetComponent<Collider2D>();
         canJump = true;
@@ -56,7 +58,12 @@ public class Unit : MonoBehaviour {
 
         velocity.y -= unitConfig.gravity;
 
+        Jump();
+
+        Debug.Log(velocity.y);
+
         rigidbody2D.velocity = velocity;
+
 
         position = transform.position;
     }
@@ -78,18 +85,21 @@ public class Unit : MonoBehaviour {
     private void Jump()
     {
         if (!canJump || !grounded) return;
-
-        //rigidbody2D.AddForce(new Vector2(0, unitConfig.jumpForce));
-        velocity.y = unitConfig.jumpForce;
-
         StartCoroutine(JumpCooldown());
+        //rigidbody2D.AddForce(new Vector2(0, unitConfig.jumpForce));
+        velocity.y += unitConfig.jumpForce;
+
     }
 
     private Vector2 Follow()
     {
         Vector2 followVector = new Vector2();
 
-        followVector = (Vector2) unitHolder.transform.position - position;
+        Vector2 followPoint = new Vector2(position.x, 0);
+
+        followVector = (Vector2)unitHolder.transform.position - followPoint;
+
+        followVector.y = 0;
 
         return followVector;
     }
@@ -175,11 +185,12 @@ public class Unit : MonoBehaviour {
     {
         Vector2 position = transform.position;
         Vector2 direction = Vector2.down;
-        float distance = 0.5f;
+        float distance = 0.3f;
 
         RaycastHit2D hit = Physics2D.Raycast(position, direction, distance, groundLayer);
         if (hit.collider != null)
         {
+            Debug.DrawLine(transform.position, transform.position - new Vector3(0, distance, 0), Color.red);
             return true;
         }
 

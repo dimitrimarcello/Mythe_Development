@@ -193,6 +193,11 @@ Prefab:
       propertyPath: m_RootOrder
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 50059842531415344, guid: c365a18711c46d441a689ea9a0ddb20d,
+        type: 2}
+      propertyPath: m_GravityScale
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: c365a18711c46d441a689ea9a0ddb20d, type: 2}
   m_IsPrefabParent: 0
@@ -477,10 +482,10 @@ MonoBehaviour:
   wanderRadius: 2
   wanderDistance: 3
   wanderPriority: 0
-  cohesionPriority: 50
+  cohesionPriority: 0
   separationRadius: 10
-  separationPriority: 80
-  followPriority: 50
-  jumpForce: 5
+  separationPriority: 0
+  followPriority: 0
+  jumpForce: 10
   jumpCooldown: 1
-  gravity: 0.5
+  gravity: 0.1

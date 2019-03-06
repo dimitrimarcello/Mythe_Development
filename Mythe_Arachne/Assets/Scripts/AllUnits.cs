@@ -7,7 +7,7 @@ public class AllUnits : MonoBehaviour {
     public Transform unitPrefab;
     public int numberOfUnits;
     public List<Unit> units;
-    public float bounds;
+    //public float bounds;
     public float spawnRadius;
 
     public Transform playerTransform;
@@ -64,6 +64,6 @@ public class AllUnits : MonoBehaviour {
         return neighborsFound;
     }
 
-    public List<Unit> GetAllNeighbors() { return units; }
+    public List<Unit> GetAllNeighbors() { return units; } // Remove unit itself
     
 }
