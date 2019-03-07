@@ -14,6 +14,10 @@ TagManager:
   - UI
   - 
   - 
+  - Player
+  - Unit
+  - 
+  - 
   - Rope
   - Player
   - Projectile
