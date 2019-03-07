@@ -481,11 +481,13 @@ MonoBehaviour:
   wanderJitter: 10
   wanderRadius: 2
   wanderDistance: 3
-  wanderPriority: 0
-  cohesionPriority: 0
+  wanderPriority: 2
+  cohesionPriority: 8
   separationRadius: 10
-  separationPriority: 0
-  followPriority: 0
-  jumpForce: 10
-  jumpCooldown: 1
-  gravity: 0.1
+  separationPriority: 20
+  followPriority: 9.5
+  jumpForce: 7
+  jumpCooldown: 2
+  gravity: 0.3
+  gravityJump: 0.05
+  gravityJumpCooldown: 1

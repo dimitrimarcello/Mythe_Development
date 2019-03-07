@@ -28,10 +28,11 @@ public class Unit : MonoBehaviour
     [SerializeField]
     private LayerMask groundLayer;
 
+    private float gravity;
+
     // Use this for initialization
     void Start()
     {
-
         collider = GetComponent<Collider2D>();
         canJump = true;
         allUnits = FindObjectOfType<AllUnits>();
@@ -39,6 +40,8 @@ public class Unit : MonoBehaviour
         unitHolder = FindObjectOfType<UnitHolder>();
 
         rigidbody2D = GetComponent<Rigidbody2D>();
+
+        gravity = unitConfig.gravity;
 
         position = transform.position;
         velocity = new Vector2(Random.Range(-1, 1), Random.Range(-1, 1));
@@ -56,7 +59,7 @@ public class Unit : MonoBehaviour
         velocity = velocity + acceleration * Time.deltaTime;
         velocity = Vector2.ClampMagnitude(velocity, unitConfig.maxVelocity);
 
-        velocity.y -= unitConfig.gravity;
+        velocity.y -= gravity;
 
         Jump();
 
@@ -72,12 +75,11 @@ public class Unit : MonoBehaviour
     {
         float jitter = unitConfig.wanderJitter * Time.deltaTime;
 
-        wanderTarget += new Vector2(RandomBinomial() * jitter, RandomBinomial() * jitter);
+        wanderTarget += new Vector2(RandomBinomial() * jitter, 0);
         wanderTarget = wanderTarget.normalized;
         wanderTarget *= unitConfig.wanderRadius;
 
-        Vector2 targetInLocalSpace = wanderTarget + new Vector2(0, unitConfig.wanderDistance);
-        Vector2 targetInWorldSpace = transform.TransformPoint(targetInLocalSpace);
+        Vector2 targetInWorldSpace = transform.TransformPoint(wanderTarget);
         targetInWorldSpace -= position;
         return targetInWorldSpace.normalized;
     }
@@ -86,7 +88,10 @@ public class Unit : MonoBehaviour
     {
         if (!canJump || !grounded) return;
         StartCoroutine(JumpCooldown());
+        StartCoroutine(GravityCooldown());
         //rigidbody2D.AddForce(new Vector2(0, unitConfig.jumpForce));
+
+        gravity = unitConfig.gravityJump;
         velocity.y += unitConfig.jumpForce;
 
     }
@@ -97,7 +102,7 @@ public class Unit : MonoBehaviour
 
         Vector2 followPoint = new Vector2(position.x, 0);
 
-        followVector = (Vector2)unitHolder.transform.position - followPoint;
+        followVector = (Vector2) unitHolder.transform.position - followPoint;
 
         followVector.y = 0;
 
@@ -106,6 +111,7 @@ public class Unit : MonoBehaviour
 
     private Vector2 Cohesion()
     {
+        if (!IsGrounded()) return Vector2.zero;
         Vector2 cohesionVector = new Vector2();
         int countUnits = 0;
         var neighbors = allUnits.GetAllNeighbors();
@@ -134,6 +140,7 @@ public class Unit : MonoBehaviour
 
     private Vector2 Separation()
     {
+        if (!IsGrounded()) return Vector2.zero;
         Vector2 separateVector = new Vector2();
         var units = allUnits.GetNeighbors(this, unitConfig.separationRadius);
 
@@ -179,6 +186,13 @@ public class Unit : MonoBehaviour
         yield return new WaitForSeconds(unitConfig.jumpCooldown);
 
         canJump = true;
+    }
+
+    private IEnumerator GravityCooldown()
+    {
+        yield return new WaitForSeconds(unitConfig.gravityJumpCooldown);
+
+        gravity = unitConfig.gravity;
     }
 
     private bool IsGrounded()

@@ -40,6 +40,9 @@ public class UnitConfig : MonoBehaviour{
 
     [Range(0, 10)]
     public float gravity;
+    [Range(0,20)]
+    public float gravityJump;
+    public float gravityJumpCooldown;
 
     // Avoidance variables
     // public float avoidanceRadius;
