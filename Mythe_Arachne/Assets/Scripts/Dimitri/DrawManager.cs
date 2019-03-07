@@ -11,28 +11,34 @@ public class DrawManager : MonoBehaviour {
 	public Transform parentToRope;
 	public Camera convert;
 	public GameObject ropeTexture;
+	public bool onOf = true;
 	public float zAxis;
 	private Vector2 mouseStart;
 	private List<Rope> drawnObjects = new List<Rope>();
+	private bool procces = false;
 
 	void Update()
 	{
-		if(Input.GetMouseButtonDown(0)){
-			StartDrawing();
-		}
-        if (Input.GetMouseButton(0))
+		// if(Input.GetMouseButtonDown(0) && onOf){
+		// 	StartDrawing();
+		// }
+        if (onOf && !procces)
+        {
+			procces = true;
+            StartDrawing();
+        }
+        if (Input.GetMouseButton(0) && onOf)
         {
 			if(drawnObjects[0].ropePieces.Count < limitPieces){
 				WhileDrawing();
             	drawnObjects[0].ropePieces[0].GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezePosition;
-				Time.timeScale = 0.25f;
 			}
         }
         if (Input.GetMouseButtonUp(0))
         {
 			drawnObjects[0].ActivateMovement();
 			BuildBoxColliders();
-            Time.timeScale = 1;
+			procces = false;
         }
 		if(drawnObjects.Count > drawAmount){
 			drawnObjects[drawnObjects.Count-1].DestroyRope();
@@ -78,12 +84,14 @@ public class DrawManager : MonoBehaviour {
 		{
 			foreach (GameObject smallerPiece in piece.ropePieces)
 			{
-				Vector2 scale = new Vector2(smallerPiece.GetComponent<BoxCollider2D>().size.x, smallerPiece.GetComponent<SpriteRenderer>().size.y - offsetMark);
-				smallerPiece.GetComponent<BoxCollider2D>().size = scale;
-				Vector3 vectorB = new Vector3(0,smallerPiece.GetComponent<SpriteRenderer>().size.y, 0);
-				float dist = Vector2.Distance(smallerPiece.transform.position, smallerPiece.transform.up + vectorB);
-                Vector2 offset = new Vector2(smallerPiece.GetComponent<BoxCollider2D>().offset.x, dist / dist / 2);
-                smallerPiece.GetComponent<BoxCollider2D>().offset = offset;
+				if(smallerPiece != null){
+					Vector2 scale = new Vector2(smallerPiece.GetComponent<BoxCollider2D>().size.x, smallerPiece.GetComponent<SpriteRenderer>().size.y - offsetMark);
+					smallerPiece.GetComponent<BoxCollider2D>().size = scale;
+					Vector3 vectorB = new Vector3(0,smallerPiece.GetComponent<SpriteRenderer>().size.y, 0);
+					float dist = Vector2.Distance(smallerPiece.transform.position, smallerPiece.transform.up + vectorB);
+					Vector2 offset = new Vector2(smallerPiece.GetComponent<BoxCollider2D>().offset.x, dist / dist / 2);
+					smallerPiece.GetComponent<BoxCollider2D>().offset = offset;
+				}
             }
 		}
 	}

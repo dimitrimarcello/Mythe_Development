@@ -15,6 +15,7 @@ public class Rope : ScriptableObject {
 	public void ActivateMovement(){
 		foreach (GameObject piece in ropePieces)
 		{
+			if(piece != null)
 			piece.GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.None;
 		}
 	}
@@ -22,6 +23,7 @@ public class Rope : ScriptableObject {
 	public void DestroyRope(){
 		foreach (GameObject piece in ropePieces)
 		{
+			if(piece != null)
 			Destroy(piece);
 		}
 	}
