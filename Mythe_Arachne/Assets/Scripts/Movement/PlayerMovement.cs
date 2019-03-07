@@ -12,13 +12,14 @@ using UnityEngine;
 [RequireComponent(typeof(PlayerInput))]
 public class PlayerMovement : MonoBehaviour
 {
-    [SerializeField] float Speed = 1f, /*ForceJump = 5f,*/ CastLenght = 1.1f;
+    [SerializeField] [Range(0, 2)] float speed = 1f, /*ForceJump = 5f,*/ castLenght = 1.1f;
+    [SerializeField] string ropeTag = "Rope";
     PlayerInput playerInput;
 
     Rigidbody2D rb;
     Collider2D col;
     RaycastHit2D sideL, sideR;
-    int layerMask = ~(1 << 8); //Give values with what the raycasts can interract(in this case excluding player layer)
+    int layerMask = ~(1 << 9); //Give values with what the raycasts can interract(in this case excluding player layer)
 
     //bool Jumping = true;
 
@@ -44,10 +45,27 @@ public class PlayerMovement : MonoBehaviour
     {
         //Check player joystick input, and move it depending on the values and if the raycast hits anything.
         Vector2 movementInput = playerInput.JoystickMove;
-        if ((sideL.collider == null && movementInput.x < 0) || (sideR.collider == null && movementInput.x > 0))
+        if (((sideL.collider == null && movementInput.x < 0) || (sideR.collider == null && movementInput.x > 0)))
         {
-            transform.Translate(movementInput.x * (Speed * 10) * Time.deltaTime, 0, 0);
+            rb.constraints = RigidbodyConstraints2D.None;
+            rb.constraints = RigidbodyConstraints2D.FreezeRotation;
+            transform.Translate(movementInput.x * (speed * 10) * Time.deltaTime, 0, 0);
         }
+        /*
+        else if (sideL || sideR)
+        {
+            if (sideL.collider.gameObject.tag == ropeTag)
+            {
+                rb.constraints = RigidbodyConstraints2D.FreezeAll;
+                transform.position = sideL.point;
+            }
+            if (sideR.collider.gameObject.tag == ropeTag)
+            {
+                rb.constraints = RigidbodyConstraints2D.FreezeAll;
+                transform.position = sideR.point;
+            }
+        }
+        */
     }
 
     /* 
@@ -63,7 +81,7 @@ public class PlayerMovement : MonoBehaviour
     void CheckCasts()
     {
         /*
-        RaycastHit2D downWard = Physics2D.Raycast(new Vector2(transform.position.x, transform.position.y - transform.lossyScale.y / 2), Vector2.down, (CastLenght / 10), layerMask);
+        RaycastHit2D downWard = Physics2D.Raycast(new Vector2(transform.position.x, transform.position.y - transform.lossyScale.y / 2), Vector2.down, (castLenght / 10), layerMask);
         if(downWard.collider == null)
         {
             Jumping = true;
@@ -75,10 +93,11 @@ public class PlayerMovement : MonoBehaviour
         */
 
         //See where colliders are at the sides by taking the size of the player, and basing it off that with a lenght distance. (math aka magic)
-        sideL = Physics2D.Raycast(transform.position, Vector2.left, (CastLenght * col.bounds.size.x / 2), layerMask);
-        sideR = Physics2D.Raycast(transform.position, Vector2.right, (CastLenght * col.bounds.size.x / 2), layerMask);
-        Debug.DrawLine(transform.position, transform.position + new Vector3(-((CastLenght * col.bounds.size.x / 2)), 0));
-        Debug.DrawLine(transform.position, transform.position + new Vector3((CastLenght * col.bounds.size.x / 2), 0));
+        sideL = Physics2D.Raycast(transform.position, Vector2.left, (castLenght * col.bounds.size.x / 2), layerMask);
+        sideR = Physics2D.Raycast(transform.position, Vector2.right, (castLenght * col.bounds.size.x / 2), layerMask);
+        Debug.DrawLine(transform.position, transform.position + new Vector3(-((castLenght * col.bounds.size.x / 2)), 0));
+        Debug.DrawLine(transform.position, transform.position + new Vector3((castLenght * col.bounds.size.x / 2), 0));
+
     }
 
 }
