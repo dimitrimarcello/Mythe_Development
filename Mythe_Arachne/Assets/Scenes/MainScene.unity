@@ -284,6 +284,16 @@ Prefab:
       propertyPath: onOf
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 114910674959574954, guid: 0de8b64fd04a2c7419458ad97005cc92,
+        type: 2}
+      propertyPath: offsetMark
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114910674959574954, guid: 0de8b64fd04a2c7419458ad97005cc92,
+        type: 2}
+      propertyPath: limitSizePerPiece
+      value: 1.27
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 0de8b64fd04a2c7419458ad97005cc92, type: 2}
   m_IsPrefabParent: 0
