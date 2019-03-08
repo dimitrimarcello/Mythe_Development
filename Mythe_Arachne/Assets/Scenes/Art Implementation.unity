@@ -110,18 +110,18 @@ NavMeshSettings:
     tileSize: 256
     accuratePlacement: 0
   m_NavMeshData: {fileID: 0}
---- !u!1 &389318759
+--- !u!1 &21288766
 GameObject:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   serializedVersion: 5
   m_Component:
-  - component: {fileID: 389318764}
-  - component: {fileID: 389318763}
-  - component: {fileID: 389318762}
-  - component: {fileID: 389318761}
-  - component: {fileID: 389318760}
+  - component: {fileID: 21288771}
+  - component: {fileID: 21288770}
+  - component: {fileID: 21288769}
+  - component: {fileID: 21288768}
+  - component: {fileID: 21288767}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -129,33 +129,33 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!81 &389318760
+--- !u!81 &21288767
 AudioListener:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 389318759}
+  m_GameObject: {fileID: 21288766}
   m_Enabled: 1
---- !u!124 &389318761
+--- !u!124 &21288768
 Behaviour:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 389318759}
+  m_GameObject: {fileID: 21288766}
   m_Enabled: 1
---- !u!92 &389318762
+--- !u!92 &21288769
 Behaviour:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 389318759}
+  m_GameObject: {fileID: 21288766}
   m_Enabled: 1
---- !u!20 &389318763
+--- !u!20 &21288770
 Camera:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 389318759}
+  m_GameObject: {fileID: 21288766}
   m_Enabled: 1
   serializedVersion: 2
   m_ClearFlags: 1
@@ -186,12 +186,12 @@ Camera:
   m_StereoConvergence: 10
   m_StereoSeparation: 0.022
   m_StereoMirrorMode: 0
---- !u!4 &389318764
+--- !u!4 &21288771
 Transform:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 389318759}
+  m_GameObject: {fileID: 21288766}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
@@ -199,3 +199,45 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1001 &1189273212
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 4543661507713238, guid: 859c9c1e676af6b4682e58227d41e270, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4543661507713238, guid: 859c9c1e676af6b4682e58227d41e270, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4543661507713238, guid: 859c9c1e676af6b4682e58227d41e270, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4543661507713238, guid: 859c9c1e676af6b4682e58227d41e270, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4543661507713238, guid: 859c9c1e676af6b4682e58227d41e270, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4543661507713238, guid: 859c9c1e676af6b4682e58227d41e270, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4543661507713238, guid: 859c9c1e676af6b4682e58227d41e270, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4543661507713238, guid: 859c9c1e676af6b4682e58227d41e270, type: 2}
+      propertyPath: m_RootOrder
+      value: 1
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 100100000, guid: 859c9c1e676af6b4682e58227d41e270, type: 2}
+  m_IsPrefabParent: 0
