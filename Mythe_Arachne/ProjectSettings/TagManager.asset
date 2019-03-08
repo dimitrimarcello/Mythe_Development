@@ -4,6 +4,8 @@
 TagManager:
   serializedVersion: 2
   tags:
+  - Enemy
+  - Ground
   - Rope
   layers:
   - Default
@@ -12,6 +14,14 @@ TagManager:
   - 
   - Water
   - UI
+  - 
+  - 
+  - Ground
+  - Wall
+  - 
+  - 
+  - Player
+  - Unit
   - 
   - 
   - Rope
