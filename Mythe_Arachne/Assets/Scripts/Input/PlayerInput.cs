@@ -9,7 +9,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 //This section will only run on WiiU.
-#if UNITY_WIIU
+#if UNITY_WIIU && !UNITY_ENGINE
 using UnityEngine.WiiU;
 #endif
 
@@ -21,10 +21,12 @@ using UnityEngine.N3DS;
 public class PlayerInput : MonoBehaviour
 {
     //Values that can be get but not set by other scripts
-    public Vector2 MouseInput { get; private set; }
+    public bool MouseInput { get; private set; }
+    public Vector2 MousePosition { get; private set; }
     public Vector2 JoystickMove { get; private set; }
     public Vector3 GyroInput { get; private set; }
-    public bool AB { get; private set; }
+    public bool AY { get; private set; }
+    public bool BX { get; private set; }
     public bool ZLZR { get; private set; }
 
 #if UNITY_WIIU
@@ -64,7 +66,8 @@ public class PlayerInput : MonoBehaviour
         //Look if the gamepad is on, ifso check for inputs, if not, do nothing
         if (gamePadState.gamePadErr == UnityEngine.WiiU.GamePadError.None)
         {
-            AB = gamePadState.IsTriggered(UnityEngine.WiiU.GamePadButton.A) || gamePadState.IsTriggered(UnityEngine.WiiU.GamePadButton.B);
+            AY = gamePadState.IsTriggered(UnityEngine.WiiU.GamePadButton.A) || gamePadState.IsTriggered(UnityEngine.WiiU.GamePadButton.Y);
+            BX = gamePadState.IsTriggered(UnityEngine.WiiU.GamePadButton.B) || gamePadState.IsTriggered(UnityEngine.WiiU.GamePadButton.X);
             ZLZR = gamePadState.IsTriggered(UnityEngine.WiiU.GamePadButton.ZL) || gamePadState.IsTriggered(UnityEngine.WiiU.GamePadButton.ZR);
             JoystickMove = gamePadState.lStick;
             GyroInput = gamePadState.gyro;
@@ -80,7 +83,8 @@ public class PlayerInput : MonoBehaviour
     void N3DS()
     {
         //Look for input
-        AB = UnityEngine.N3DS.GamePad.GetButtonTrigger(N3dsButton.A) || UnityEngine.N3DS.GamePad.GetButtonTrigger(N3dsButton.B);
+        AY = UnityEngine.N3DS.GamePad.GetButtonTrigger(N3dsButton.A) || UnityEngine.N3DS.GamePad.GetButtonTrigger(N3dsButton.Y);
+        BX = UnityEngine.N3DS.GamePad.GetButtonTrigger(N3dsButton.B) || UnityEngine.N3DS.GamePad.GetButtonTrigger(N3dsButton.X);
         ZLZR = UnityEngine.N3DS.GamePad.GetButtonTrigger(N3dsButton.ZL) || UnityEngine.N3DS.GamePad.GetButtonTrigger(N3dsButton.ZR);
         JoystickMove = UnityEngine.N3DS.GamePad.CirclePad;
         GyroInput = Input.gyro.rotationRate;
@@ -101,16 +105,18 @@ public class PlayerInput : MonoBehaviour
         //Look for the input
         JoystickMove = new Vector2(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"));
         ZLZR = Input.GetKeyDown("z");
-        AB = Input.GetKeyDown("x");
+        AY = Input.GetKeyDown("x");
+        BX = Input.GetKeyDown("c");
     }
 #endif
 
     void GetMouse()
     {
+        MouseInput = Input.GetMouseButtonDown(0);
         //On click, get mouse position
-        if (Input.GetMouseButtonDown(0))
+        if (MouseInput)
         {
-            MouseInput = Input.mousePosition;
+            MousePosition = Input.mousePosition;
         }
     }
 }

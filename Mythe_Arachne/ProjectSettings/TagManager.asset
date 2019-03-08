@@ -3,7 +3,10 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - Enemy
+  - Ground
+  - Rope
   layers:
   - Default
   - TransparentFX
@@ -13,10 +16,17 @@ TagManager:
   - UI
   - 
   - 
+  - Ground
+  - Wall
+  - 
+  - 
+  - Player
+  - Unit
+  - 
+  - 
   - Rope
   - Player
   - Projectile
-  - 
   - 
   - 
   - 
