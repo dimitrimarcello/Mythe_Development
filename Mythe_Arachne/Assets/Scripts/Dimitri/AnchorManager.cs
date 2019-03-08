@@ -4,11 +4,21 @@ using UnityEngine;
 
 public class AnchorManager : MonoBehaviour, IInteractable {
 
-	public DrawManager drawOn;
-	public InteractManager interactOn;
+	private DrawManager drawOn;
+	private InteractManager interactOn;
+
+	void Start()
+	{
+		drawOn = GameObject.FindObjectOfType<DrawManager>().GetComponent<DrawManager>();
+        interactOn = GameObject.FindObjectOfType<InteractManager>().GetComponent<InteractManager>();
+	}
 
 	public void OnInteract(){
 		StartCoroutine(CheckIfSchooting());
+	}
+
+	public void OnHit(){
+		
 	}
 	
 	public IEnumerator CheckIfSchooting(){

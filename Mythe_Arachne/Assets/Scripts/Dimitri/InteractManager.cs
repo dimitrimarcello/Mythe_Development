@@ -13,15 +13,10 @@ public class InteractManager : MonoBehaviour {
 
 	void Update()
 	{
-		if(Input.GetMouseButtonDown(0) && onOf){
-			mouseStart = currentCamera.ScreenToWorldPoint(Input.mousePosition);
-			if(CheckStraightInput() != null)
-			CheckStraightInput().OnInteract();
-		}
 		if(Input.GetMouseButton(0) && onOf){
-			DragingLine(mouseStart);
-			if(DragingLine(mouseStart) != null)
-            DragingLine(mouseStart).OnInteract();
+            mouseStart = currentCamera.ScreenToWorldPoint(Input.mousePosition);
+            if (CheckStraightInput() != null)
+                CheckStraightInput().OnInteract();
 		}
 	}
 

@@ -15,6 +15,10 @@ public class _TempPlayer : MonoBehaviour, IInteractable {
 		StartCoroutine(StartSchooting());
 	}
 
+	public void OnHit(){
+		
+	}
+
 	private IEnumerator StartSchooting(){
 		isBusy = true;
 		RaycastHit2D shootDir = Physics2D.Raycast(transform.position, transform.position);
