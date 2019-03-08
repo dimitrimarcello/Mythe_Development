@@ -22,9 +22,6 @@ public class AllUnits : MonoBehaviour {
 
         units.AddRange(FindObjectsOfType<Unit>());
 
-        Physics2D.IgnoreLayerCollision(8, 9, true);
-        Physics2D.IgnoreLayerCollision(9, 9, true);
-
     }
 	
 	// Update is called once per frame
