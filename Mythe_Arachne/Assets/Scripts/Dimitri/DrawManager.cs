@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class DrawManager : MonoBehaviour {
 
@@ -16,12 +17,12 @@ public class DrawManager : MonoBehaviour {
 	private Vector2 mouseStart;
 	private List<Rope> drawnObjects = new List<Rope>();
 	private bool procces = false;
+	public Slider webAmounts;
 
 	void Update()
 	{
-		// if(Input.GetMouseButtonDown(0) && onOf){
-		// 	StartDrawing();
-		// }
+		webAmounts.value = drawAmount - drawnObjects.Count;
+
         if (onOf && !procces)
         {
 			procces = true;

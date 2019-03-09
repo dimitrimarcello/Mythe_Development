@@ -24,6 +24,7 @@ public class InteractManager : MonoBehaviour {
 		Vector3 mousePos = currentCamera.ScreenToWorldPoint(Input.mousePosition);
 		mousePos.z = 0;
 		RaycastHit2D ray = Physics2D.Raycast(mousePos, Vector3.forward, 100, checkLayer);
+        Debug.DrawRay(mousePos, Vector3.forward, Color.red, 1f);
         if (ray){
 			return ray.collider.gameObject.GetComponent<IInteractable>() ?? null;
 		}
