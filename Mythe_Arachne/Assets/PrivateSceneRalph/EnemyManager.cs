@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EnemyManager : MonoBehaviour {
+public class EnemyManager : MonoBehaviour, IInteractable {
 
     public float radius;
 
@@ -63,12 +63,11 @@ public class EnemyManager : MonoBehaviour {
         // is the layer close enough to check to throw or not
         if (distance < radius) { 
             // Raystuff hehe
-            RaycastHit2D hit = Physics2D.Raycast(posE, dir, radius);
+            RaycastHit2D[] hit = Physics2D.RaycastAll(posE, dir, radius);
             Debug.DrawRay(posE, dir, Color.red,1f,false);
-            if (hit)
+            if (hit.Length >=2)
             {
-                print(hit);
-                if (hit.transform.gameObject.tag == "Player")
+                if (hit[1].transform.gameObject.tag == "Player")
                 {
                     enemyShoot.Shoot();
                 }
@@ -76,5 +75,15 @@ public class EnemyManager : MonoBehaviour {
         }
 
         return false;
+    }
+
+    public void OnInteract()
+    {
+
+    }
+
+    public void OnHit()
+    {
+
     }
 }

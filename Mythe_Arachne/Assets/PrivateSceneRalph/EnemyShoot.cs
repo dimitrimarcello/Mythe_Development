@@ -4,9 +4,12 @@ using UnityEngine;
 
 public class EnemyShoot : MonoBehaviour {
 
+    public GameObject bullet;
+
 	public void Shoot()
     {
-        print("bang");
+        GameObject curentBul = Instantiate(bullet);
+        curentBul.GetComponent<MoveToTarget>().Shoot(this.transform);
     }
 
 }

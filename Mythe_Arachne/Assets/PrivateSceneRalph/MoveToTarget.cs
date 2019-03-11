@@ -4,19 +4,30 @@ using UnityEngine;
 
 public class MoveToTarget : MonoBehaviour {
 
-    public float speed;
+    private float speed = 1;
     private Transform target;
+    public Rigidbody2D rb2d;
+    
 
-	// Use this for initialization
-	void Start () {
-
+    public void Shoot(Transform _ts)
+    {
         target = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
-	}
-	
-	// Update is called once per frame
-	void Update () {
+        transform.position = _ts.position;
+        Vector3 dot = target.position - transform.position;
+        rb2d.AddForce(dot * speed, ForceMode2D.Impulse);
+    }
 
-        transform.rotation = Quaternion.LookRotation(Vector3.RotateTowards(transform.position, target.position, Time.deltaTime, 360.0f),Vector3.forward);
-        transform.position += Vector3.MoveTowards(transform.position, target.position, speed) * Time.deltaTime;
-	}
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        if(other.gameObject.tag == "Player")
+        {
+            IInteractable interactable = other.gameObject.GetComponent<IInteractable>();
+            if (interactable != null)
+            {
+                interactable.OnHit();
+                Destroy(gameObject);
+            }
+        }
+    }
+
 }

@@ -22,7 +22,7 @@ GameObject:
   - component: {fileID: 114053102798122302}
   - component: {fileID: 114043324070586906}
   - component: {fileID: 114714705300857900}
-  m_Layer: 0
+  m_Layer: 31
   m_Name: Enemy
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -38,7 +38,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4856472203381062}
   - component: {fileID: 114759508280793860}
-  m_Layer: 0
+  m_Layer: 31
   m_Name: MovementRestrict
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -57,7 +57,7 @@ GameObject:
   - component: {fileID: 50415116303206430}
   - component: {fileID: 212715821088854814}
   - component: {fileID: 114549963011772394}
-  m_Layer: 0
+  m_Layer: 31
   m_Name: body
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -134,11 +134,11 @@ CapsuleCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
-  m_Size: {x: 0.25, y: 0.5}
+  m_Size: {x: 0.24, y: 0.49}
   m_Direction: 0
 --- !u!114 &114043324070586906
 MonoBehaviour:
@@ -190,6 +190,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 77b5c34cfccc52a47b40621f64ae444e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  bullet: {fileID: 1133961184478718, guid: c72cc28ed4409824cbc806bee4f781ca, type: 2}
 --- !u!114 &114759508280793860
 MonoBehaviour:
   m_ObjectHideFlags: 1
