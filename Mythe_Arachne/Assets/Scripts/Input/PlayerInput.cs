@@ -24,6 +24,7 @@ public class PlayerInput : MonoBehaviour
     public bool MouseInput { get; private set; }
     public Vector2 MousePosition { get; private set; }
     public Vector2 JoystickMove { get; private set; }
+    public Vector2 DPAD { get; private set; }
     public Vector3 GyroInput { get; private set; }
     public bool AY { get; private set; }
     public bool BX { get; private set; }
@@ -62,7 +63,7 @@ public class PlayerInput : MonoBehaviour
     void WiiU()
     {
         UnityEngine.WiiU.GamePadState gamePadState = gamePad.state;
-        
+
         //Look if the gamepad is on, ifso check for inputs, if not, do nothing
         if (gamePadState.gamePadErr == UnityEngine.WiiU.GamePadError.None)
         {
@@ -71,6 +72,31 @@ public class PlayerInput : MonoBehaviour
             ZLZR = gamePadState.IsTriggered(UnityEngine.WiiU.GamePadButton.ZL) || gamePadState.IsTriggered(UnityEngine.WiiU.GamePadButton.ZR);
             JoystickMove = gamePadState.lStick;
             GyroInput = gamePadState.gyro;
+
+            if (gamePadState.IsTriggered(UnityEngine.WiiU.GamePadButton.Left)) {
+                JoystickMove = new Vector2(JoystickMove.x, 1);
+            }
+            else if (gamePadState.IsTriggered(UnityEngine.WiiU.GamePadButton.Left)) {
+                JoystickMove = new Vector2(JoystickMove.x, -1);
+            }            
+            else
+            {
+                JoystickMove = new Vector2(JoystickMove.x, 0);
+            }
+
+            if (gamePadState.IsTriggered(UnityEngine.WiiU.GamePadButton.Up))
+            {
+                JoystickMove = new Vector2(1, JoystickMove.y);
+            }
+            else if (gamePadState.IsTriggered(UnityEngine.WiiU.GamePadButton.Down))
+            {
+                JoystickMove = new Vector2(-1, JoystickMove.y);
+            }
+            else
+            {
+                JoystickMove = new Vector2(0, JoystickMove.y);
+            }
+
         }
         else
         {
