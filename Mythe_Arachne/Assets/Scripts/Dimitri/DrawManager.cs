@@ -19,9 +19,19 @@ public class DrawManager : MonoBehaviour {
 	private bool procces = false;
 	public Slider webAmounts;
 
+	void Start()
+	{
+		webAmounts.maxValue = drawAmount * limitPieces;
+	}
+
 	void Update()
 	{
-		webAmounts.value = drawAmount - drawnObjects.Count;
+		int allWebs = 0;
+		foreach (Rope rope in drawnObjects)
+		{
+			allWebs += rope.ropePieces.Count;
+		}
+		webAmounts.value = webAmounts.maxValue - allWebs;
 
         if (onOf && !procces)
         {
@@ -38,6 +48,7 @@ public class DrawManager : MonoBehaviour {
         if (Input.GetMouseButtonUp(0))
         {
 			drawnObjects[0].ActivateMovement();
+			StartCoroutine(SetRopeType(drawnObjects[0]));
 			BuildBoxColliders();
 			procces = false;
         }
@@ -75,7 +86,9 @@ public class DrawManager : MonoBehaviour {
 			//still need the right pos help pls!
 			Vector3 dir = mousePosition - drawnObjects[0].ropePieces[0].transform.position;
 			Ray2D cast = new Ray2D(drawnObjects[0].ropePieces[0].transform.position, dir);
-            drawnObjects[0].ropePieces.Insert(0, Instantiate(ropeTexture, cast.GetPoint(drawnObjects[0].ropePieces[0].GetComponent<SpriteRenderer>().size.y - offsetMark), transform.rotation , parentToRope));
+			Vector3 spawnPos = cast.GetPoint(drawnObjects[0].ropePieces[0].GetComponent<SpriteRenderer>().size.y - offsetMark);
+			spawnPos.z = zAxis;
+            drawnObjects[0].ropePieces.Insert(0, Instantiate(ropeTexture, spawnPos, transform.rotation , parentToRope));
             drawnObjects[0].ropePieces[0].GetComponent<HingeJoint2D>().connectedBody = drawnObjects[0].ropePieces[1].GetComponent<Rigidbody2D>();
 		}
 	}
@@ -95,6 +108,12 @@ public class DrawManager : MonoBehaviour {
 				}
             }
 		}
+	}
+
+	private IEnumerator SetRopeType(Rope afectedObj)
+	{
+		yield return new WaitForSeconds(2);
+		afectedObj.GetRopeType();
 	}
 
 }

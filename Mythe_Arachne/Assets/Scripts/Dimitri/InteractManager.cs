@@ -9,14 +9,21 @@ public class InteractManager : MonoBehaviour {
 	public float clickDepth = 0f;
 	public LayerMask checkLayer;
 	public bool onOf = false;
+	private bool isInteracting = false;
 	private Vector3 mouseStart;
 
 	void Update()
 	{
 		if(Input.GetMouseButton(0) && onOf){
             mouseStart = currentCamera.ScreenToWorldPoint(Input.mousePosition);
-            if (CheckStraightInput() != null)
-                CheckStraightInput().OnInteract();
+            if (CheckStraightInput() != null && !isInteracting){
+				isInteracting = true;
+                CheckStraightInput().OnInteract(mouseStart);
+			}
+		}
+		else
+		{
+			isInteracting = false;
 		}
 	}
 

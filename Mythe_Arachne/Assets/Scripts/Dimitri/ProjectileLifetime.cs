@@ -4,16 +4,24 @@ using UnityEngine;
 
 public class ProjectileLifetime : MonoBehaviour {
 
-	public float lifeTime = 2f;
+	private Rigidbody2D rg2d;
+	private SpriteRenderer alpha;
+	public float bounceForce = 2;
 
 	void Awake()
 	{
-		StartCoroutine(DestroyThis());
+        rg2d = GetComponent<Rigidbody2D>();
+		alpha = GetComponent<SpriteRenderer>();
 	}
 
 	private IEnumerator DestroyThis()
 	{
-		yield return new WaitForSeconds(lifeTime);
+		float temp = 0;
+		while(temp < 1){
+			alpha.color = Color.Lerp(alpha.color, new Color(1,1,1,0), temp);
+			temp += 0.1f;
+			yield return new WaitForSeconds(0.1f);
+		}
 		Destroy(gameObject);
 	}
 
@@ -22,6 +30,16 @@ public class ProjectileLifetime : MonoBehaviour {
 		if(other.gameObject.GetComponent<IInteractable>() != null){
             other.gameObject.GetComponent<IInteractable>().OnHit();
 		}
+		Vector2 angle = new Vector2(rg2d.velocity.x, rg2d.velocity.y);
+		rg2d.AddForce(Vector2.up * bounceForce, ForceMode2D.Impulse);
+		StartCoroutine(DestroyThis());
+	}
+
+	void Update()
+	{
+		float angle = -Mathf.Atan2(rg2d.velocity.x, rg2d.velocity.y) * Mathf.Rad2Deg;
+		transform.eulerAngles = new Vector3(0,0,angle + 90);
+
 	}
 
 }

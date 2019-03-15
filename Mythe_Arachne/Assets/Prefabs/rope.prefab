@@ -24,7 +24,7 @@ GameObject:
   - component: {fileID: 50009861436584906}
   - component: {fileID: 233492936022723936}
   - component: {fileID: 114341958880694964}
-  m_Layer: 0
+  m_Layer: 16
   m_Name: rope
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -102,6 +102,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   anchorVisuals: {fileID: 1731069094784122, guid: cfb74533a4d4fa24cbd357e4a1f21708,
     type: 2}
+  thisType: 0
+  isAnchor: 0
+  bounceForce: 10
 --- !u!212 &212971635163717042
 SpriteRenderer:
   m_ObjectHideFlags: 1

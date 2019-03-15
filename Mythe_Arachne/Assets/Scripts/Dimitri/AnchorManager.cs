@@ -13,7 +13,7 @@ public class AnchorManager : MonoBehaviour, IInteractable {
         interactOn = GameObject.FindObjectOfType<InteractManager>().GetComponent<InteractManager>();
 	}
 
-	public void OnInteract(){
+	public void OnInteract(Vector3 mousePos){
 		StartCoroutine(CheckIfSchooting());
 	}
 

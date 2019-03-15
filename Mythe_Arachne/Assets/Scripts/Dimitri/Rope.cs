@@ -4,7 +4,7 @@ using UnityEngine;
 
 public enum RopeType
 {
-	Climb, Bounce
+	None, Climb, Bounce
 }
 public class Rope : ScriptableObject {
 
@@ -16,16 +16,37 @@ public class Rope : ScriptableObject {
 		foreach (GameObject piece in ropePieces)
 		{
 			if(piece != null)
-			piece.GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.None;
+				piece.GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.None;
 		}
-	}
 
+	}
 	public void DestroyRope(){
 		foreach (GameObject piece in ropePieces)
 		{
 			if(piece != null)
-			Destroy(piece);
+				Destroy(piece);
 		}
+	}
+
+	public RopeType GetRopeType(){
+		int anchorAmount = 0;
+		foreach (GameObject piece in ropePieces){
+			RopePiece currentRope = piece.GetComponent<RopePiece>();
+			if(currentRope.isAnchor){
+				anchorAmount++;
+			}
+			else if(piece.GetComponent<HingeJoint2D>().connectedBody == null)
+			{
+				anchorAmount++;
+			}
+		}
+		RopeType returnThis = (RopeType)anchorAmount;
+		foreach (GameObject piece in ropePieces)
+		{
+			piece.GetComponent<RopePiece>().thisType = returnThis;
+		}
+		Debug.Log(returnThis);
+		return returnThis;
 	}
 
 }
