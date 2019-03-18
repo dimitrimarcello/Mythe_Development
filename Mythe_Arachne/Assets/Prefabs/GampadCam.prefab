@@ -183,8 +183,9 @@ MonoBehaviour:
   LightingMat: {fileID: 2100000, guid: d8a051a0c7394c746a80cc2035f69751, type: 2}
   baseLight: {r: 1, g: 1, b: 1, a: 1}
   transformLight: {r: 0.41176468, g: 0.41176468, b: 0.41176468, a: 0}
-  srcPower: 0
-  srcBorder: 0
+  srcPower: 0.633
+  srcBorder: 2.11
+  startLight: 2.59
 --- !u!124 &124603933637791128
 Behaviour:
   m_ObjectHideFlags: 1

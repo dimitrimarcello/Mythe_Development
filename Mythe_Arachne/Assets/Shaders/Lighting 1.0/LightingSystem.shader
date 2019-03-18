@@ -6,6 +6,7 @@
 		_DarkMulti("The color for the lighting system", Color) = (0,0,0,0)
 		_LightSource("The source of the light position", vector) = (0,0,0)
 		_LightStrenght("The dark light strenght", Range(1,10)) = 2
+		_CoreStrenght("The source start strenght", Range(1, 10)) = 1
 	}
 	SubShader
 	{
@@ -46,13 +47,14 @@
 			sampler2D _CameraTex;
 			float3 _LightSource;
 			float _LightStrenght;
+			float _CoreStrenght;
 
 			fixed4 frag (v2f i) : SV_Target
 			{
 				fixed4 col = tex2D(_CameraTex, i.uv);
 
 				// multiply the texture with the color
-				float4 multiple = (1,1,1,1);
+				float4 multiple = (1,1,1,1) * _CoreStrenght;
 				float dist = distance(i.uv, _LightSource);
 				multiple = lerp(multiple, _DarkMulti, dist * _LightStrenght);
 				col = col * _DarkMulti * multiple;

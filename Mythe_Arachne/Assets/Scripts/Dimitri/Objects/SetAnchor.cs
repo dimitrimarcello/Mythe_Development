@@ -9,7 +9,8 @@ public class SetAnchor : MonoBehaviour {
         if (GetComponent<HingeJoint2D>() != null)
         {
             Rigidbody2D rig2d = GetComponent<HingeJoint2D>().connectedBody;
-            rig2d.GetComponent<RopePiece>().isAnchor = true;
+            if(rig2d != null)
+                rig2d.GetComponent<RopePiece>().isAnchor = true;
         }
     }
 

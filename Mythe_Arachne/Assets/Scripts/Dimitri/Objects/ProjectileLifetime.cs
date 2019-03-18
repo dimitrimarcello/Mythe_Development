@@ -6,12 +6,14 @@ public class ProjectileLifetime : MonoBehaviour {
 
 	private Rigidbody2D rg2d;
 	private SpriteRenderer alpha;
+	private ParticleSystem fadeParticle;
 	public float bounceForce = 2;
 
 	void Awake()
 	{
         rg2d = GetComponent<Rigidbody2D>();
 		alpha = GetComponent<SpriteRenderer>();
+		fadeParticle = GetComponent<ParticleSystem>();
 	}
 
 	private IEnumerator DestroyThis()
@@ -32,6 +34,7 @@ public class ProjectileLifetime : MonoBehaviour {
 		}
 		Vector2 angle = new Vector2(rg2d.velocity.x, rg2d.velocity.y);
 		rg2d.AddForce(Vector2.up * bounceForce, ForceMode2D.Impulse);
+		fadeParticle.enableEmission = false;
 		StartCoroutine(DestroyThis());
 	}
 

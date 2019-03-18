@@ -5,6 +5,7 @@ using UnityEngine;
 public class InteractManager : MonoBehaviour {
 
 	public float dragDistance = 2f;
+	public ParticleSystem interactEffect;
 	public Camera currentCamera;
 	public float clickDepth = 0f;
 	public LayerMask checkLayer;
@@ -24,6 +25,13 @@ public class InteractManager : MonoBehaviour {
 		else
 		{
 			isInteracting = false;
+		}
+
+		if(Input.GetMouseButton(0)){
+            interactEffect.enableEmission = true;
+		}
+		else{
+            interactEffect.enableEmission = false;
 		}
 	}
 

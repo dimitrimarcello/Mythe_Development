@@ -12,6 +12,8 @@ public class RevertLight : MonoBehaviour {
 	public float srcPower;
 	[Range(0,10)]
 	public float srcBorder;
+	[Range(1,10)]
+	public float startLight;
 	private LightSource lightSource;
 	private Camera toPoint;
 	private Color current;
@@ -34,6 +36,7 @@ public class RevertLight : MonoBehaviour {
 		LightingMat.SetVector("_LightSource", convertedPos);
 		LightingMat.SetFloat("_LightStrenght", srcPower * srcBorder);
 		LightingMat.SetColor("_DarkMulti", current);
+		LightingMat.SetFloat("_CoreStrenght", startLight);
 	}
 
 }
