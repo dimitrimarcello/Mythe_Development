@@ -2,14 +2,14 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EnemyRestrict : MonoBehaviour {
+public class OLD_EnemyRestrict : MonoBehaviour {
 
-    private EnemyMove enemyMove;
+    private OLD_EnemyMove enemyMove;
 
 	// Use this for initialization
 	void Start () {
 
-        enemyMove = GetComponentInParent<EnemyMove>();
+        enemyMove = GetComponentInParent<OLD_EnemyMove>();
 
 	}
 	

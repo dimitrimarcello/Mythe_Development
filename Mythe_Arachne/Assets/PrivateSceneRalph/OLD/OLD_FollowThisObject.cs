@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class FollowThisObject : MonoBehaviour {
+public class OLD_FollowThisObject : MonoBehaviour {
 
     public Transform lockPos;
     public Vector3 ofset;

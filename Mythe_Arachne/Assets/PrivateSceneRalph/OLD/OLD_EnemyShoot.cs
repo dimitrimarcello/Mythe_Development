@@ -2,14 +2,14 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EnemyShoot : MonoBehaviour {
+public class OLD_EnemyShoot : MonoBehaviour {
 
     public GameObject bullet;
 
 	public void Shoot()
     {
         GameObject curentBul = Instantiate(bullet);
-        curentBul.GetComponent<MoveToTarget>().Shoot(this.transform);
+        curentBul.GetComponent<OLD_MoveToTarget>().Shoot(this.transform);
     }
 
 }

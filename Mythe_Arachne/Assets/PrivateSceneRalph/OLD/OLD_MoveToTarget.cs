@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class MoveToTarget : MonoBehaviour {
+public class OLD_MoveToTarget : MonoBehaviour {
 
     private float speed = 1;
     private Transform target;
