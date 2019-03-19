@@ -10,7 +10,7 @@ using UnityEngine;
 
 [RequireComponent(typeof(Rigidbody2D))]
 [RequireComponent(typeof(PlayerInput))]
-public class PlayerMovement : MonoBehaviour
+public class PlayerMovement : MonoBehaviour, IInteractable
 {
     [SerializeField] [Range(0, 2)] float speed = 1f, /*ForceJump = 5f,*/ castLenght = 1.1f;
     [SerializeField] string ropeTag = "Rope";
@@ -24,51 +24,70 @@ public class PlayerMovement : MonoBehaviour
     //bool Jumping = true;
 
     [ExecuteInEditMode]
+    //Get all the required components, and lock the rigidbody's rotations
     void Awake()
     {
-        //Get all the required components, and lock the rigidbody's rotations
         rb = GetComponent<Rigidbody2D>();
         col = GetComponent<Collider2D>();
         playerInput = GetComponent<PlayerInput>();
         rb.constraints = RigidbodyConstraints2D.FreezeRotation;
     }
 
+    //Make sure all functions run
     private void FixedUpdate()
     {
-        //Run functions
         Move();
         CheckCasts();
         //Jump(); //Jump has been disabled but has been asked to stay in here for whatever reason, sorry!
     }
 
+    //Movement Script with inputs and joysticks, depending on colliders
     void Move()
     {
-        //Check player joystick input, and move it depending on the values and if the raycast hits anything.
         Vector2 movementInput = playerInput.JoystickMove;
         if (((sideL.collider == null && movementInput.x < 0) || (sideR.collider == null && movementInput.x > 0)))
         {
-            rb.constraints = RigidbodyConstraints2D.None;
-            rb.constraints = RigidbodyConstraints2D.FreezeRotation;
             transform.Translate(movementInput.x * (speed * 10) * Time.deltaTime, 0, 0);
         }
-        /*
-        else if (sideL || sideR)
+
+        if (playerInput.ZLZR == true)
         {
-            if (sideL.collider.gameObject.tag == ropeTag)
-            {
-                rb.constraints = RigidbodyConstraints2D.FreezeAll;
-                transform.position = sideL.point;
-            }
-            if (sideR.collider.gameObject.tag == ropeTag)
-            {
-                rb.constraints = RigidbodyConstraints2D.FreezeAll;
-                transform.position = sideR.point;
-            }
+            StopHanging();
         }
-        */
+
+        if (sideL.collider != null && sideL.collider.tag == ropeTag)
+        {
+            RopeAction(sideL);
+        }
+        if (sideR.collider != null && sideR.collider.tag == ropeTag)
+        {
+            RopeAction(sideR);
+        }
     }
 
+    //Rope haninging
+    void RopeAction(RaycastHit2D target)
+    {
+        col.enabled = false;
+        rb.constraints = RigidbodyConstraints2D.FreezeAll;
+        transform.position = target.transform.position;
+        //gameObject.transform.parent = target.transform;
+        //transform.position = target.point; //unused
+    }
+
+    //cancel hanging
+    void StopHanging()
+    {
+        col.enabled = true;
+        transform.rotation = Quaternion.Euler(0, 0, 0);
+        rb.constraints = RigidbodyConstraints2D.None;
+        rb.constraints = RigidbodyConstraints2D.FreezeRotation;
+        gameObject.transform.parent = null;
+    }
+
+
     /* 
+    //Jump Function     
 	void Jump () {
         if (playerInput.AB && !Jumping)
         {
@@ -78,14 +97,15 @@ public class PlayerMovement : MonoBehaviour
 	}
     */
 
+    //Check all the raycasts
     void CheckCasts()
     {
-        /*
         RaycastHit2D downWard = Physics2D.Raycast(new Vector2(transform.position.x, transform.position.y - transform.lossyScale.y / 2), Vector2.down, (castLenght / 10), layerMask);
-        if(downWard.collider == null)
+        if(downWard.collider.tag == ropeTag)
         {
-            Jumping = true;
+            transform.rotation = Quaternion.Euler(0, downWard.collider.transform.rotation.y + 90, 0);
         }
+        /*
         else
         {
             Jumping = false;
@@ -97,7 +117,39 @@ public class PlayerMovement : MonoBehaviour
         sideR = Physics2D.Raycast(transform.position, Vector2.right, (castLenght * col.bounds.size.x / 2), layerMask);
         Debug.DrawLine(transform.position, transform.position + new Vector3(-((castLenght * col.bounds.size.x / 2)), 0));
         Debug.DrawLine(transform.position, transform.position + new Vector3((castLenght * col.bounds.size.x / 2), 0));
-
     }
 
+    ///Dimitri code
+    public GameObject projectile;
+    public Camera getPoint;
+    public float throwForce = 10f;
+    public float drawDistance = 3f;
+    private bool isBusy = false;
+
+    public void OnInteract()
+    {
+        if (!isBusy)
+            StartCoroutine(StartSchooting());
+    }
+
+    private IEnumerator StartSchooting()
+    {
+        isBusy = true;
+        RaycastHit2D shootDir = Physics2D.Raycast(transform.position, transform.position);
+        Vector2 mousePos = transform.position;
+        while (Input.GetMouseButton(0))
+        {
+            mousePos = getPoint.ScreenToWorldPoint(Input.mousePosition);
+            shootDir = Physics2D.Raycast(transform.position, mousePos, drawDistance);
+            yield return new WaitForFixedUpdate();
+        }
+        GameObject tempProjectile = Instantiate(projectile, transform.position, transform.rotation);
+        Vector2 dir = mousePos - (Vector2)transform.position;
+        float dist = Vector2.Distance(transform.position, mousePos);
+        dist = Mathf.Clamp(dist, 0, drawDistance);
+        Debug.Log(dist);
+        tempProjectile.GetComponent<Rigidbody2D>().AddForce(dir * dist * throwForce, ForceMode2D.Impulse);
+        isBusy = false;
+    }
+    ///End Dimitri code
 }
