@@ -68,6 +68,7 @@ public class PlayerMovement : MonoBehaviour, IInteractable
     //Rope haninging
     void RopeAction(RaycastHit2D target)
     {
+        //bool ifhanging
         col.enabled = false;
         rb.constraints = RigidbodyConstraints2D.FreezeAll;
         transform.position = target.transform.position;
