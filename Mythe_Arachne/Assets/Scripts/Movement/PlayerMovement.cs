@@ -45,9 +45,9 @@ public class PlayerMovement : MonoBehaviour, IInteractable
     void Move()
     {
         Vector2 movementInput = playerInput.JoystickMove;
-        if (((sideL.collider == null && movementInput.x < 0) || (sideR.collider == null && movementInput.x > 0)))
+        if (sideL.collider == null && movementInput.x < 0 || sideR.collider == null && movementInput.x > 0)
         {
-            transform.Translate(movementInput.x * (speed * 10) * Time.deltaTime, 0, 0);
+            rb.AddForce((transform.right * (speed * 10)) * movementInput.x, ForceMode2D.Force);
         }
 
         if (playerInput.ZLZR == true)
