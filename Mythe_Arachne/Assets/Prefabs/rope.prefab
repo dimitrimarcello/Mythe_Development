@@ -102,7 +102,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   anchorVisuals: {fileID: 1731069094784122, guid: cfb74533a4d4fa24cbd357e4a1f21708,
     type: 2}
-  thisType: 0
+  thisType: 2
   isAnchor: 0
   bounceForce: 10
 --- !u!212 &212971635163717042

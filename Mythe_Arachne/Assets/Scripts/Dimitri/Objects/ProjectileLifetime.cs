@@ -29,8 +29,8 @@ public class ProjectileLifetime : MonoBehaviour {
 
 	void OnCollisionEnter2D(Collision2D other)
 	{
-		if(other.gameObject.GetComponent<IInteractable>() != null){
-            other.gameObject.GetComponent<IInteractable>().OnHit();
+		if(other.gameObject.GetComponent<IHitable>() != null){
+            other.gameObject.GetComponent<IHitable>().OnHit(other.contacts[0].point);
 		}
 		Vector2 angle = new Vector2(rg2d.velocity.x, rg2d.velocity.y);
 		rg2d.AddForce(Vector2.up * bounceForce, ForceMode2D.Impulse);

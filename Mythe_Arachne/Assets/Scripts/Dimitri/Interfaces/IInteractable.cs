@@ -4,5 +4,7 @@ using UnityEngine;
 
 public interface IInteractable{
 	void OnInteract(Vector3 mousePos);
-	void OnHit();
+}
+public interface IHitable{
+    void OnHit(Vector3 pointOfHit);
 }

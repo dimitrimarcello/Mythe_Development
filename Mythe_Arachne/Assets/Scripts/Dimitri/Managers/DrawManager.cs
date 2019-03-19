@@ -47,9 +47,11 @@ public class DrawManager : MonoBehaviour {
         }
         if (Input.GetMouseButtonUp(0))
         {
-			drawnObjects[0].ActivateMovement();
-			StartCoroutine(SetRopeType(drawnObjects[0]));
-			BuildBoxColliders();
+			if(drawnObjects.Count > 0){
+				drawnObjects[0].ActivateMovement();
+				StartCoroutine(SetRopeType(drawnObjects[0]));
+				BuildBoxColliders();
+			}
 			procces = false;
         }
 		if(drawnObjects.Count > drawAmount){
