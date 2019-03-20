@@ -1003,8 +1003,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ed4c2a4b8e73dc3418eb006a4e2845a5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  drawOn: {fileID: 0}
-  interactOn: {fileID: 0}
 --- !u!61 &519453728
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1475,18 +1473,38 @@ Prefab:
     - target: {fileID: 114644292294866108, guid: 859c9c1e676af6b4682e58227d41e270,
         type: 2}
       propertyPath: srcPower
-      value: 0.593
+      value: 0.58
       objectReference: {fileID: 0}
     - target: {fileID: 114644292294866108, guid: 859c9c1e676af6b4682e58227d41e270,
         type: 2}
       propertyPath: srcBorder
-      value: 2.26
+      value: 2.1
       objectReference: {fileID: 0}
     - target: {fileID: 114644292294866108, guid: 859c9c1e676af6b4682e58227d41e270,
         type: 2}
       propertyPath: startLight
-      value: 3.12
+      value: 4.9
       objectReference: {fileID: 0}
+    - target: {fileID: 114644292294866108, guid: 859c9c1e676af6b4682e58227d41e270,
+        type: 2}
+      propertyPath: transformLight.r
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114644292294866108, guid: 859c9c1e676af6b4682e58227d41e270,
+        type: 2}
+      propertyPath: transformLight.g
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114644292294866108, guid: 859c9c1e676af6b4682e58227d41e270,
+        type: 2}
+      propertyPath: transformLight.b
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114644292294866108, guid: 859c9c1e676af6b4682e58227d41e270,
+        type: 2}
+      propertyPath: LightingMat
+      value: 
+      objectReference: {fileID: 2100000, guid: d8a051a0c7394c746a80cc2035f69751, type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 859c9c1e676af6b4682e58227d41e270, type: 2}
   m_IsPrefabParent: 0
@@ -1639,13 +1657,12 @@ GameObject:
 --- !u!114 &1410190422
 MonoBehaviour:
   m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 114910674959574954, guid: 0de8b64fd04a2c7419458ad97005cc92,
-    type: 2}
+  m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1410190421}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 0}
+  m_Script: {fileID: 11500000, guid: c50f1bf0ea0642a4186b005c4f1c00fc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   drawAmount: 3
@@ -1658,6 +1675,7 @@ MonoBehaviour:
     type: 2}
   onOf: 0
   zAxis: -1
+  webAmounts: {fileID: 175303613}
 --- !u!4 &1410190423
 Transform:
   m_ObjectHideFlags: 0
