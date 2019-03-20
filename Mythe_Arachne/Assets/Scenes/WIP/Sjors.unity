@@ -848,6 +848,11 @@ Prefab:
       propertyPath: throwForce
       value: 3
       objectReference: {fileID: 0}
+    - target: {fileID: 114269613491613908, guid: 065180bb67b557d468d7eb53696caeb2,
+        type: 2}
+      propertyPath: castLenght
+      value: 2
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 065180bb67b557d468d7eb53696caeb2, type: 2}
   m_IsPrefabParent: 0
