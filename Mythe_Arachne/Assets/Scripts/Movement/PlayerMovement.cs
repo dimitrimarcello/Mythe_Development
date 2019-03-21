@@ -141,7 +141,7 @@ public class PlayerMovement : MonoBehaviour, IInteractable
     public float drawDistance = 3f;
     private bool isBusy = false;
 
-    public void OnInteract()
+    public void OnInteract(Vector3 mousePos)
     {
         if (!isBusy)
             StartCoroutine(StartSchooting());
