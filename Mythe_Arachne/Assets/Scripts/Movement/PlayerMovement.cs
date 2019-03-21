@@ -18,7 +18,7 @@ public class PlayerMovement : MonoBehaviour, IInteractable
 
     Rigidbody2D rb;
     Collider2D col;
-    RaycastHit2D sideL, sideR;
+    RaycastHit2D sideL, sideR, lastUsed;
     int layerMask = ~(1 << 9); //Give values with what the raycasts can interract(in this case excluding player layer)
 
     //bool Jumping = true;
@@ -45,9 +45,9 @@ public class PlayerMovement : MonoBehaviour, IInteractable
     void Move()
     {
         Vector2 movementInput = playerInput.JoystickMove;
-        if (((sideL.collider == null && movementInput.x < 0) || (sideR.collider == null && movementInput.x > 0)))
+        if (sideL.collider == null && movementInput.x < 0 || sideR.collider == null && movementInput.x > 0)
         {
-            transform.Translate(movementInput.x * (speed * 10) * Time.deltaTime, 0, 0);
+            rb.AddForce((transform.right * (speed * 10)) * movementInput.x, ForceMode2D.Force);
         }
 
         if (playerInput.ZLZR == true)
@@ -68,11 +68,18 @@ public class PlayerMovement : MonoBehaviour, IInteractable
     //Rope haninging
     void RopeAction(RaycastHit2D target)
     {
-        col.enabled = false;
-        rb.constraints = RigidbodyConstraints2D.FreezeAll;
-        transform.position = target.transform.position;
-        //gameObject.transform.parent = target.transform;
-        //transform.position = target.point; //unused
+        //bool ifhanging
+        if (col.enabled)
+        {
+            target.collider.enabled = false;
+            col.enabled = false;
+            rb.isKinematic = true;
+            //transform.position = target.point;
+            transform.position = new Vector3(0, 0, 0);
+            transform.rotation = Quaternion.Euler(0,0,0);
+            gameObject.transform.parent = target.transform;
+            lastUsed = target;
+        }
     }
 
     //cancel hanging
@@ -80,9 +87,17 @@ public class PlayerMovement : MonoBehaviour, IInteractable
     {
         col.enabled = true;
         transform.rotation = Quaternion.Euler(0, 0, 0);
-        rb.constraints = RigidbodyConstraints2D.None;
-        rb.constraints = RigidbodyConstraints2D.FreezeRotation;
+        rb.isKinematic = false;
+        //rb.constraints = RigidbodyConstraints2D.None;
+        //rb.constraints = RigidbodyConstraints2D.FreezeRotation;
         gameObject.transform.parent = null;
+        StartCoroutine(toggleColliderBack());
+    }
+
+    IEnumerator toggleColliderBack()
+    {
+        yield return new WaitForSeconds(1);
+        lastUsed.collider.enabled = true;
     }
 
 
@@ -100,11 +115,11 @@ public class PlayerMovement : MonoBehaviour, IInteractable
     //Check all the raycasts
     void CheckCasts()
     {
-        RaycastHit2D downWard = Physics2D.Raycast(new Vector2(transform.position.x, transform.position.y - transform.lossyScale.y / 2), Vector2.down, (castLenght / 10), layerMask);
-        if(downWard.collider.tag == ropeTag)
-        {
-            transform.rotation = Quaternion.Euler(0, downWard.collider.transform.rotation.y + 90, 0);
-        }
+        //RaycastHit2D downWard = Physics2D.Raycast(new Vector2(transform.position.x, transform.position.y - transform.lossyScale.y / 2), Vector2.down, (castLenght / 10), layerMask);
+        //if(downWard.collider.tag == ropeTag)
+        // {
+        //     transform.rotation = Quaternion.Euler(0, downWard.collider.transform.rotation.y + 90, 0);
+        //}
         /*
         else
         {
