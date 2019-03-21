@@ -1,13 +1,17 @@
 fileFormatVersion: 2
-guid: 0d257116551c9274fa03ffcf52475143
-timeCreated: 1553200882
+guid: 0c4bc753242d3d543a3224e6a54dc2b0
+timeCreated: 1553200666
 licenseType: Pro
 TextureImporter:
   fileIDToRecycleName:
-    21300000: char_idle_strip_0
-    21300002: char_idle_strip_1
-    21300004: char_idle_strip_2
-    21300006: char_idle_strip_3
+    21300000: char_walk_strip_0
+    21300002: char_walk_strip_1
+    21300004: char_walk_strip_2
+    21300006: char_walk_strip_3
+    21300008: char_walk_strip_4
+    21300010: char_walk_strip_5
+    21300012: char_walk_strip_6
+    21300014: char_walk_strip_7
   serializedVersion: 4
   mipmaps:
     mipMapMode: 0
@@ -87,13 +91,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: char_idle_strip_0
+      name: char_walk_strip_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
         width: 114
-        height: 252
+        height: 256
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -101,13 +105,13 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: char_idle_strip_1
+      name: char_walk_strip_1
       rect:
         serializedVersion: 2
         x: 114
         y: 0
-        width: 117
-        height: 252
+        width: 113
+        height: 256
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -115,27 +119,83 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: char_idle_strip_2
+      name: char_walk_strip_2
       rect:
         serializedVersion: 2
-        x: 231
-        y: 0
-        width: 118
-        height: 251
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: char_idle_strip_3
-      rect:
-        serializedVersion: 2
-        x: 349
+        x: 227
         y: 0
         width: 115
-        height: 252
+        height: 256
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: char_walk_strip_3
+      rect:
+        serializedVersion: 2
+        x: 342
+        y: 0
+        width: 115
+        height: 256
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: char_walk_strip_4
+      rect:
+        serializedVersion: 2
+        x: 458
+        y: 0
+        width: 112
+        height: 256
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: char_walk_strip_5
+      rect:
+        serializedVersion: 2
+        x: 570
+        y: 0
+        width: 114
+        height: 256
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: char_walk_strip_6
+      rect:
+        serializedVersion: 2
+        x: 684
+        y: 0
+        width: 114
+        height: 256
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: char_walk_strip_7
+      rect:
+        serializedVersion: 2
+        x: 798
+        y: 0
+        width: 114
+        height: 256
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
