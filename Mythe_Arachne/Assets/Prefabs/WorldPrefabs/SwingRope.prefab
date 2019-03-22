@@ -39,7 +39,7 @@ GameObject:
   - component: {fileID: 50950939380431172}
   - component: {fileID: 233445679114803814}
   - component: {fileID: 114534739355984470}
-  m_Layer: 0
+  m_Layer: 16
   m_Name: rope(Clone)
   m_TagString: Rope
   m_Icon: {fileID: 0}
@@ -59,7 +59,7 @@ GameObject:
   - component: {fileID: 50579894947433290}
   - component: {fileID: 233699651846026168}
   - component: {fileID: 114364999578611616}
-  m_Layer: 0
+  m_Layer: 16
   m_Name: rope(Clone)
   m_TagString: Rope
   m_Icon: {fileID: 0}
@@ -79,7 +79,7 @@ GameObject:
   - component: {fileID: 50865751293747012}
   - component: {fileID: 233731989995863960}
   - component: {fileID: 114199643574828556}
-  m_Layer: 0
+  m_Layer: 16
   m_Name: rope(Clone)
   m_TagString: Rope
   m_Icon: {fileID: 0}
@@ -99,7 +99,7 @@ GameObject:
   - component: {fileID: 50039994669167868}
   - component: {fileID: 233791324386014566}
   - component: {fileID: 114818379272973202}
-  m_Layer: 0
+  m_Layer: 16
   m_Name: rope(Clone)
   m_TagString: Rope
   m_Icon: {fileID: 0}
@@ -119,7 +119,7 @@ GameObject:
   - component: {fileID: 50968856379134776}
   - component: {fileID: 233447777385529576}
   - component: {fileID: 114827791677729442}
-  m_Layer: 0
+  m_Layer: 16
   m_Name: rope(Clone)
   m_TagString: Rope
   m_Icon: {fileID: 0}
@@ -139,7 +139,7 @@ GameObject:
   - component: {fileID: 50991142232196230}
   - component: {fileID: 233924097106044736}
   - component: {fileID: 114466321021785864}
-  m_Layer: 0
+  m_Layer: 16
   m_Name: rope(Clone)
   m_TagString: Rope
   m_Icon: {fileID: 0}
@@ -159,7 +159,7 @@ GameObject:
   - component: {fileID: 50340889001968718}
   - component: {fileID: 233440983009519180}
   - component: {fileID: 114484546547591706}
-  m_Layer: 0
+  m_Layer: 16
   m_Name: rope(Clone)
   m_TagString: Rope
   m_Icon: {fileID: 0}
@@ -179,7 +179,7 @@ GameObject:
   - component: {fileID: 50853812880180396}
   - component: {fileID: 233242844566342422}
   - component: {fileID: 114006109669652530}
-  m_Layer: 0
+  m_Layer: 16
   m_Name: rope(Clone)
   m_TagString: Rope
   m_Icon: {fileID: 0}
@@ -199,7 +199,7 @@ GameObject:
   - component: {fileID: 50649426172767916}
   - component: {fileID: 233338848137173846}
   - component: {fileID: 114095543767069992}
-  m_Layer: 0
+  m_Layer: 16
   m_Name: rope(Clone)
   m_TagString: Rope
   m_Icon: {fileID: 0}
@@ -219,7 +219,7 @@ GameObject:
   - component: {fileID: 50175730478230994}
   - component: {fileID: 233428344457851724}
   - component: {fileID: 114921185077115568}
-  m_Layer: 0
+  m_Layer: 16
   m_Name: rope(Clone)
   m_TagString: Rope
   m_Icon: {fileID: 0}
@@ -272,7 +272,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1304827960973038}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 40.166237, y: 21.816713, z: -8.03125}
+  m_LocalPosition: {x: 40.073116, y: 21.59322, z: -8.03125}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4167377998620948}
@@ -1446,7 +1446,7 @@ HingeJoint2D:
   m_BreakTorque: Infinity
   m_AutoConfigureConnectedAnchor: 1
   m_Anchor: {x: 0, y: 0}
-  m_ConnectedAnchor: {x: 40.51954, y: 27.063313}
+  m_ConnectedAnchor: {x: 40.42642, y: 26.839819}
   m_UseMotor: 0
   m_Motor:
     m_MotorSpeed: 0

@@ -41,7 +41,7 @@ GameObject:
   - component: {fileID: 114587153552908960}
   m_Layer: 0
   m_Name: rope(Clone)
-  m_TagString: Rope
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -61,7 +61,7 @@ GameObject:
   - component: {fileID: 114127564014834880}
   m_Layer: 0
   m_Name: rope(Clone)
-  m_TagString: Rope
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -81,7 +81,7 @@ GameObject:
   - component: {fileID: 114916054705350024}
   m_Layer: 0
   m_Name: rope(Clone)
-  m_TagString: Rope
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -101,7 +101,7 @@ GameObject:
   - component: {fileID: 114277583949426628}
   m_Layer: 0
   m_Name: rope(Clone)
-  m_TagString: Rope
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -121,7 +121,7 @@ GameObject:
   - component: {fileID: 114772460690284190}
   m_Layer: 0
   m_Name: rope(Clone)
-  m_TagString: Rope
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -141,7 +141,7 @@ GameObject:
   - component: {fileID: 114556484812427972}
   m_Layer: 0
   m_Name: rope(Clone)
-  m_TagString: Rope
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -526,7 +526,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   anchorVisuals: {fileID: 1731069094784122, guid: cfb74533a4d4fa24cbd357e4a1f21708,
     type: 2}
-  thisType: 1
+  thisType: 0
   isAnchor: 1
   bounceForce: 9
 --- !u!114 &114277583949426628
@@ -542,7 +542,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   anchorVisuals: {fileID: 1731069094784122, guid: cfb74533a4d4fa24cbd357e4a1f21708,
     type: 2}
-  thisType: 1
+  thisType: 0
   isAnchor: 0
   bounceForce: 9
 --- !u!114 &114556484812427972
@@ -558,7 +558,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   anchorVisuals: {fileID: 1731069094784122, guid: cfb74533a4d4fa24cbd357e4a1f21708,
     type: 2}
-  thisType: 1
+  thisType: 0
   isAnchor: 0
   bounceForce: 9
 --- !u!114 &114587153552908960
@@ -574,7 +574,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   anchorVisuals: {fileID: 1731069094784122, guid: cfb74533a4d4fa24cbd357e4a1f21708,
     type: 2}
-  thisType: 1
+  thisType: 0
   isAnchor: 0
   bounceForce: 9
 --- !u!114 &114772460690284190
@@ -590,7 +590,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   anchorVisuals: {fileID: 1731069094784122, guid: cfb74533a4d4fa24cbd357e4a1f21708,
     type: 2}
-  thisType: 1
+  thisType: 0
   isAnchor: 0
   bounceForce: 9
 --- !u!114 &114916054705350024
@@ -606,7 +606,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   anchorVisuals: {fileID: 1731069094784122, guid: cfb74533a4d4fa24cbd357e4a1f21708,
     type: 2}
-  thisType: 1
+  thisType: 0
   isAnchor: 1
   bounceForce: 9
 --- !u!212 &212005423091997060

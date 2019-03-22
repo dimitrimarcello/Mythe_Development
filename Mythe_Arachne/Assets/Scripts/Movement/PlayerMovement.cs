@@ -12,16 +12,14 @@ using UnityEngine;
 [RequireComponent(typeof(PlayerInput))]
 public class PlayerMovement : MonoBehaviour, IInteractable
 {
-    [SerializeField] [Range(0, 2)] float speed = 1f, /*ForceJump = 5f,*/ castLenght = 1.1f;
-    [SerializeField] string ropeTag = "Rope";
+    [SerializeField] [Range(0, 2)] float speed = 1f, /*ForceJump = 5f,*/ castLenght = 1.4f;
     PlayerInput playerInput;
-
     Rigidbody2D rb;
     Collider2D col;
     RaycastHit2D sideL, sideR, lastUsed;
-    int layerMask = ~(1 << 9); //Give values with what the raycasts can interract(in this case excluding player layer)
+    public LayerMask layerMask, swingMask; //Give values with what the raycasts can interract(in this case excluding player layer)
 
-    //bool Jumping = true;
+    public bool Grounded { get; private set; }
 
     [ExecuteInEditMode]
     //Get all the required components, and lock the rigidbody's rotations
@@ -46,16 +44,22 @@ public class PlayerMovement : MonoBehaviour, IInteractable
     {
         if (!col.enabled)
         {
-            transform.position = lastUsed.transform.position;
+            try
+            {
+                transform.position = lastUsed.transform.position;
+            }
+            catch
+            {
+                StopHanging();
+            }
         }
 
         Vector2 movementInput = playerInput.JoystickMove;
 
         if (/*sideL.collider == null && */movementInput.x < 0 || /*sideR.collider == null && */movementInput.x > 0)
         {
-            transform.Translate(new Vector3(movementInput.x*speed,0,0));
-            /*rb.velocity = new Vector2(0, rb.velocity.y);
-            rb.AddForce((transform.right * (speed * 100)) * movementInput.x, ForceMode2D.Force);*/
+            rb.velocity = new Vector2(0, rb.velocity.y);
+            transform.Translate(new Vector3(movementInput.x * speed, 0, 0));
         }
 
         if (playerInput.ZLZR == true)
@@ -63,11 +67,11 @@ public class PlayerMovement : MonoBehaviour, IInteractable
             StopHanging();
         }
 
-        if (sideL.collider != null && sideL.collider.tag == ropeTag)
+        if (sideL.collider != null && sideL.collider.GetComponent<RopePiece>().thisType == RopeType.Climb)
         {
             RopeAction(sideL);
         }
-        if (sideR.collider != null && sideR.collider.tag == ropeTag)
+        if (sideR.collider != null && sideR.collider.GetComponent<RopePiece>().thisType == RopeType.Climb)
         {
             RopeAction(sideR);
         }
@@ -129,23 +133,23 @@ public class PlayerMovement : MonoBehaviour, IInteractable
     void CheckCasts()
     {
 
-        //RaycastHit2D downWard = Physics2D.Raycast(new Vector2(transform.position.x, transform.position.y - transform.lossyScale.y / 2), Vector2.down, (castLenght / 10), layerMask);
-        //if(downWard.collider.tag == ropeTag)
-        // {
-        //     transform.rotation = Quaternion.Euler(0, downWard.collider.transform.rotation.y + 90, 0);
-        //}
-        /*
+        RaycastHit2D downWard = Physics2D.Raycast(transform.position, Vector2.down, castLenght, layerMask);
+        if (downWard.collider != null)
+        {
+            //transform.rotation = Quaternion.Euler(0, downWard.collider.transform.rotation.y + 90, 0);
+            Grounded = true;
+        }
         else
         {
-            Jumping = false;
+            Grounded = false;
         }
-        */
+
 
         //See where colliders are at the sides by taking the size of the player, and basing it off that with a lenght distance. (math aka magic)
-        sideL = Physics2D.Raycast(transform.position, Vector2.left, (castLenght * col.bounds.size.x / 2), layerMask);
-        sideR = Physics2D.Raycast(transform.position, Vector2.right, (castLenght * col.bounds.size.x / 2), layerMask);
-        Debug.DrawLine(transform.position, transform.position + new Vector3(-((castLenght * col.bounds.size.x / 2)), 0));
-        Debug.DrawLine(transform.position, transform.position + new Vector3((castLenght * col.bounds.size.x / 2), 0));
+        sideL = Physics2D.Raycast(transform.position, Vector2.left, (castLenght * col.bounds.size.x / 2), swingMask);
+        sideR = Physics2D.Raycast(transform.position, Vector2.right, (castLenght * col.bounds.size.x / 2), swingMask);
+        //Debug.DrawLine(transform.position, transform.position + new Vector3(-((castLenght * col.bounds.size.x / 2)), 0));
+        //Debug.DrawLine(transform.position, transform.position + new Vector3((castLenght * col.bounds.size.x / 2), 0));
     }
 
     ///Dimitri code
@@ -176,7 +180,7 @@ public class PlayerMovement : MonoBehaviour, IInteractable
         Vector2 dir = mousePos - (Vector2)transform.position;
         float dist = Vector2.Distance(transform.position, mousePos);
         dist = Mathf.Clamp(dist, 0, drawDistance);
-        Debug.Log(dist);
+        //Debug.Log(dist);
         tempProjectile.GetComponent<Rigidbody2D>().AddForce(dir * dist * throwForce, ForceMode2D.Impulse);
         isBusy = false;
     }
