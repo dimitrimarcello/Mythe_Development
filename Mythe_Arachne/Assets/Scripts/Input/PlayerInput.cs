@@ -71,7 +71,7 @@ public class PlayerInput : MonoBehaviour
             BX = gamePadState.IsTriggered(UnityEngine.WiiU.GamePadButton.B) || gamePadState.IsTriggered(UnityEngine.WiiU.GamePadButton.X);
             ZLZR = gamePadState.IsTriggered(UnityEngine.WiiU.GamePadButton.ZL) || gamePadState.IsTriggered(UnityEngine.WiiU.GamePadButton.ZR);
             JoystickMove = gamePadState.lStick;
-            GyroInput = gamePadState.gyro;
+            GyroInput = gamePadState.gyro; //switch out to diffrent gyro
 
             if (gamePadState.IsTriggered(UnityEngine.WiiU.GamePadButton.Left)) {
                 JoystickMove = new Vector2(JoystickMove.x, 1);

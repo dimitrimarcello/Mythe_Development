@@ -44,10 +44,18 @@ public class PlayerMovement : MonoBehaviour, IInteractable
     //Movement Script with inputs and joysticks, depending on colliders
     void Move()
     {
-        Vector2 movementInput = playerInput.JoystickMove;
-        if (sideL.collider == null && movementInput.x < 0 || sideR.collider == null && movementInput.x > 0)
+        if (!col.enabled)
         {
-            rb.AddForce((transform.right * (speed * 10)) * movementInput.x, ForceMode2D.Force);
+            transform.position = lastUsed.transform.position;
+        }
+
+        Vector2 movementInput = playerInput.JoystickMove;
+
+        if (/*sideL.collider == null && */movementInput.x < 0 || /*sideR.collider == null && */movementInput.x > 0)
+        {
+            transform.Translate(new Vector3(movementInput.x*speed,0,0));
+            /*rb.velocity = new Vector2(0, rb.velocity.y);
+            rb.AddForce((transform.right * (speed * 100)) * movementInput.x, ForceMode2D.Force);*/
         }
 
         if (playerInput.ZLZR == true)
@@ -74,9 +82,6 @@ public class PlayerMovement : MonoBehaviour, IInteractable
             target.collider.enabled = false;
             col.enabled = false;
             rb.isKinematic = true;
-            //transform.position = target.point;
-            transform.position = new Vector3(0, 0, 0);
-            transform.rotation = Quaternion.Euler(0,0,0);
             gameObject.transform.parent = target.transform;
             lastUsed = target;
         }
@@ -97,7 +102,15 @@ public class PlayerMovement : MonoBehaviour, IInteractable
     IEnumerator toggleColliderBack()
     {
         yield return new WaitForSeconds(1);
-        lastUsed.collider.enabled = true;
+        try
+        {
+            lastUsed.collider.enabled = true;
+        }
+        catch
+        {
+            Debug.LogWarning("An error has occured, last used other collider has not been found.");
+        }
+
     }
 
 
@@ -115,6 +128,7 @@ public class PlayerMovement : MonoBehaviour, IInteractable
     //Check all the raycasts
     void CheckCasts()
     {
+
         //RaycastHit2D downWard = Physics2D.Raycast(new Vector2(transform.position.x, transform.position.y - transform.lossyScale.y / 2), Vector2.down, (castLenght / 10), layerMask);
         //if(downWard.collider.tag == ropeTag)
         // {

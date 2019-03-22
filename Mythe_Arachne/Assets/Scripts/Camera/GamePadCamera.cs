@@ -8,6 +8,11 @@ public class GamePadCamera : MonoBehaviour
     PlayerInput pInput;
     float Speed = 0;
 
+    private void Start()
+    {
+        pInput = Player.GetComponent<PlayerInput>();
+    }
+
     private void FixedUpdate()
     {
         SmoothMover();
