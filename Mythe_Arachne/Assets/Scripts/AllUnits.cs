@@ -9,9 +9,7 @@ public class AllUnits : MonoBehaviour {
     public List<Unit> units;
     //public float bounds;
     public float spawnRadius;
-
     public Transform playerTransform;
-
 
     // Use this for initialization
     void Start () {
