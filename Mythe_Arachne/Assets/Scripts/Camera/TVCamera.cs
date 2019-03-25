@@ -62,7 +62,7 @@ public class TVCamera : MonoBehaviour
                 this.transform.position.y - (y_distance / 2) > player.transform.position.y) && !calculated)
             {
                 calculated = true;
-                Debug.DrawLine(transform.position, player.transform.position, Color.blue);
+                //Debug.DrawLine(transform.position, player.transform.position, Color.blue);
                 StartCoroutine(updateCurrentCam());
             }
         }
@@ -78,13 +78,13 @@ public class TVCamera : MonoBehaviour
         {
             v_tmp.Add(player.transform.position - new Vector3(savedPoints[i].x, savedPoints[i].y, 0));
             dist_tmp.Add(Mathf.Abs(v_tmp[i].x) + Mathf.Abs(v_tmp[i].y));
-            Debug.DrawLine(transform.position, new Vector3(savedPoints[i].x, savedPoints[i].y), Color.red, 0.5f);
+            //Debug.DrawLine(transform.position, new Vector3(savedPoints[i].x, savedPoints[i].y), Color.red, 0.5f);
             if (i + 1 == childCount)
             {
                 int minDist = dist_tmp.IndexOf(dist_tmp.Min());
-                Debug.DrawLine(transform.position, new Vector3(savedPoints[minDist].x, savedPoints[minDist].y), Color.green, 0.5f);
+                //Debug.DrawLine(transform.position, new Vector3(savedPoints[minDist].x, savedPoints[minDist].y), Color.green, 0.5f);
                 targetPos = new Vector3(savedPoints[minDist].x, savedPoints[minDist].y, -10);
-                Debug.Log(targetPos + "Success!");
+                //Debug.Log(targetPos + "Success!");
             }
         }
         yield return null;

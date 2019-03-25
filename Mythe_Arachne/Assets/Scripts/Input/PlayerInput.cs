@@ -29,6 +29,7 @@ public class PlayerInput : MonoBehaviour
     public bool AY { get; private set; }
     public bool BX { get; private set; }
     public bool ZLZR { get; private set; }
+    public bool START { get; private set; }
 
 #if UNITY_WIIU
     UnityEngine.WiiU.GamePad gamePad;
@@ -44,6 +45,7 @@ public class PlayerInput : MonoBehaviour
 
     private void Update()
     {
+        GetRestart();
         //Depending on the platform it will pick what will run
 #if UNITY_WIIU && !UNITY_EDITOR
         WiiU();
@@ -67,36 +69,12 @@ public class PlayerInput : MonoBehaviour
         //Look if the gamepad is on, ifso check for inputs, if not, do nothing
         if (gamePadState.gamePadErr == UnityEngine.WiiU.GamePadError.None)
         {
+            START = gamePadState.IsTriggered(UnityEngine.WiiU.GamePadButton.Plus) || gamePadState.IsTriggered(UnityEngine.WiiU.GamePadButton.Minus);
             AY = gamePadState.IsTriggered(UnityEngine.WiiU.GamePadButton.A) || gamePadState.IsTriggered(UnityEngine.WiiU.GamePadButton.Y);
             BX = gamePadState.IsTriggered(UnityEngine.WiiU.GamePadButton.B) || gamePadState.IsTriggered(UnityEngine.WiiU.GamePadButton.X);
             ZLZR = gamePadState.IsTriggered(UnityEngine.WiiU.GamePadButton.ZL) || gamePadState.IsTriggered(UnityEngine.WiiU.GamePadButton.ZR);
             JoystickMove = gamePadState.lStick;
-            GyroInput = gamePadState.gyro;
-
-            if (gamePadState.IsTriggered(UnityEngine.WiiU.GamePadButton.Left)) {
-                JoystickMove = new Vector2(JoystickMove.x, 1);
-            }
-            else if (gamePadState.IsTriggered(UnityEngine.WiiU.GamePadButton.Left)) {
-                JoystickMove = new Vector2(JoystickMove.x, -1);
-            }            
-            else
-            {
-                JoystickMove = new Vector2(JoystickMove.x, 0);
-            }
-
-            if (gamePadState.IsTriggered(UnityEngine.WiiU.GamePadButton.Up))
-            {
-                JoystickMove = new Vector2(1, JoystickMove.y);
-            }
-            else if (gamePadState.IsTriggered(UnityEngine.WiiU.GamePadButton.Down))
-            {
-                JoystickMove = new Vector2(-1, JoystickMove.y);
-            }
-            else
-            {
-                JoystickMove = new Vector2(0, JoystickMove.y);
-            }
-
+            GyroInput = gamePadState.gyro; //switch out to diffrent gyro
         }
         else
         {
@@ -109,6 +87,7 @@ public class PlayerInput : MonoBehaviour
     void N3DS()
     {
         //Look for input
+        //START = UnityEngine.N3DS.GamePad.GetButtonTrigger(N3dsButton.Start)
         AY = UnityEngine.N3DS.GamePad.GetButtonTrigger(N3dsButton.A) || UnityEngine.N3DS.GamePad.GetButtonTrigger(N3dsButton.Y);
         BX = UnityEngine.N3DS.GamePad.GetButtonTrigger(N3dsButton.B) || UnityEngine.N3DS.GamePad.GetButtonTrigger(N3dsButton.X);
         ZLZR = UnityEngine.N3DS.GamePad.GetButtonTrigger(N3dsButton.ZL) || UnityEngine.N3DS.GamePad.GetButtonTrigger(N3dsButton.ZR);
@@ -129,12 +108,21 @@ public class PlayerInput : MonoBehaviour
     void EDITOR()
     {
         //Look for the input
+        START = Input.GetKeyDown("return");
         JoystickMove = new Vector2(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"));
         ZLZR = Input.GetKeyDown("z");
         AY = Input.GetKeyDown("x");
         BX = Input.GetKeyDown("c");
     }
 #endif
+
+    void GetRestart()
+    {
+        if (START)
+        {
+            UnityEngine.SceneManagement.SceneManager.LoadScene(UnityEngine.SceneManagement.SceneManager.GetActiveScene().name);
+        }
+    }
 
     void GetMouse()
     {

@@ -9,9 +9,7 @@ public class AllUnits : MonoBehaviour {
     public List<Unit> units;
     //public float bounds;
     public float spawnRadius;
-
     public Transform playerTransform;
-
 
     // Use this for initialization
     void Start () {
@@ -21,9 +19,6 @@ public class AllUnits : MonoBehaviour {
         Spawn(unitPrefab, numberOfUnits);
 
         units.AddRange(FindObjectsOfType<Unit>());
-
-        Physics2D.IgnoreLayerCollision(8, 9, true);
-        Physics2D.IgnoreLayerCollision(9, 9, true);
 
     }
 	
