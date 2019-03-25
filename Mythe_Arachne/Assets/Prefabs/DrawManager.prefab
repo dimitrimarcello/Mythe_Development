@@ -51,10 +51,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c50f1bf0ea0642a4186b005c4f1c00fc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  drawAmount: 3
-  limitSizePerPiece: 1.540176
-  limitPieces: 5
-  offsetMark: 0.25
+  drawAmount: 20
+  limitSizePerPiece: 0.5
+  limitPieces: 12
+  offsetMark: 0
   parentToRope: {fileID: 0}
   convert: {fileID: 0}
   ropeTexture: {fileID: 1358344092312240, guid: 4215f7fcc239feb4280b794b987d1d57,
