@@ -24,28 +24,39 @@ public class Rope : ScriptableObject {
 		foreach (GameObject piece in ropePieces)
 		{
 			if(piece != null)
-				Destroy(piece);
+            {
+                piece.transform.DetachChildren();
+                Destroy(piece);
+            }	
 		}
 	}
 
 	public RopeType GetRopeType(){
 		int anchorAmount = 0;
 		foreach (GameObject piece in ropePieces){
-			RopePiece currentRope = piece.GetComponent<RopePiece>();
-			if(currentRope.isAnchor){
-				anchorAmount++;
-			}
-			else if(piece.GetComponent<HingeJoint2D>().connectedBody == null)
-			{
-				anchorAmount++;
-			}
+            if(piece != null)
+            {
+            RopePiece currentRope = piece.GetComponent<RopePiece>();
+			    if(currentRope.isAnchor){
+				    anchorAmount++;
+			    }
+			    else if(piece.GetComponent<HingeJoint2D>().connectedBody == null)
+			    {
+				    anchorAmount++;
+			    }
+            }
+			
 		}
 		RopeType returnThis = (RopeType)anchorAmount;
 		foreach (GameObject piece in ropePieces)
 		{
-			piece.GetComponent<RopePiece>().thisType = returnThis;
+            if (piece != null)
+            {
+                piece.GetComponent<RopePiece>().thisType = returnThis;
+            }
+			
 		}
-		Debug.Log(returnThis);
+		//Debug.Log(returnThis);
 		return returnThis;
 	}
 

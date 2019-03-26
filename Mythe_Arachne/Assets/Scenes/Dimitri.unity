@@ -1530,6 +1530,26 @@ Prefab:
       propertyPath: webAmounts
       value: 
       objectReference: {fileID: 175303613}
+    - target: {fileID: 114288323618978116, guid: 0de8b64fd04a2c7419458ad97005cc92,
+        type: 2}
+      propertyPath: drawAmount
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 114288323618978116, guid: 0de8b64fd04a2c7419458ad97005cc92,
+        type: 2}
+      propertyPath: limitSizePerPiece
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 114288323618978116, guid: 0de8b64fd04a2c7419458ad97005cc92,
+        type: 2}
+      propertyPath: limitPieces
+      value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: 114288323618978116, guid: 0de8b64fd04a2c7419458ad97005cc92,
+        type: 2}
+      propertyPath: offsetMark
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 0de8b64fd04a2c7419458ad97005cc92, type: 2}
   m_IsPrefabParent: 0

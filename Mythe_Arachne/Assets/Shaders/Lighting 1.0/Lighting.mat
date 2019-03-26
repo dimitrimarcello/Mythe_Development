@@ -60,14 +60,14 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Floats:
     - _BumpScale: 1
-    - _CoreStrenght: 1.64
+    - _CoreStrenght: 4.9
     - _Cutoff: 0.5
     - _DetailNormalMapScale: 1
     - _DstBlend: 0
     - _GlossMapScale: 1
     - _Glossiness: 0.5
     - _GlossyReflections: 1
-    - _LightStrenght: 2.475
+    - _LightStrenght: 1.2179999
     - _Metallic: 0
     - _Mode: 0
     - _OcclusionStrength: 1
@@ -79,7 +79,7 @@ Material:
     - _ZWrite: 1
     m_Colors:
     - _Color: {r: 1, g: 1, b: 1, a: 1}
-    - _DarkMulti: {r: 0.55, g: 0.55, b: 0.55, a: 0.55}
+    - _DarkMulti: {r: 0.42000002, g: 0.42000002, b: 0.42000002, a: 0.42000002}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
-    - _LightSource: {r: 0.49999958, g: 0.49999812, b: 10, a: 0}
+    - _LightSource: {r: 0.8136041, g: 0.2599628, b: 10, a: 0}
     - _LightSourcePos: {r: 0.746396, g: 0.2914828, b: 0.01, a: 0}
