@@ -23,6 +23,7 @@ GameObject:
   - component: {fileID: 23300025833248566}
   - component: {fileID: 50307954580312554}
   - component: {fileID: 233598960555037956}
+  - component: {fileID: 114789300911388798}
   m_Layer: 0
   m_Name: AnchorPoint
   m_TagString: Untagged
@@ -102,6 +103,17 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 7
+--- !u!114 &114789300911388798
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1731069094784122}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 868dc0c03b07f5c4cab20ad27e0f4a4c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!233 &233598960555037956
 HingeJoint2D:
   m_ObjectHideFlags: 1
