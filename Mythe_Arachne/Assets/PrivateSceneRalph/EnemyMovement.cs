@@ -6,8 +6,8 @@ public class EnemyMovement : MonoBehaviour {
 
     public float speed = 1;
 
-    private Vector3 pos_1;
-    private Vector3 pos_2;
+    public Vector3 pos_1;
+    public Vector3 pos_2;
     private bool goingTo_1 = false;
 
     private Transform ts;
@@ -22,13 +22,15 @@ public class EnemyMovement : MonoBehaviour {
         lr.enabled = false;
         
         ts.position = pos_1;
+
     }
-	
-	// Update is called once per frame
-	public void UpdateMovement () {
+
+    // Update is called once per frame
+    public void UpdateMovement () {
         if (goingTo_1) { Move(-1); } else
         if (!goingTo_1) { Move(1); }
-	}
+        if (goingTo_1) { GetComponentInChildren<SpriteRenderer>().flipX = false; } else GetComponentInChildren<SpriteRenderer>().flipX = true;
+    }
 
     public float direction;
     void Move(int _direction)
@@ -41,10 +43,10 @@ public class EnemyMovement : MonoBehaviour {
         else if (ts.position.x >= pos_2.x) { goingTo_1 = true; }
     }
 
-    public bool UnderMe()
+    public bool UnderMe(float range)
     {
         Vector3 pl = GameObject.FindGameObjectWithTag("Player").transform.position;
-        if ( pl.x > pos_1.x && pl.x < pos_2.x && pl.y < ts.position.y)
+        if ( pl.x > pos_1.x && pl.x < pos_2.x && pl.y < ts.position.y && pl.y >= ts.position.y - range)
         {
             return true;
         }
