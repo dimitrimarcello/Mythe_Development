@@ -25,7 +25,7 @@ public class EnemyAttack : MonoBehaviour {
     }
 
     // Update is called once per frame
-    void Update () {
+    public void EnemyUpdate () {
         Collider2D coll = GetComponentInChildren<BoxCollider2D>();
         RaycastHit2D hit = Physics2D.Raycast(transform.position - new Vector3(0, coll.bounds.size.y/2 + 0.05f , 0) , Vector3.down, 0.1f);
         if (hit)

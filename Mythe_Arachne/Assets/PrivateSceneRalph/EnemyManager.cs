@@ -26,6 +26,7 @@ public class EnemyManager : MonoBehaviour {
     void Update () {
         if (!entangled)
         {
+            en_att.EnemyUpdate();
             if (en_mov.UnderMe(en_att.range) && en_att.IsDiving() == false)
             {
                 timer_cur += Time.deltaTime;
