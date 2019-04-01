@@ -68,7 +68,7 @@ public class PlayerMovement : MonoBehaviour, IInteractable
         {
             sides.flipX = true;
         }
-        else
+        else if(movementInput.x > 0)
         {
             sides.flipX = false;
         }
