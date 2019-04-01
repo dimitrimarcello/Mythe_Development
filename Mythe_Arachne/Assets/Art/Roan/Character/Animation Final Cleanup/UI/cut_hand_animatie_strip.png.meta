@@ -1,6 +1,6 @@
 fileFormatVersion: 2
 guid: a461fb1ac4007944ba206fed7d40bcba
-timeCreated: 1554107016
+timeCreated: 1554109838
 licenseType: Pro
 TextureImporter:
   fileIDToRecycleName:
@@ -128,8 +128,8 @@ TextureImporter:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 162
-        height: 126
+        width: 284
+        height: 220
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -140,10 +140,10 @@ TextureImporter:
       name: cut_hand_animatie_strip_1
       rect:
         serializedVersion: 2
-        x: 162
+        x: 284
         y: 0
-        width: 162
-        height: 126
+        width: 284
+        height: 220
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -154,10 +154,10 @@ TextureImporter:
       name: cut_hand_animatie_strip_2
       rect:
         serializedVersion: 2
-        x: 324
+        x: 568
         y: 0
-        width: 162
-        height: 126
+        width: 284
+        height: 220
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -168,10 +168,10 @@ TextureImporter:
       name: cut_hand_animatie_strip_3
       rect:
         serializedVersion: 2
-        x: 486
+        x: 852
         y: 0
-        width: 162
-        height: 126
+        width: 284
+        height: 220
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -182,10 +182,10 @@ TextureImporter:
       name: cut_hand_animatie_strip_4
       rect:
         serializedVersion: 2
-        x: 648
+        x: 1136
         y: 0
-        width: 162
-        height: 126
+        width: 284
+        height: 220
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -196,10 +196,10 @@ TextureImporter:
       name: cut_hand_animatie_strip_5
       rect:
         serializedVersion: 2
-        x: 810
+        x: 1420
         y: 0
-        width: 162
-        height: 126
+        width: 284
+        height: 220
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -210,10 +210,10 @@ TextureImporter:
       name: cut_hand_animatie_strip_6
       rect:
         serializedVersion: 2
-        x: 972
+        x: 1704
         y: 0
-        width: 162
-        height: 126
+        width: 284
+        height: 220
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -224,10 +224,10 @@ TextureImporter:
       name: cut_hand_animatie_strip_7
       rect:
         serializedVersion: 2
-        x: 1134
+        x: 1988
         y: 0
-        width: 162
-        height: 126
+        width: 284
+        height: 220
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -238,10 +238,10 @@ TextureImporter:
       name: cut_hand_animatie_strip_8
       rect:
         serializedVersion: 2
-        x: 1296
+        x: 2272
         y: 0
-        width: 162
-        height: 126
+        width: 284
+        height: 220
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -252,10 +252,10 @@ TextureImporter:
       name: cut_hand_animatie_strip_9
       rect:
         serializedVersion: 2
-        x: 1458
+        x: 2556
         y: 0
-        width: 162
-        height: 126
+        width: 284
+        height: 220
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -266,10 +266,10 @@ TextureImporter:
       name: cut_hand_animatie_strip_10
       rect:
         serializedVersion: 2
-        x: 1620
+        x: 2840
         y: 0
-        width: 162
-        height: 126
+        width: 284
+        height: 220
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -280,10 +280,10 @@ TextureImporter:
       name: cut_hand_animatie_strip_11
       rect:
         serializedVersion: 2
-        x: 1782
+        x: 3124
         y: 0
-        width: 162
-        height: 126
+        width: 284
+        height: 220
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -294,10 +294,10 @@ TextureImporter:
       name: cut_hand_animatie_strip_12
       rect:
         serializedVersion: 2
-        x: 1944
+        x: 3408
         y: 0
-        width: 162
-        height: 126
+        width: 284
+        height: 220
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -308,10 +308,10 @@ TextureImporter:
       name: cut_hand_animatie_strip_13
       rect:
         serializedVersion: 2
-        x: 2106
+        x: 3692
         y: 0
-        width: 162
-        height: 126
+        width: 284
+        height: 220
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -322,10 +322,10 @@ TextureImporter:
       name: cut_hand_animatie_strip_14
       rect:
         serializedVersion: 2
-        x: 2268
+        x: 3976
         y: 0
-        width: 162
-        height: 126
+        width: 284
+        height: 220
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -336,10 +336,10 @@ TextureImporter:
       name: cut_hand_animatie_strip_15
       rect:
         serializedVersion: 2
-        x: 2430
+        x: 4260
         y: 0
-        width: 162
-        height: 126
+        width: 284
+        height: 220
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -350,10 +350,10 @@ TextureImporter:
       name: cut_hand_animatie_strip_16
       rect:
         serializedVersion: 2
-        x: 2592
+        x: 4544
         y: 0
-        width: 162
-        height: 126
+        width: 284
+        height: 220
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -364,10 +364,10 @@ TextureImporter:
       name: cut_hand_animatie_strip_17
       rect:
         serializedVersion: 2
-        x: 2754
+        x: 4828
         y: 0
-        width: 162
-        height: 126
+        width: 284
+        height: 220
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -378,10 +378,10 @@ TextureImporter:
       name: cut_hand_animatie_strip_18
       rect:
         serializedVersion: 2
-        x: 2916
+        x: 5112
         y: 0
-        width: 162
-        height: 126
+        width: 284
+        height: 220
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -392,10 +392,10 @@ TextureImporter:
       name: cut_hand_animatie_strip_19
       rect:
         serializedVersion: 2
-        x: 3078
+        x: 5396
         y: 0
-        width: 162
-        height: 126
+        width: 284
+        height: 220
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -406,10 +406,10 @@ TextureImporter:
       name: cut_hand_animatie_strip_20
       rect:
         serializedVersion: 2
-        x: 3240
+        x: 5680
         y: 0
-        width: 162
-        height: 126
+        width: 284
+        height: 220
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -420,10 +420,10 @@ TextureImporter:
       name: cut_hand_animatie_strip_21
       rect:
         serializedVersion: 2
-        x: 3402
+        x: 5964
         y: 0
-        width: 162
-        height: 126
+        width: 284
+        height: 220
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -434,10 +434,10 @@ TextureImporter:
       name: cut_hand_animatie_strip_22
       rect:
         serializedVersion: 2
-        x: 3564
+        x: 6248
         y: 0
-        width: 162
-        height: 126
+        width: 284
+        height: 220
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -448,10 +448,10 @@ TextureImporter:
       name: cut_hand_animatie_strip_23
       rect:
         serializedVersion: 2
-        x: 3726
+        x: 6532
         y: 0
-        width: 162
-        height: 126
+        width: 284
+        height: 220
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -462,10 +462,10 @@ TextureImporter:
       name: cut_hand_animatie_strip_24
       rect:
         serializedVersion: 2
-        x: 3888
+        x: 6816
         y: 0
-        width: 162
-        height: 126
+        width: 284
+        height: 220
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -476,10 +476,10 @@ TextureImporter:
       name: cut_hand_animatie_strip_25
       rect:
         serializedVersion: 2
-        x: 4050
+        x: 7100
         y: 0
-        width: 162
-        height: 126
+        width: 284
+        height: 220
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -490,10 +490,10 @@ TextureImporter:
       name: cut_hand_animatie_strip_26
       rect:
         serializedVersion: 2
-        x: 4212
+        x: 7384
         y: 0
-        width: 162
-        height: 126
+        width: 284
+        height: 220
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -504,10 +504,10 @@ TextureImporter:
       name: cut_hand_animatie_strip_27
       rect:
         serializedVersion: 2
-        x: 4374
+        x: 7668
         y: 0
-        width: 162
-        height: 126
+        width: 284
+        height: 220
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -518,10 +518,10 @@ TextureImporter:
       name: cut_hand_animatie_strip_28
       rect:
         serializedVersion: 2
-        x: 4536
+        x: 7952
         y: 0
-        width: 162
-        height: 126
+        width: 284
+        height: 220
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -532,10 +532,10 @@ TextureImporter:
       name: cut_hand_animatie_strip_29
       rect:
         serializedVersion: 2
-        x: 4698
+        x: 8236
         y: 0
-        width: 162
-        height: 126
+        width: 284
+        height: 220
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -546,10 +546,10 @@ TextureImporter:
       name: cut_hand_animatie_strip_30
       rect:
         serializedVersion: 2
-        x: 4860
+        x: 8520
         y: 0
-        width: 162
-        height: 126
+        width: 284
+        height: 220
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -560,10 +560,10 @@ TextureImporter:
       name: cut_hand_animatie_strip_31
       rect:
         serializedVersion: 2
-        x: 5022
+        x: 8804
         y: 0
-        width: 162
-        height: 126
+        width: 284
+        height: 220
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -574,10 +574,10 @@ TextureImporter:
       name: cut_hand_animatie_strip_32
       rect:
         serializedVersion: 2
-        x: 5184
+        x: 9088
         y: 0
-        width: 162
-        height: 126
+        width: 284
+        height: 220
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -588,10 +588,10 @@ TextureImporter:
       name: cut_hand_animatie_strip_33
       rect:
         serializedVersion: 2
-        x: 5346
+        x: 9372
         y: 0
-        width: 162
-        height: 126
+        width: 284
+        height: 220
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -602,10 +602,10 @@ TextureImporter:
       name: cut_hand_animatie_strip_34
       rect:
         serializedVersion: 2
-        x: 5508
+        x: 9656
         y: 0
-        width: 162
-        height: 126
+        width: 284
+        height: 220
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -616,10 +616,10 @@ TextureImporter:
       name: cut_hand_animatie_strip_35
       rect:
         serializedVersion: 2
-        x: 5670
+        x: 9940
         y: 0
-        width: 162
-        height: 126
+        width: 284
+        height: 220
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -630,10 +630,10 @@ TextureImporter:
       name: cut_hand_animatie_strip_36
       rect:
         serializedVersion: 2
-        x: 5832
+        x: 10224
         y: 0
-        width: 162
-        height: 126
+        width: 284
+        height: 220
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -644,10 +644,10 @@ TextureImporter:
       name: cut_hand_animatie_strip_37
       rect:
         serializedVersion: 2
-        x: 5994
+        x: 10508
         y: 0
-        width: 162
-        height: 126
+        width: 284
+        height: 220
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -658,10 +658,10 @@ TextureImporter:
       name: cut_hand_animatie_strip_38
       rect:
         serializedVersion: 2
-        x: 6156
+        x: 10792
         y: 0
-        width: 162
-        height: 126
+        width: 284
+        height: 220
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -672,10 +672,10 @@ TextureImporter:
       name: cut_hand_animatie_strip_39
       rect:
         serializedVersion: 2
-        x: 6318
+        x: 11076
         y: 0
-        width: 162
-        height: 126
+        width: 284
+        height: 220
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
