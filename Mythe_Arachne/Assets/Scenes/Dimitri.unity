@@ -625,6 +625,53 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!1001 &469950825
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 4081907418416216, guid: 396f85280d9199340ae4b8719a1b4b00, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: -0.14636515
+      objectReference: {fileID: 0}
+    - target: {fileID: 4081907418416216, guid: 396f85280d9199340ae4b8719a1b4b00, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: -0.48714396
+      objectReference: {fileID: 0}
+    - target: {fileID: 4081907418416216, guid: 396f85280d9199340ae4b8719a1b4b00, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4081907418416216, guid: 396f85280d9199340ae4b8719a1b4b00, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4081907418416216, guid: 396f85280d9199340ae4b8719a1b4b00, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4081907418416216, guid: 396f85280d9199340ae4b8719a1b4b00, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4081907418416216, guid: 396f85280d9199340ae4b8719a1b4b00, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4081907418416216, guid: 396f85280d9199340ae4b8719a1b4b00, type: 2}
+      propertyPath: m_RootOrder
+      value: 13
+      objectReference: {fileID: 0}
+    - target: {fileID: 114917046612633956, guid: 396f85280d9199340ae4b8719a1b4b00,
+        type: 2}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 277590964}
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 100100000, guid: 396f85280d9199340ae4b8719a1b4b00, type: 2}
+  m_IsPrefabParent: 0
 --- !u!198 &476441743 stripped
 ParticleSystem:
   m_PrefabParentObject: {fileID: 198602345248164556, guid: dd584ef8f4d746349832b8fbbf2e112b,
