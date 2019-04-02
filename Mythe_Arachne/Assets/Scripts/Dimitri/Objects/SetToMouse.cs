@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class MouseFolow : MonoBehaviour {
+public class SetToMouse : MonoBehaviour {
 
 	private InteractManager getData;
 	public float zDepth;
@@ -14,8 +14,9 @@ public class MouseFolow : MonoBehaviour {
 
 	void Update()
 	{
-		Vector3 folowPos = getData.currentCamera.ScreenToWorldPoint(Input.mousePosition);
-		folowPos.z = zDepth;
+        Vector3 mousePos = Input.mousePosition;
+        mousePos.z = zDepth;
+		Vector3 folowPos = getData.currentCamera.ScreenToWorldPoint(mousePos);
 		transform.position = folowPos;
 	}
 	
