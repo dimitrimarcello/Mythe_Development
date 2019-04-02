@@ -59,6 +59,7 @@ public class EnemyAttack : MonoBehaviour {
     {
         diving = false;
         anim.SetBool("Dive", false);
+        GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerHealth>().TakeDamage();
     }
 
     private void Detect(Collision2D other)
