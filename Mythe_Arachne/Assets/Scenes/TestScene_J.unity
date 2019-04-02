@@ -543,6 +543,11 @@ Prefab:
       propertyPath: m_Text
       value: OPTIONS
       objectReference: {fileID: 0}
+    - target: {fileID: 114626721117360538, guid: 91868219ed1a3c04f959d357a5d9ec03,
+        type: 2}
+      propertyPath: m_Interactable
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 91868219ed1a3c04f959d357a5d9ec03, type: 2}
   m_IsPrefabParent: 0
@@ -560,7 +565,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &79822183
 RectTransform:
   m_ObjectHideFlags: 0
@@ -3625,6 +3630,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 1
   maxRotation: 22
+  offset: 17
 --- !u!114 &1825831854
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3778,6 +3784,11 @@ Prefab:
         type: 2}
       propertyPath: m_Text
       value: NEW GAME
+      objectReference: {fileID: 0}
+    - target: {fileID: 114626721117360538, guid: 91868219ed1a3c04f959d357a5d9ec03,
+        type: 2}
+      propertyPath: m_Interactable
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 91868219ed1a3c04f959d357a5d9ec03, type: 2}

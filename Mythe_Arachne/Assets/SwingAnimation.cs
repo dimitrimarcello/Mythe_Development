@@ -15,6 +15,9 @@ public class SwingAnimation : MonoBehaviour {
     [SerializeField]
     private float maxRotation;
 
+    [SerializeField]
+    private float offset;
+
 	// Use this for initialization
 	void Start () {
         image = GetComponent<Image>();
@@ -22,7 +25,7 @@ public class SwingAnimation : MonoBehaviour {
 	
 	void FixedUpdate () {
 
-        transform.rotation = Quaternion.Euler(0f, 0f, maxRotation * Mathf.Sin(Time.time * speed));
+        transform.rotation = Quaternion.Euler(0f, 0f, maxRotation * Mathf.Sin(Time.time * speed) + offset);
 
 	}
 }
