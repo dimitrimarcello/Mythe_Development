@@ -31,9 +31,9 @@ public class InteractManager : MonoBehaviour {
 	}
 
 	private IInteractable CheckStraightInput(){
-        Vector3 mouseSet = Input.mousePosition;
-        mouseSet.z = clickDepth;
-		Vector3 mousePos = currentCamera.ScreenToWorldPoint(mouseSet);
+        Vector3 inputPos = Input.mousePosition;
+        inputPos.z = clickDepth;
+		Vector3 mousePos = currentCamera.ScreenToWorldPoint(inputPos);
 		RaycastHit2D ray = Physics2D.Raycast(mousePos, Vector3.forward, 100, checkLayer);
         Debug.DrawRay(mousePos, Vector3.forward, Color.red, 1f);
         if (ray){

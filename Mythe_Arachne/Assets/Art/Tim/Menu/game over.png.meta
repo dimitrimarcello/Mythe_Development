@@ -1,11 +1,16 @@
 fileFormatVersion: 2
 <<<<<<< HEAD
+<<<<<<< HEAD
 guid: a5ddc8a0aeb9058459d6cbb68c3d1036
 timeCreated: 1554106574
 =======
 guid: 60ba5bcdbe64b9749b9291f0809c959b
 timeCreated: 1554110934
 >>>>>>> db51fe4e2538767c16a76a54a29dfa8e80ab5f7d
+=======
+guid: a5ddc8a0aeb9058459d6cbb68c3d1036
+timeCreated: 1554113746
+>>>>>>> checkpointsystem
 licenseType: Pro
 TextureImporter:
   fileIDToRecycleName: {}

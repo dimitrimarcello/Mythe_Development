@@ -17572,6 +17572,23 @@ ParticleSystem:
   m_PrefabParentObject: {fileID: 198602345248164556, guid: dd584ef8f4d746349832b8fbbf2e112b,
     type: 2}
   m_PrefabInternal: {fileID: 2057022549}
+--- !u!1 &2057022551 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1525168120612914, guid: dd584ef8f4d746349832b8fbbf2e112b,
+    type: 2}
+  m_PrefabInternal: {fileID: 2057022549}
+--- !u!114 &2057022552
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2057022551}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c2468805e7a3ae34c841be5594013634, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  zDepth: 0
 --- !u!1 &2096711008
 GameObject:
   m_ObjectHideFlags: 0
