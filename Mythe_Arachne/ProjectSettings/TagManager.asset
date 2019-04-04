@@ -28,14 +28,9 @@ TagManager:
   - Player
   - Projectile
   - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
+  - Projectile
+  - Anchor
+  - VisualQues
   - 
   - 
   - 
