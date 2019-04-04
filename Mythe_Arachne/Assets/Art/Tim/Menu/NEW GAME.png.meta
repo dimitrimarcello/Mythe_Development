@@ -1,15 +1,5 @@
 fileFormatVersion: 2
 guid: ff52caa3b7e3f4e4ba5b70095a8d326b
-<<<<<<< HEAD
-<<<<<<< HEAD
-timeCreated: 1554106577
-=======
-timeCreated: 1554113747
->>>>>>> db51fe4e2538767c16a76a54a29dfa8e80ab5f7d
-=======
-timeCreated: 1554113747
->>>>>>> checkpointsystem
-licenseType: Pro
 TextureImporter:
   fileIDToRecycleName: {}
   serializedVersion: 4
@@ -43,7 +33,7 @@ TextureImporter:
     mipBias: -1
     wrapU: 1
     wrapV: 1
-    wrapW: 1
+    wrapW: -1
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
@@ -64,6 +54,22 @@ TextureImporter:
   textureFormatSet: 0
   platformSettings:
   - buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+  - buildTarget: Standalone
+    maxTextureSize: 2048
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+  - buildTarget: WiiU
     maxTextureSize: 2048
     textureFormat: -1
     textureCompression: 1
