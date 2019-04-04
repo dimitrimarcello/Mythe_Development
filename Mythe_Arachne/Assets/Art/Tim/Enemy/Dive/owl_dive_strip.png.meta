@@ -1,9 +1,33 @@
 fileFormatVersion: 2
 guid: a75ac4ef9ae153c4d9117ce5ceffa55b
-timeCreated: 1553200484
+timeCreated: 1554365917
 licenseType: Pro
 TextureImporter:
-  fileIDToRecycleName: {}
+  fileIDToRecycleName:
+    21300000: owl_dive_strip_0
+    21300002: owl_dive_strip_1
+    21300004: owl_dive_strip_2
+    21300006: owl_dive_strip_3
+    21300008: owl_dive_strip_4
+    21300010: owl_dive_strip_5
+    21300012: owl_dive_strip_6
+    21300014: owl_dive_strip_7
+    21300016: owl_dive_strip_8
+    21300018: owl_dive_strip_9
+    21300020: owl_dive_strip_10
+    21300022: owl_dive_strip_11
+    21300024: owl_dive_strip_12
+    21300026: owl_dive_strip_13
+    21300028: owl_dive_strip_14
+    21300030: owl_dive_strip_15
+    21300032: owl_dive_strip_16
+    21300034: owl_dive_strip_17
+    21300036: owl_dive_strip_18
+    21300038: owl_dive_strip_19
+    21300040: owl_dive_strip_20
+    21300042: owl_dive_strip_21
+    21300044: owl_dive_strip_22
+    21300046: owl_dive_strip_23
   serializedVersion: 4
   mipmaps:
     mipMapMode: 0
@@ -39,7 +63,7 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -63,9 +87,361 @@ TextureImporter:
     crunchedCompression: 0
     allowsAlphaSplitting: 0
     overridden: 0
+  - buildTarget: Standalone
+    maxTextureSize: 2048
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+  - buildTarget: WiiU
+    maxTextureSize: 2048
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
   spriteSheet:
     serializedVersion: 2
-    sprites: []
+    sprites:
+    - serializedVersion: 2
+      name: owl_dive_strip_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 281
+        height: 241
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: owl_dive_strip_1
+      rect:
+        serializedVersion: 2
+        x: 281
+        y: 0
+        width: 281
+        height: 241
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: owl_dive_strip_2
+      rect:
+        serializedVersion: 2
+        x: 562
+        y: 0
+        width: 281
+        height: 241
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: owl_dive_strip_3
+      rect:
+        serializedVersion: 2
+        x: 843
+        y: 0
+        width: 281
+        height: 241
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: owl_dive_strip_4
+      rect:
+        serializedVersion: 2
+        x: 1124
+        y: 0
+        width: 281
+        height: 241
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: owl_dive_strip_5
+      rect:
+        serializedVersion: 2
+        x: 1405
+        y: 0
+        width: 281
+        height: 241
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: owl_dive_strip_6
+      rect:
+        serializedVersion: 2
+        x: 1686
+        y: 0
+        width: 281
+        height: 241
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: owl_dive_strip_7
+      rect:
+        serializedVersion: 2
+        x: 1967
+        y: 0
+        width: 281
+        height: 241
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: owl_dive_strip_8
+      rect:
+        serializedVersion: 2
+        x: 2248
+        y: 0
+        width: 281
+        height: 241
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: owl_dive_strip_9
+      rect:
+        serializedVersion: 2
+        x: 2529
+        y: 0
+        width: 281
+        height: 241
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: owl_dive_strip_10
+      rect:
+        serializedVersion: 2
+        x: 2810
+        y: 0
+        width: 281
+        height: 241
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: owl_dive_strip_11
+      rect:
+        serializedVersion: 2
+        x: 3091
+        y: 0
+        width: 281
+        height: 241
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: owl_dive_strip_12
+      rect:
+        serializedVersion: 2
+        x: 3372
+        y: 0
+        width: 281
+        height: 241
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: owl_dive_strip_13
+      rect:
+        serializedVersion: 2
+        x: 3653
+        y: 0
+        width: 281
+        height: 241
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: owl_dive_strip_14
+      rect:
+        serializedVersion: 2
+        x: 3934
+        y: 0
+        width: 281
+        height: 241
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: owl_dive_strip_15
+      rect:
+        serializedVersion: 2
+        x: 4215
+        y: 0
+        width: 281
+        height: 241
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: owl_dive_strip_16
+      rect:
+        serializedVersion: 2
+        x: 4496
+        y: 0
+        width: 281
+        height: 241
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: owl_dive_strip_17
+      rect:
+        serializedVersion: 2
+        x: 4777
+        y: 0
+        width: 281
+        height: 241
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: owl_dive_strip_18
+      rect:
+        serializedVersion: 2
+        x: 5058
+        y: 0
+        width: 281
+        height: 241
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: owl_dive_strip_19
+      rect:
+        serializedVersion: 2
+        x: 5339
+        y: 0
+        width: 281
+        height: 241
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: owl_dive_strip_20
+      rect:
+        serializedVersion: 2
+        x: 5620
+        y: 0
+        width: 281
+        height: 241
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: owl_dive_strip_21
+      rect:
+        serializedVersion: 2
+        x: 5901
+        y: 0
+        width: 281
+        height: 241
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: owl_dive_strip_22
+      rect:
+        serializedVersion: 2
+        x: 6182
+        y: 0
+        width: 281
+        height: 241
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: owl_dive_strip_23
+      rect:
+        serializedVersion: 2
+        x: 6463
+        y: 0
+        width: 281
+        height: 241
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
     outline: []
     physicsShape: []
   spritePackingTag: 

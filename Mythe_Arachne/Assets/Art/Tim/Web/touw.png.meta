@@ -1,4 +1,5 @@
 fileFormatVersion: 2
+<<<<<<< HEAD
 guid: d91401a4a3ea13248877ce35b9b9dbc9
 timeCreated: 1552645022
 licenseType: Pro
@@ -9,6 +10,13 @@ TextureImporter:
     21300004: touw_2
     21300006: touw_3
     21300008: touw_4
+=======
+guid: 40826fd5ee690664fb92815ed57b64bf
+timeCreated: 1553111827
+licenseType: Pro
+TextureImporter:
+  fileIDToRecycleName: {}
+>>>>>>> b131d153a4fbe0e854e38096d8e361b0321ef250
   serializedVersion: 4
   mipmaps:
     mipMapMode: 0
@@ -44,7 +52,11 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
+<<<<<<< HEAD
   spriteMode: 2
+=======
+  spriteMode: 1
+>>>>>>> b131d153a4fbe0e854e38096d8e361b0321ef250
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -68,6 +80,7 @@ TextureImporter:
     crunchedCompression: 0
     allowsAlphaSplitting: 0
     overridden: 0
+<<<<<<< HEAD
   - buildTarget: Standalone
     maxTextureSize: 2048
     textureFormat: -1
@@ -157,6 +170,11 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: 0
+=======
+  spriteSheet:
+    serializedVersion: 2
+    sprites: []
+>>>>>>> b131d153a4fbe0e854e38096d8e361b0321ef250
     outline: []
     physicsShape: []
   spritePackingTag: 

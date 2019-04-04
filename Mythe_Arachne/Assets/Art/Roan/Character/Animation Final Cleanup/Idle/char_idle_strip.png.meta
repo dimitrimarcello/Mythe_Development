@@ -1,6 +1,6 @@
 fileFormatVersion: 2
 guid: 0d257116551c9274fa03ffcf52475143
-timeCreated: 1553200882
+timeCreated: 1554365787
 licenseType: Pro
 TextureImporter:
   fileIDToRecycleName:
@@ -39,7 +39,7 @@ TextureImporter:
     mipBias: -1
     wrapU: 1
     wrapV: 1
-    wrapW: 1
+    wrapW: -1
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
@@ -92,7 +92,7 @@ TextureImporter:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 114
+        width: 116
         height: 252
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -104,9 +104,9 @@ TextureImporter:
       name: char_idle_strip_1
       rect:
         serializedVersion: 2
-        x: 114
+        x: 116
         y: 0
-        width: 117
+        width: 116
         height: 252
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -118,10 +118,10 @@ TextureImporter:
       name: char_idle_strip_2
       rect:
         serializedVersion: 2
-        x: 231
+        x: 232
         y: 0
-        width: 118
-        height: 251
+        width: 116
+        height: 252
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -132,9 +132,9 @@ TextureImporter:
       name: char_idle_strip_3
       rect:
         serializedVersion: 2
-        x: 349
+        x: 348
         y: 0
-        width: 115
+        width: 116
         height: 252
       alignment: 0
       pivot: {x: 0, y: 0}
