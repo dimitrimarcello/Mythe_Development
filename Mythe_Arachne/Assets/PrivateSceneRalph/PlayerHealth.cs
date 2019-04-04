@@ -9,8 +9,7 @@ public class PlayerHealth : MonoBehaviour {
     public static event _PlayerHealth Death;
 
     public Slider slider;
-
-    private int health = 3;
+    public int health = 3;
     private float timer;
 
     private void FixedUpdate()
@@ -18,14 +17,21 @@ public class PlayerHealth : MonoBehaviour {
         if (timer > 0) { timer -= Time.deltaTime; }
     }
 
-    public void TakeDamage()
+    public void TakeDamage(int damage = 1)
     {
         if (timer <= 0)
         {
-            health--;
+        CheckHealth(); 
+            health -= damage;
             slider.value = health;
             timer += 1;
         }
+    }
+
+    public void Heal(int healing = 2)
+    {
+        health += healing;
+        slider.value = health;
     }
 
     private void CheckHealth()

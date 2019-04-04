@@ -14,6 +14,8 @@ public class CheckPointManager : MonoBehaviour {
 
     private void Start()
     {
+        PlayerHealth subscribe = GameObject.FindObjectOfType<PlayerHealth>();
+        PlayerHealth.Death += Respawn;
         Checkpoint[] currents = GameObject.FindObjectsOfType<Checkpoint>();
         foreach(Checkpoint current in currents)
         {
@@ -39,6 +41,12 @@ public class CheckPointManager : MonoBehaviour {
                 }
             }
         }
+    }
+
+    private void Respawn()
+    {
+        player.transform.position = lastCheckpoint.checkPointPos;
+        player.gameObject.GetComponent<PlayerHealth>().Heal();
     }
 
 }
