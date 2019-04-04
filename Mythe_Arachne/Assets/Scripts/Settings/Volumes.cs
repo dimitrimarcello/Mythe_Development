@@ -1,5 +1,4 @@
-﻿
-public class Volumes {
+﻿public class Volumes {
 
     public Volumes()
     {

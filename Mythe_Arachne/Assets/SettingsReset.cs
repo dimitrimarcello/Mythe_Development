@@ -1,5 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -9,17 +8,22 @@ public class SettingsReset : MonoBehaviour {
     private List<Slider> volumeSliders;
 
     [SerializeField]
+    private Slider brightnessSlider;
+
+    [SerializeField]
     private SettingsMenu settingsPanel;
 
     void Start()
     {
+        settingsPanel.RestoreBrightnessSettings();
+        settingsPanel.RestoreVolumeSettings();
 
-        settingsPanel.RestoreSettings();
-
-        ResetSliders();
+        ResetVolumeSliders();
+        ResetBrightnessSlider();
     }
 
-    public void ResetSliders()
+    // Resets volume sliders
+    public void ResetVolumeSliders()
     {
         foreach (Slider slider in volumeSliders)
         {
@@ -38,8 +42,13 @@ public class SettingsReset : MonoBehaviour {
                     slider.value = value;
                 }
             });
-
         }
+    }
+
+    // Resets BrightnessSlider
+    public void ResetBrightnessSlider()
+    {
+        brightnessSlider.value = settingsPanel.GetBrightness();
     }
 
 

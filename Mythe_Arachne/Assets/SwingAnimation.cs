@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.UI;
 
 public class SwingAnimation : MonoBehaviour {
@@ -25,6 +23,7 @@ public class SwingAnimation : MonoBehaviour {
 	
 	void FixedUpdate () {
 
+        // Creates the swing animation in the menu's
         transform.rotation = Quaternion.Euler(0f, 0f, maxRotation * Mathf.Sin(Time.time * speed) + offset);
 
 	}

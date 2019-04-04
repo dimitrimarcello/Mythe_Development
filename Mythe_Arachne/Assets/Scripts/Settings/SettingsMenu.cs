@@ -1,9 +1,6 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.Audio;
 using UnityEngine.UI;
-using UnityEngine.EventSystems;
 using System;
 using System.Reflection;
 
@@ -34,23 +31,9 @@ public class SettingsMenu : MonoBehaviour {
 
     private bool changed;
 
-    //TODO Make slider mute when he is under certain value, so sound is better scaled.
+    private float brightness;
 
 
-
-    /*
-
-    [SerializeField]
-    private Dropdown resolutionDropdown;
-
-    private Resolution[] resolutions;
-
-    */
-
-    void OnEnable()
-    {
-
-    }
     void Awake()
     {
         volumes = new Volumes();
@@ -59,39 +42,25 @@ public class SettingsMenu : MonoBehaviour {
     void Start()
     {
         gameObject.SetActive(false);
-        saveButton.interactable = false;
-
-        /*
-        resolutions = Screen.resolutions;
-
-        resolutionDropdown.ClearOptions();
-
-        List<string> options = new List<string>();
-
-        int currentResolutionIdex = 0;
-        for (int i = 0; i < resolutions.Length; i++)
-        {
-            string option = resolutions[i].width + " x " + resolutions[i].height;
-            options.Add(option);
-
-            if (resolutions[i].width == Screen.currentResolution.width &&
-                resolutions[i].height == Screen.currentResolution.height)
-            {
-                currentResolutionIdex = i;
-            }
-        }
-
-        resolutionDropdown.AddOptions(options);
-        resolutionDropdown.value = currentResolutionIdex;
-        resolutionDropdown.RefreshShownValue();
-
-    */
-        
+        saveButton.interactable = false;        
     }
 
     public Volumes GetVolumes()
     {
         return volumes;
+    }
+
+    public float GetBrightness()
+    {
+        return brightness;
+    }
+
+    public void SetBrightness(float _brightness)
+    {
+        if (!mainPanel.activeSelf)
+            SetChanged(true);
+
+        brightness = _brightness;
     }
 
     public void SetMasterVolume(float volume)
@@ -109,8 +78,10 @@ public class SettingsMenu : MonoBehaviour {
         SetVolume("music", volume);
     }
 
+    // Caches slider value's to Volume class
     void SetVolume(string name, float volume)
     {
+        if (!mainPanel.activeSelf)
         SetChanged(true);
 
         if (volume <= -35)
@@ -132,6 +103,7 @@ public class SettingsMenu : MonoBehaviour {
 
     }
 
+    // Changes 'changed' state and updates save button's interactability
     void SetChanged(bool _changed)
     {
         changed = _changed;
@@ -139,13 +111,16 @@ public class SettingsMenu : MonoBehaviour {
         saveButton.interactable = changed;
     }
 
+    // Saves all changes
     public void OnSave()
     {
         if (volumes == null) return;
         if (!changed) return;
 
         SetChanged(false);
+        
 
+        // Saves all volume settings
         DoVolumeReflection(field =>
         {
             float value = (float)field.GetValue(volumes);
@@ -154,26 +129,38 @@ public class SettingsMenu : MonoBehaviour {
             {
                 PlayerPrefs.SetFloat("settings_" + field.Name, value);
                 audioMixer.SetFloat(field.Name, value);
-
-                Debug.Log("Saved");
             }
         });
 
-
+        // Saves all brightness settings
+        PlayerPrefs.SetFloat("settings_brightness", brightness);
 
         PlayerPrefs.Save();
 
 
     }
 
+    // When exit button is pressed. Goes to main menu and resets all changes that wheren't saved
     public void ExitSettings()
     {
         if (changed)
         {
 
-            // Show "Are u sure u want to exit without saving?"
+            //TODO Show "Are u sure u want to exit without saving?"
+
+            if (PlayerPrefs.HasKey("settings_brightness"))
+            {
+                brightness = PlayerPrefs.GetFloat("settings_brightness");
+            } else
+            {
+                brightness = 1f;
+            }
+
+            settingsReset.ResetBrightnessSlider();
 
             ResetVolumes();
+
+            SetChanged(false);
             //return;
         }
 
@@ -184,6 +171,7 @@ public class SettingsMenu : MonoBehaviour {
         gameObject.SetActive(false);
     }
 
+    // Resets all volume sliders to PlayPrefs's values
     private void ResetVolumes()
     {
         DoVolumeReflection(field =>
@@ -200,9 +188,10 @@ public class SettingsMenu : MonoBehaviour {
             }
         });
 
-        settingsReset.ResetSliders();
+        settingsReset.ResetVolumeSliders();
     }
 
+    // Reads all fields in 'Volume' class using reflection. And sends action for each field.
     public void DoVolumeReflection(Action<FieldInfo> action)
     {
         Type type = volumes.GetType();
@@ -222,7 +211,8 @@ public class SettingsMenu : MonoBehaviour {
         }
     }
 
-    public void RestoreSettings()
+    // Restores volume settings, is called on start
+    public void RestoreVolumeSettings()
     {
 
         DoVolumeReflection(field =>
@@ -237,6 +227,18 @@ public class SettingsMenu : MonoBehaviour {
         });
 
 
+    }
+
+    // Restores volume settings, is called on start
+    public void RestoreBrightnessSettings()
+    {
+        string name = "settings_brightness";
+
+        if (!PlayerPrefs.HasKey(name)) return;
+
+        float value = PlayerPrefs.GetFloat(name);
+
+        brightness = value;
     }
 
 }

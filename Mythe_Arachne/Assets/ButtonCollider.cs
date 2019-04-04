@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections;
-using System.Collections.Generic;
-using System.Reflection;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.UI;
 
 public class ButtonCollider : MonoBehaviour {
@@ -24,22 +20,20 @@ public class ButtonCollider : MonoBehaviour {
 
         image.color = color;
 
+        // Makes text of button gray when it is not interactable
         if (!button.interactable)
         text.color = Color.gray;
 
     }
 
-    void Start()
-    {
-
-    }
-
+    // Makes text of button white when button is released
     public void OnPointerUp()
     {
         if (!button.interactable) return;
         text.color = Color.white;
     }
 
+    // Makes text of button yellow when button is pressed
     public void OnPointerDown()
     {
         if (!button.interactable) return;

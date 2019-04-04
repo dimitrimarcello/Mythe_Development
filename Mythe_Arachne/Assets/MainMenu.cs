@@ -1,6 +1,4 @@
 ﻿using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class MainMenu : MonoBehaviour {
@@ -19,6 +17,7 @@ public class MainMenu : MonoBehaviour {
 
     public Action continueGameAction;
 
+    // Opens Settings Panel
     public void OpenSettings()
     {
         swingObject.transform.SetParent(swingHolder.transform);
@@ -27,13 +26,18 @@ public class MainMenu : MonoBehaviour {
         gameObject.SetActive(false);
     }
 
+    // Calls newGameAction delegate
     public void NewGame()
     {
+        if (newGameAction == null) return;
         newGameAction();
     }
 
+    // Calls continueGameAction delegate
     public void ContinueGame()
     {
+        if (continueGameAction == null) return;
+
         continueGameAction();
     }
 
