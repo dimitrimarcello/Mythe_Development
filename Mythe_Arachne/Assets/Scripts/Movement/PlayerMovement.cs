@@ -17,6 +17,7 @@ public class PlayerMovement : MonoBehaviour, IInteractable
     Rigidbody2D rb;
     Collider2D col;
     RaycastHit2D sideL, sideR, lastUsed;
+    SpriteRenderer sides;
     public LayerMask layerMask, swingMask; //Give values with what the raycasts can interract(in this case excluding player layer)
 
     public bool Grounded { get; private set; }
@@ -28,6 +29,7 @@ public class PlayerMovement : MonoBehaviour, IInteractable
         rb = GetComponent<Rigidbody2D>();
         col = GetComponent<Collider2D>();
         playerInput = GetComponent<PlayerInput>();
+        sides = GetComponent<SpriteRenderer>();
         rb.constraints = RigidbodyConstraints2D.FreezeRotation;
     }
 
@@ -60,6 +62,15 @@ public class PlayerMovement : MonoBehaviour, IInteractable
         {
             rb.velocity = new Vector2(0, rb.velocity.y);
             transform.Translate(new Vector3(movementInput.x * speed, 0, 0));
+        }
+
+        if(movementInput.x < 0)
+        {
+            sides.flipX = true;
+        }
+        else if(movementInput.x > 0)
+        {
+            sides.flipX = false;
         }
 
         if (playerInput.ZLZR == true)

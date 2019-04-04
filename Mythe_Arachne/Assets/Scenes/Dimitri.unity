@@ -625,6 +625,53 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!1001 &469950825
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 4081907418416216, guid: 396f85280d9199340ae4b8719a1b4b00, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: -0.14636515
+      objectReference: {fileID: 0}
+    - target: {fileID: 4081907418416216, guid: 396f85280d9199340ae4b8719a1b4b00, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: -0.48714396
+      objectReference: {fileID: 0}
+    - target: {fileID: 4081907418416216, guid: 396f85280d9199340ae4b8719a1b4b00, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4081907418416216, guid: 396f85280d9199340ae4b8719a1b4b00, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4081907418416216, guid: 396f85280d9199340ae4b8719a1b4b00, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4081907418416216, guid: 396f85280d9199340ae4b8719a1b4b00, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4081907418416216, guid: 396f85280d9199340ae4b8719a1b4b00, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4081907418416216, guid: 396f85280d9199340ae4b8719a1b4b00, type: 2}
+      propertyPath: m_RootOrder
+      value: 13
+      objectReference: {fileID: 0}
+    - target: {fileID: 114917046612633956, guid: 396f85280d9199340ae4b8719a1b4b00,
+        type: 2}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 277590964}
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 100100000, guid: 396f85280d9199340ae4b8719a1b4b00, type: 2}
+  m_IsPrefabParent: 0
 --- !u!198 &476441743 stripped
 ParticleSystem:
   m_PrefabParentObject: {fileID: 198602345248164556, guid: dd584ef8f4d746349832b8fbbf2e112b,
@@ -1418,6 +1465,98 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1001 &1323244434
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 4066352466048940, guid: 06be6ca73aa4271429524c14ee1e9d2d, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: 2.66
+      objectReference: {fileID: 0}
+    - target: {fileID: 4066352466048940, guid: 06be6ca73aa4271429524c14ee1e9d2d, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 2.97
+      objectReference: {fileID: 0}
+    - target: {fileID: 4066352466048940, guid: 06be6ca73aa4271429524c14ee1e9d2d, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4066352466048940, guid: 06be6ca73aa4271429524c14ee1e9d2d, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4066352466048940, guid: 06be6ca73aa4271429524c14ee1e9d2d, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4066352466048940, guid: 06be6ca73aa4271429524c14ee1e9d2d, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4066352466048940, guid: 06be6ca73aa4271429524c14ee1e9d2d, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4066352466048940, guid: 06be6ca73aa4271429524c14ee1e9d2d, type: 2}
+      propertyPath: m_RootOrder
+      value: 13
+      objectReference: {fileID: 0}
+    - target: {fileID: 198031706943812094, guid: 06be6ca73aa4271429524c14ee1e9d2d,
+        type: 2}
+      propertyPath: RotationBySpeedModule.enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 198031706943812094, guid: 06be6ca73aa4271429524c14ee1e9d2d,
+        type: 2}
+      propertyPath: randomSeed
+      value: 17928637
+      objectReference: {fileID: 0}
+    - target: {fileID: 198031706943812094, guid: 06be6ca73aa4271429524c14ee1e9d2d,
+        type: 2}
+      propertyPath: RotationBySpeedModule.curve.scalar
+      value: 0.29234263
+      objectReference: {fileID: 0}
+    - target: {fileID: 198031706943812094, guid: 06be6ca73aa4271429524c14ee1e9d2d,
+        type: 2}
+      propertyPath: RotationModule.enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 198031706943812094, guid: 06be6ca73aa4271429524c14ee1e9d2d,
+        type: 2}
+      propertyPath: RotationModule.x.minMaxState
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 198031706943812094, guid: 06be6ca73aa4271429524c14ee1e9d2d,
+        type: 2}
+      propertyPath: RotationModule.y.minMaxState
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 198031706943812094, guid: 06be6ca73aa4271429524c14ee1e9d2d,
+        type: 2}
+      propertyPath: RotationModule.curve.minMaxState
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 198031706943812094, guid: 06be6ca73aa4271429524c14ee1e9d2d,
+        type: 2}
+      propertyPath: RotationModule.curve.scalar
+      value: -0.7853981
+      objectReference: {fileID: 0}
+    - target: {fileID: 198031706943812094, guid: 06be6ca73aa4271429524c14ee1e9d2d,
+        type: 2}
+      propertyPath: InitialModule.maxNumParticles
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 198031706943812094, guid: 06be6ca73aa4271429524c14ee1e9d2d,
+        type: 2}
+      propertyPath: UVModule.animationType
+      value: 1
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 100100000, guid: 06be6ca73aa4271429524c14ee1e9d2d, type: 2}
+  m_IsPrefabParent: 0
 --- !u!1 &1347779270
 GameObject:
   m_ObjectHideFlags: 0
