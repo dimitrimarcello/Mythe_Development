@@ -1418,6 +1418,98 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1001 &1323244434
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 4066352466048940, guid: 06be6ca73aa4271429524c14ee1e9d2d, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: 2.66
+      objectReference: {fileID: 0}
+    - target: {fileID: 4066352466048940, guid: 06be6ca73aa4271429524c14ee1e9d2d, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 2.97
+      objectReference: {fileID: 0}
+    - target: {fileID: 4066352466048940, guid: 06be6ca73aa4271429524c14ee1e9d2d, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4066352466048940, guid: 06be6ca73aa4271429524c14ee1e9d2d, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4066352466048940, guid: 06be6ca73aa4271429524c14ee1e9d2d, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4066352466048940, guid: 06be6ca73aa4271429524c14ee1e9d2d, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4066352466048940, guid: 06be6ca73aa4271429524c14ee1e9d2d, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4066352466048940, guid: 06be6ca73aa4271429524c14ee1e9d2d, type: 2}
+      propertyPath: m_RootOrder
+      value: 13
+      objectReference: {fileID: 0}
+    - target: {fileID: 198031706943812094, guid: 06be6ca73aa4271429524c14ee1e9d2d,
+        type: 2}
+      propertyPath: RotationBySpeedModule.enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 198031706943812094, guid: 06be6ca73aa4271429524c14ee1e9d2d,
+        type: 2}
+      propertyPath: randomSeed
+      value: 17928637
+      objectReference: {fileID: 0}
+    - target: {fileID: 198031706943812094, guid: 06be6ca73aa4271429524c14ee1e9d2d,
+        type: 2}
+      propertyPath: RotationBySpeedModule.curve.scalar
+      value: 0.29234263
+      objectReference: {fileID: 0}
+    - target: {fileID: 198031706943812094, guid: 06be6ca73aa4271429524c14ee1e9d2d,
+        type: 2}
+      propertyPath: RotationModule.enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 198031706943812094, guid: 06be6ca73aa4271429524c14ee1e9d2d,
+        type: 2}
+      propertyPath: RotationModule.x.minMaxState
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 198031706943812094, guid: 06be6ca73aa4271429524c14ee1e9d2d,
+        type: 2}
+      propertyPath: RotationModule.y.minMaxState
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 198031706943812094, guid: 06be6ca73aa4271429524c14ee1e9d2d,
+        type: 2}
+      propertyPath: RotationModule.curve.minMaxState
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 198031706943812094, guid: 06be6ca73aa4271429524c14ee1e9d2d,
+        type: 2}
+      propertyPath: RotationModule.curve.scalar
+      value: -0.7853981
+      objectReference: {fileID: 0}
+    - target: {fileID: 198031706943812094, guid: 06be6ca73aa4271429524c14ee1e9d2d,
+        type: 2}
+      propertyPath: InitialModule.maxNumParticles
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 198031706943812094, guid: 06be6ca73aa4271429524c14ee1e9d2d,
+        type: 2}
+      propertyPath: UVModule.animationType
+      value: 1
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 100100000, guid: 06be6ca73aa4271429524c14ee1e9d2d, type: 2}
+  m_IsPrefabParent: 0
 --- !u!1 &1347779270
 GameObject:
   m_ObjectHideFlags: 0
