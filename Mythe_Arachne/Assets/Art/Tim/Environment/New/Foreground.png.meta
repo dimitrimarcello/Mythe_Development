@@ -1,14 +1,11 @@
 fileFormatVersion: 2
-<<<<<<< HEAD
-guid: 2d8341a60cafd2b428a7aadfc041d8c4
-timeCreated: 1554106571
-=======
-guid: 4fecb2b2028b6af46b722dbbcdf728db
-timeCreated: 1553856793
->>>>>>> db51fe4e2538767c16a76a54a29dfa8e80ab5f7d
+guid: 68931beb9ebd4c746a00640f61a9cda4
+timeCreated: 1554360833
 licenseType: Pro
 TextureImporter:
-  fileIDToRecycleName: {}
+  fileIDToRecycleName:
+    21300000: Foreground_0
+    21300002: Foreground_1
   serializedVersion: 4
   mipmaps:
     mipMapMode: 0
@@ -44,7 +41,7 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -68,9 +65,53 @@ TextureImporter:
     crunchedCompression: 0
     allowsAlphaSplitting: 0
     overridden: 0
+  - buildTarget: Standalone
+    maxTextureSize: 2048
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+  - buildTarget: WiiU
+    maxTextureSize: 2048
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
   spriteSheet:
     serializedVersion: 2
-    sprites: []
+    sprites:
+    - serializedVersion: 2
+      name: Foreground_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 899
+        width: 4032
+        height: 199
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Foreground_1
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 4032
+        height: 598
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
     outline: []
     physicsShape: []
   spritePackingTag: 
