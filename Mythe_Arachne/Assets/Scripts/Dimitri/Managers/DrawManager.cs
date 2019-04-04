@@ -70,9 +70,11 @@ public class DrawManager : MonoBehaviour
 
     private void StartDrawing()
     {
-        Vector3 mousePosition = convert.ScreenToWorldPoint(Input.mousePosition);
+        Vector3 mouseSet = Input.mousePosition;
+        mouseSet.z = zAxis;
+        Vector3 mousePosition = convert.ScreenToWorldPoint(mouseSet);
+        Debug.Log(mousePosition);
         mouseStart = mousePosition;
-        mousePosition.z = zAxis;
         drawnObjects.Insert(0, new Rope());
         drawnObjects[0].ropePieces.Insert(0, Instantiate(ropeTexture, mousePosition, transform.rotation, parentToRope));
     }
@@ -81,8 +83,9 @@ public class DrawManager : MonoBehaviour
     {
         //This is the obect rotation
 
-        Vector3 mousePosition = convert.ScreenToWorldPoint(Input.mousePosition);
-        mousePosition.z = zAxis;
+        Vector3 mouseSet = Input.mousePosition;
+        mouseSet.z = zAxis;
+        Vector3 mousePosition = convert.ScreenToWorldPoint(mouseSet);
         Vector2 dot = mousePosition - drawnObjects[0].ropePieces[0].transform.position;
         float angle = -Mathf.Atan2(dot.x, dot.y) * Mathf.Rad2Deg;// Radials to degrees
         drawnObjects[0].ropePieces[0].transform.eulerAngles = new Vector3(0, 0, angle);// Set the angle that was converted to degrees as Z axis
@@ -100,7 +103,7 @@ public class DrawManager : MonoBehaviour
             Vector3 dir = mousePosition - drawnObjects[0].ropePieces[0].transform.position;
             Ray2D cast = new Ray2D(drawnObjects[0].ropePieces[0].transform.position, dir);
             Vector3 spawnPos = cast.GetPoint(drawnObjects[0].ropePieces[0].GetComponent<SpriteRenderer>().size.y - offsetMark);
-            spawnPos.z = zAxis;
+            spawnPos.z = 0;
             drawnObjects[0].ropePieces.Insert(0, Instantiate(ropeTexture, spawnPos, transform.rotation, parentToRope));
             drawnObjects[0].ropePieces[0].GetComponent<HingeJoint2D>().connectedBody = drawnObjects[0].ropePieces[1].GetComponent<Rigidbody2D>();
         }
