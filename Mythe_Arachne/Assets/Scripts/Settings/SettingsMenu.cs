@@ -10,7 +10,13 @@ using System.Reflection;
 public class SettingsMenu : MonoBehaviour {
 
     [SerializeField]
-    private GameObject firstObject;
+    private GameObject mainPanel;
+
+    [SerializeField]
+    private GameObject swingHolder;
+
+    [SerializeField]
+    private GameObject swingObject;
 
     [SerializeField]
     private AudioMixer audioMixer;
@@ -24,12 +30,13 @@ public class SettingsMenu : MonoBehaviour {
     private Button exitButton;
 
     [SerializeField]
-    private GameObject panel;
-
-    [SerializeField]
-    private EventSystem eventSystem;
+    private SettingsReset settingsReset;
 
     private bool changed;
+
+    //TODO Make slider mute when he is under certain value, so sound is better scaled.
+
+
 
     /*
 
@@ -44,9 +51,14 @@ public class SettingsMenu : MonoBehaviour {
     {
 
     }
+    void Awake()
+    {
+        volumes = new Volumes();
+    }
+
     void Start()
     {
-        eventSystem.SetSelectedGameObject(firstObject);
+        gameObject.SetActive(false);
         saveButton.interactable = false;
 
         /*
@@ -77,6 +89,11 @@ public class SettingsMenu : MonoBehaviour {
         
     }
 
+    public Volumes GetVolumes()
+    {
+        return volumes;
+    }
+
     public void SetMasterVolume(float volume)
     {
         SetVolume("master", volume);
@@ -94,8 +111,14 @@ public class SettingsMenu : MonoBehaviour {
 
     void SetVolume(string name, float volume)
     {
-        if (volumes == null) volumes = new Volumes();
         SetChanged(true);
+
+        if (volume <= -35)
+        {
+            volume = -80;
+        }
+
+        audioMixer.SetFloat(name, volume);
 
         DoVolumeReflection(field =>
         {
@@ -129,32 +152,58 @@ public class SettingsMenu : MonoBehaviour {
 
             if (value >= -80)
             {
+                PlayerPrefs.SetFloat("settings_" + field.Name, value);
                 audioMixer.SetFloat(field.Name, value);
+
+                Debug.Log("Saved");
             }
         });
 
 
-        eventSystem.SetSelectedGameObject(exitButton.gameObject);
+
+        PlayerPrefs.Save();
 
 
     }
-    
-    public void OnExit()
+
+    public void ExitSettings()
     {
         if (changed)
         {
 
             // Show "Are u sure u want to exit without saving?"
 
-            return;
+            ResetVolumes();
+            //return;
         }
 
-        volumes = null;
 
-        panel.SetActive(false);
+        swingObject.transform.SetParent(swingHolder.transform);
+
+        mainPanel.SetActive(true);
+        gameObject.SetActive(false);
     }
 
-    private void DoVolumeReflection(Action<FieldInfo> action)
+    private void ResetVolumes()
+    {
+        DoVolumeReflection(field =>
+        {
+            string prefName = "settings_" + field.Name;
+            if (PlayerPrefs.HasKey(prefName))
+            {
+                float value = PlayerPrefs.GetFloat(prefName);
+                audioMixer.SetFloat(field.Name, value);
+
+                field.SetValue(volumes, value);
+
+
+            }
+        });
+
+        settingsReset.ResetSliders();
+    }
+
+    public void DoVolumeReflection(Action<FieldInfo> action)
     {
         Type type = volumes.GetType();
 
@@ -169,8 +218,25 @@ public class SettingsMenu : MonoBehaviour {
             }
 
 
-            type = type.BaseType;
+            type = type.BaseType;    
         }
+    }
+
+    public void RestoreSettings()
+    {
+
+        DoVolumeReflection(field =>
+        {
+            string name = "settings_" + field.Name;
+            if (PlayerPrefs.HasKey(name))
+            {
+                float value = PlayerPrefs.GetFloat(name);
+                field.SetValue(volumes, value);
+                audioMixer.SetFloat(field.Name, value);
+            }
+        });
+
+
     }
 
 }
