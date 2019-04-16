@@ -5,6 +5,7 @@ using UnityEngine;
 
 public class CheckPointManager : MonoBehaviour {
 
+
     public List<Checkpoint> checkPoints = new List<Checkpoint>();
     [SerializeField]
     private float closingDistance = 3;
