@@ -21,6 +21,7 @@ public class PlayerMovement : MonoBehaviour
     public LayerMask layerMask, swingMask; //Give values with what the raycasts can interract(in this case excluding player layer)
 
     public bool Grounded { get; private set; }
+    [SerializeField] bool Swing;
 
     [ExecuteInEditMode]
     //Get all the required components, and lock the rigidbody's rotations
@@ -43,17 +44,6 @@ public class PlayerMovement : MonoBehaviour
     //Movement Script with inputs and joysticks, depending on colliders
     void Move()
     {
-        if (!col.enabled)
-        {
-            try
-            {
-                transform.position = lastUsed.transform.position;
-            }
-            catch
-            {
-                StopHanging();
-            }
-        }
 
         Vector2 movementInput = playerInput.JoystickMove;
 
@@ -72,18 +62,33 @@ public class PlayerMovement : MonoBehaviour
             sides.flipX = false;
         }
 
-        if (playerInput.ZLZR == true)
-        {
-            StopHanging();
-        }
 
-        if (sideL.collider != null && sideL.collider.GetComponent<RopePiece>().thisType == RopeType.Climb)
+        if (Swing)
         {
-            RopeAction(sideL);
-        }
-        if (sideR.collider != null && sideR.collider.GetComponent<RopePiece>().thisType == RopeType.Climb)
-        {
-            RopeAction(sideR);
+            if (!col.enabled)
+            {
+                try
+                {
+                    transform.position = lastUsed.transform.position;
+                }
+                catch
+                {
+                    StopHanging();
+                }
+            }
+            if (playerInput.ZLZR == true)
+            {
+                StopHanging();
+            }
+
+            if (sideL.collider != null && sideL.collider.GetComponent<RopePiece>().thisType == RopeType.Climb)
+            {
+                RopeAction(sideL);
+            }
+            if (sideR.collider != null && sideR.collider.GetComponent<RopePiece>().thisType == RopeType.Climb)
+            {
+                RopeAction(sideR);
+            }
         }
     }
 
