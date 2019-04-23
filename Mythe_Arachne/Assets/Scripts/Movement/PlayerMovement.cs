@@ -10,7 +10,7 @@ using UnityEngine;
 
 [RequireComponent(typeof(Rigidbody2D))]
 [RequireComponent(typeof(PlayerInput))]
-public class PlayerMovement : MonoBehaviour, IInteractable
+public class PlayerMovement : MonoBehaviour
 {
     [SerializeField] [Range(0, 2)] float speed = 1f, /*ForceJump = 5f,*/ castLenght = 1.4f;
     PlayerInput playerInput;
@@ -38,7 +38,6 @@ public class PlayerMovement : MonoBehaviour, IInteractable
     {
         Move();
         CheckCasts();
-        //Jump(); //Jump has been disabled but has been asked to stay in here for whatever reason, sorry!
     }
 
     //Movement Script with inputs and joysticks, depending on colliders
@@ -108,8 +107,6 @@ public class PlayerMovement : MonoBehaviour, IInteractable
         col.enabled = true;
         transform.rotation = Quaternion.Euler(0, 0, 0);
         rb.isKinematic = false;
-        //rb.constraints = RigidbodyConstraints2D.None;
-        //rb.constraints = RigidbodyConstraints2D.FreezeRotation;
         gameObject.transform.parent = null;
         StartCoroutine(toggleColliderBack());
     }
@@ -128,18 +125,6 @@ public class PlayerMovement : MonoBehaviour, IInteractable
 
     }
 
-
-    /* 
-    //Jump Function     
-	void Jump () {
-        if (playerInput.AB && !Jumping)
-        {
-            Jumping = true;
-            rb.AddForce((Vector2.up * (ForceJump * 5000)) * Time.deltaTime);
-        }
-	}
-    */
-
     //Check all the raycasts
     void CheckCasts()
     {
@@ -147,7 +132,6 @@ public class PlayerMovement : MonoBehaviour, IInteractable
         RaycastHit2D downWard = Physics2D.Raycast(transform.position, Vector2.down, castLenght, layerMask);
         if (downWard.collider != null)
         {
-            //transform.rotation = Quaternion.Euler(0, downWard.collider.transform.rotation.y + 90, 0);
             Grounded = true;
         }
         else
@@ -155,45 +139,15 @@ public class PlayerMovement : MonoBehaviour, IInteractable
             Grounded = false;
         }
 
-
-        //See where colliders are at the sides by taking the size of the player, and basing it off that with a lenght distance. (math aka magic)
         sideL = Physics2D.Raycast(transform.position, Vector2.left, (castLenght * col.bounds.size.x / 2), swingMask);
         sideR = Physics2D.Raycast(transform.position, Vector2.right, (castLenght * col.bounds.size.x / 2), swingMask);
-        //Debug.DrawLine(transform.position, transform.position + new Vector3(-((castLenght * col.bounds.size.x / 2)), 0));
-        //Debug.DrawLine(transform.position, transform.position + new Vector3((castLenght * col.bounds.size.x / 2), 0));
     }
 
     ///Dimitri code
-    public GameObject projectile;
+    //public GameObject projectile;
     public Camera getPoint;
     public float throwForce = 10f;
     public float drawDistance = 3f;
-    private bool isBusy = false;
-
-    public void OnInteract(Vector3 mousePos)
-    {
-        if (!isBusy)
-            StartCoroutine(StartSchooting());
-    }
-
-    private IEnumerator StartSchooting()
-    {
-        isBusy = true;
-        RaycastHit2D shootDir = Physics2D.Raycast(transform.position, transform.position);
-        Vector2 mousePos = transform.position;
-        while (Input.GetMouseButton(0))
-        {
-            mousePos = getPoint.ScreenToWorldPoint(Input.mousePosition);
-            shootDir = Physics2D.Raycast(transform.position, mousePos, drawDistance);
-            yield return new WaitForFixedUpdate();
-        }
-        GameObject tempProjectile = Instantiate(projectile, transform.position, transform.rotation);
-        Vector2 dir = mousePos - (Vector2)transform.position;
-        float dist = Vector2.Distance(transform.position, mousePos);
-        dist = Mathf.Clamp(dist, 0, drawDistance);
-        //Debug.Log(dist);
-        tempProjectile.GetComponent<Rigidbody2D>().AddForce(dir * dist * throwForce, ForceMode2D.Impulse);
-        isBusy = false;
-    }
+    
     ///End Dimitri code
 }

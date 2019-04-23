@@ -73,7 +73,6 @@ public class DrawManager : MonoBehaviour
         Vector3 mouseSet = Input.mousePosition;
         mouseSet.z = zAxis;
         Vector3 mousePosition = convert.ScreenToWorldPoint(mouseSet);
-        Debug.Log(mousePosition);
         mouseStart = mousePosition;
         drawnObjects.Insert(0, new Rope());
         drawnObjects[0].ropePieces.Insert(0, Instantiate(ropeTexture, mousePosition, transform.rotation, parentToRope));
