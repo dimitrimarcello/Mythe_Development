@@ -50,7 +50,7 @@ public class DrawManager : MonoBehaviour
            // Time.timeScale = 0.5f;
            // Time.fixedDeltaTime = Time.timeScale * 0.05f;
 
-            timeManager.SetSlowmotion(true);
+            //timeManager.SetSlowmotion(true);
         }
         if (Input.GetMouseButton(0) && onOf)
         {
@@ -72,7 +72,7 @@ public class DrawManager : MonoBehaviour
             // Time.timeScale = 1f;
             // Time.fixedDeltaTime = Time.unscaledDeltaTime;
 
-            timeManager.SetSlowmotion(false);
+            //timeManager.SetSlowmotion(false);
         }
         if (drawnObjects.Count > drawAmount)
         {

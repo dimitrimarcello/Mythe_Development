@@ -14,6 +14,8 @@ public class TimeManager : MonoBehaviour {
 
     private void Update()
     {
+        slowMo = Input.GetMouseButton(0);
+
         float timeScale = Time.timeScale;
 
         // Slow or speed time up with boolean, using slowdownLength (time it takes in seconds to slow or speed time up).
