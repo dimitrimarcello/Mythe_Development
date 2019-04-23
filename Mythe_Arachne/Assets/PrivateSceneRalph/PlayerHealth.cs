@@ -9,12 +9,22 @@ public class PlayerHealth : MonoBehaviour {
     public static event _PlayerHealth Death;
 
     public Slider slider;
-    public int health = 3;
+
+    [HideInInspector]
+    public int health;
+
+    [SerializeField]
+    private int maxHealth;
 
     [SerializeField]
     private float noDamageSeconds;
 
     private bool canTakeDamage = true;
+
+    private void Start()
+    {
+        health = maxHealth;
+    }
 
     public void TakeDamage(int damage = 1)
     {
@@ -22,26 +32,25 @@ public class PlayerHealth : MonoBehaviour {
         if (!canTakeDamage) return;
 
         StartCoroutine(NoDamageCooldown());
-        CheckHealth();
         health -= damage;
 
         if (health < 0) health = 0;
 
+        CheckHealth();
+
         slider.value = health;
     }
 
-    public void Heal(int healing = 2)
+    public void Heal()
     {
-        health += healing;
+        health = maxHealth;
         slider.value = health;
     }
 
     private void CheckHealth()
     {
-        if (health <= 0)
-        {
-            Death();
-        }
+        if (health > 0) return;
+        Death();
     }
 
     private IEnumerator NoDamageCooldown()
@@ -52,4 +61,6 @@ public class PlayerHealth : MonoBehaviour {
 
         canTakeDamage = true;
     }
+
+
 }
