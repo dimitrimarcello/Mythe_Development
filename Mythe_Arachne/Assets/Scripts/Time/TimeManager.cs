@@ -4,37 +4,31 @@ using UnityEngine;
 
 public class TimeManager : MonoBehaviour {
 
-    private float defaultFixedDeltaTime = 50f;
-
     [SerializeField]
-    private float slowdownLength = 2f;
+    private float slowdownLength = 1f;
 
     [SerializeField]
     private float minSpeed = .1f;
 
-    [SerializeField]
     private bool slowMo = false;
 
     private void Update()
     {
+        float timeScale = Time.timeScale;
+
         // Slow or speed time up with boolean, using slowdownLength (time it takes in seconds to slow or speed time up).
-        Time.timeScale += slowMo ? -1f : 1f * (Time.unscaledDeltaTime * (1f / slowdownLength));
+        timeScale += (slowMo ? -1f : 1f) * (Time.unscaledDeltaTime * (1f / slowdownLength));
 
         // Clamp timeScale value between minSpeed and default value
-        Time.timeScale = Mathf.Clamp(Time.timeScale, minSpeed, 1f);
+        Time.timeScale = Mathf.Clamp(timeScale, minSpeed, 1f);
 
         // default is 50 times per second, that is 1/50 = .02f. This times TimeScale gives correct fixedDeltaTime for slowmotion.
         Time.fixedDeltaTime = .02f * Time.timeScale;
     }
 
 
-    public void DoSlowmotion()
+    public void SetSlowmotion(bool _slowMo)
     {
-        slowMo = true;
-    }
-
-    public void UndoSlowmotion()
-    {
-        slowMo = true;
+        slowMo = _slowMo;
     }
 }
