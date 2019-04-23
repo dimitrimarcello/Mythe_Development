@@ -10,22 +10,24 @@ public class PlayerHealth : MonoBehaviour {
 
     public Slider slider;
     public int health = 3;
-    private float timer;
 
-    private void FixedUpdate()
-    {
-        if (timer > 0) { timer -= Time.deltaTime; }
-    }
+    [SerializeField]
+    private float noDamageSeconds;
+
+    private bool canTakeDamage = true;
 
     public void TakeDamage(int damage = 1)
     {
-        if (timer <= 0)
-        {
-        CheckHealth(); 
-            health -= damage;
-            slider.value = health;
-            timer += 1;
-        }
+        if (health <= 0) return;
+        if (!canTakeDamage) return;
+
+        StartCoroutine(NoDamageCooldown());
+        CheckHealth();
+        health -= damage;
+
+        if (health < 0) health = 0;
+
+        slider.value = health;
     }
 
     public void Heal(int healing = 2)
@@ -36,9 +38,18 @@ public class PlayerHealth : MonoBehaviour {
 
     private void CheckHealth()
     {
-        if (health >= 0)
+        if (health <= 0)
         {
             Death();
         }
+    }
+
+    private IEnumerator NoDamageCooldown()
+    {
+        canTakeDamage = false;
+
+        yield return new WaitForSeconds(noDamageSeconds);
+
+        canTakeDamage = true;
     }
 }
