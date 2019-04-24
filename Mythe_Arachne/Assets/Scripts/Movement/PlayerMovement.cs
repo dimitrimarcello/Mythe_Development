@@ -50,7 +50,7 @@ public class PlayerMovement : MonoBehaviour
         if (/*sideL.collider == null && */movementInput.x < 0 || /*sideR.collider == null && */movementInput.x > 0)
         {
             rb.velocity = new Vector2(0, rb.velocity.y);
-            transform.Translate(new Vector3(movementInput.x * speed, 0, 0));
+            transform.Translate(new Vector3(movementInput.x * speed * Time.timeScale, 0, 0));
         }
 
         if(movementInput.x < 0)
@@ -147,12 +147,4 @@ public class PlayerMovement : MonoBehaviour
         sideL = Physics2D.Raycast(transform.position, Vector2.left, (castLenght * col.bounds.size.x / 2), swingMask);
         sideR = Physics2D.Raycast(transform.position, Vector2.right, (castLenght * col.bounds.size.x / 2), swingMask);
     }
-
-    ///Dimitri code
-    //public GameObject projectile;
-    public Camera getPoint;
-    public float throwForce = 10f;
-    public float drawDistance = 3f;
-    
-    ///End Dimitri code
 }
