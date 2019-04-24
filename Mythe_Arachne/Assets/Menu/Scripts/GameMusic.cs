@@ -1,11 +1,19 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class GameMusic : MonoBehaviour {
 
+    private static GameMusic instance;
+
 	// Use this for initialization
 	void Start () {
+
+        if (instance == null)
+            instance = this;
+        else
+        {
+            Destroy(gameObject);
+            return;
+        }
 
         foreach (GameObject obj in GetDontDestroyOnLoadObjects())
         {
