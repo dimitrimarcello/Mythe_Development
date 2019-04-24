@@ -1,7 +1,11 @@
 ﻿using System;
 using UnityEngine;
+using UnityEngine.Audio;
 
 public class SoundManager : MonoBehaviour {
+
+    [SerializeField]
+    private AudioMixerGroup audioMixerGroup;
 
     [SerializeField]
     private Sound[] sounds;
@@ -29,6 +33,7 @@ public class SoundManager : MonoBehaviour {
             s.source.volume = s.volume;
             s.source.pitch = s.pitch;
             s.source.loop = s.loop;
+            s.source.outputAudioMixerGroup = audioMixerGroup;
         }
 	}
 	

@@ -131,7 +131,7 @@ AnimationClip:
   m_Events:
   - time: 1.05
     functionName: Play
-    data: enemyattack
+    data: enemy_attack
     objectReferenceParameter: {fileID: 0}
     floatParameter: 0
     intParameter: 0
