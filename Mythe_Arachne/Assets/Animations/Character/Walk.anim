@@ -87,14 +87,14 @@ AnimationClip:
   m_HasMotionFloatCurves: 0
   m_GenerateMotionCurves: 0
   m_Events:
-  - time: 0.27272728
+  - time: 0.09090909
     functionName: Play
     data: step_1
     objectReferenceParameter: {fileID: 0}
     floatParameter: 0
     intParameter: 0
     messageOptions: 0
-  - time: 0.54545456
+  - time: 0.45454547
     functionName: Play
     data: step_2
     objectReferenceParameter: {fileID: 0}
