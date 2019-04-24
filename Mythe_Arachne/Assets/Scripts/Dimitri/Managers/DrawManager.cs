@@ -118,6 +118,8 @@ public class DrawManager : MonoBehaviour
             spawnPos.z = 0;
             drawnObjects[0].ropePieces.Insert(0, Instantiate(ropeTexture, spawnPos, transform.rotation, parentToRope));
             drawnObjects[0].ropePieces[0].GetComponent<HingeJoint2D>().connectedBody = drawnObjects[0].ropePieces[1].GetComponent<Rigidbody2D>();
+
+            GetComponent<PlaySound>().Play("web_attach");
         }
     }
 
