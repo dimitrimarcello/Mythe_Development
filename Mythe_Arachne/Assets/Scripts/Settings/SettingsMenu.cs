@@ -15,9 +15,6 @@ public class SettingsMenu : MonoBehaviour {
     [SerializeField]
     private GameObject swingObject;
 
-    [SerializeField]
-    private AudioMixer audioMixer;
-
     private Volumes volumes;
 
     [SerializeField]
@@ -89,7 +86,7 @@ public class SettingsMenu : MonoBehaviour {
             volume = -80;
         }
 
-        audioMixer.SetFloat(name, volume);
+        SetFloat(name, volume);
 
         DoVolumeReflection(field =>
         {
@@ -128,7 +125,7 @@ public class SettingsMenu : MonoBehaviour {
             if (value >= -80)
             {
                 PlayerPrefs.SetFloat("settings_" + field.Name, value);
-                audioMixer.SetFloat(field.Name, value);
+                SetFloat(field.Name, value);
             }
         });
 
@@ -180,7 +177,7 @@ public class SettingsMenu : MonoBehaviour {
             if (PlayerPrefs.HasKey(prefName))
             {
                 float value = PlayerPrefs.GetFloat(prefName);
-                audioMixer.SetFloat(field.Name, value);
+                SetFloat(field.Name, value);
 
                 field.SetValue(volumes, value);
 
@@ -222,7 +219,6 @@ public class SettingsMenu : MonoBehaviour {
             {
                 float value = PlayerPrefs.GetFloat(name);
                 field.SetValue(volumes, value);
-                audioMixer.SetFloat(field.Name, value);
             }
         });
 
@@ -239,6 +235,20 @@ public class SettingsMenu : MonoBehaviour {
         float value = PlayerPrefs.GetFloat(name);
 
         brightness = value;
+    }
+
+    private GameMusic gameMusic;
+
+    public void SetFloat(string name, float volume)
+    {
+        gameMusic = FindObjectOfType<GameMusic>();
+
+        if (gameMusic == null || gameMusic.audioSource == null) return;
+
+        if (name.ToLower().Equals("music"))
+        {
+            gameMusic.audioSource.volume = volume;
+        }
     }
 
 }

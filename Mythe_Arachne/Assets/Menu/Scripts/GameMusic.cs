@@ -3,7 +3,9 @@ using WiiU = UnityEngine.WiiU;
 
 public class GameMusic : MonoBehaviour {
 
-    private static GameMusic instance;
+    public static GameMusic instance;
+
+    public AudioSource audioSource;
 
 	// Use this for initialization
 	void Start () {
@@ -16,7 +18,9 @@ public class GameMusic : MonoBehaviour {
             return;
         }
 
-        AudioSource audioSource = gameObject.GetComponent<AudioSource>();
+        audioSource = gameObject.GetComponent<AudioSource>();
+
+        audioSource.volume = PlayerPrefs.GetFloat("settings_music");
 
         WiiU.AudioSourceOutput.Assign(audioSource, WiiU.AudioOutput.GamePad);
 
