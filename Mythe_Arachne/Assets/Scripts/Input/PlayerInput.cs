@@ -55,8 +55,8 @@ public class PlayerInput : MonoBehaviour
         N3DS();
 #endif
 
-#if UNITY_EDITOR 
-        EDITOR();
+#if UNITY_WEBGL || UNITY_STANDALONE_WIN || UNITY_EDITOR
+        DESKTOP();
 #endif
         GetMouse();
     }
@@ -104,8 +104,8 @@ public class PlayerInput : MonoBehaviour
     }
 #endif
 
-#if UNITY_EDITOR
-    void EDITOR()
+#if UNITY_WEBGL || UNITY_STANDALONE_WIN || UNITY_EDITOR
+    void DESKTOP()
     {
         //Look for the input
         START = Input.GetKeyDown("return");

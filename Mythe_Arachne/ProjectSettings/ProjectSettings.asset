@@ -16,10 +16,10 @@ PlayerSettings:
   cursorHotspot: {x: 0, y: 0}
   m_SplashScreenBackgroundColor: {r: 0.13725491, g: 0.12156863, b: 0.1254902, a: 1}
   m_ShowUnitySplashScreen: 1
-  m_ShowUnitySplashLogo: 1
+  m_ShowUnitySplashLogo: 0
   m_SplashScreenOverlayOpacity: 1
   m_SplashScreenAnimation: 1
-  m_SplashScreenLogoStyle: 1
+  m_SplashScreenLogoStyle: 0
   m_SplashScreenDrawMode: 0
   m_SplashScreenBackgroundAnimationZoom: 1
   m_SplashScreenLogoAnimationZoom: 1
@@ -110,8 +110,8 @@ PlayerSettings:
   videoMemoryForVertexBuffers: 0
   psp2PowerMode: 0
   psp2AcquireBGM: 1
-  wiiUTVResolution: 0
-  wiiUGamePadMSAA: 1
+  wiiUTVResolution: 1
+  wiiUGamePadMSAA: 4
   wiiUSupportsNunchuk: 0
   wiiUSupportsClassicController: 0
   wiiUSupportsBalanceBoard: 0
@@ -237,7 +237,14 @@ PlayerSettings:
     banner: {fileID: 0}
   androidGamepadSupportLevel: 0
   resolutionDialogBanner: {fileID: 0}
-  m_BuildTargetIcons: []
+  m_BuildTargetIcons:
+  - m_BuildTarget: 
+    m_Icons:
+    - serializedVersion: 2
+      m_Icon: {fileID: 2800000, guid: 629da83e6f3d28e409262c211adf7df4, type: 3}
+      m_Width: 128
+      m_Height: 128
+      m_Kind: 0
   m_BuildTargetBatching: []
   m_BuildTargetGraphicsAPIs: []
   m_BuildTargetVRSettings: []
@@ -251,7 +258,7 @@ PlayerSettings:
   wiiUAccountSaveSize: 2048
   wiiUOlvAccessKey: 0
   wiiUTinCode: 0
-  wiiUJoinGameId: 0
+  wiiUJoinGameId: 00000000
   wiiUJoinGameModeMask: 0000000000000000
   wiiUCommonBossSize: 0
   wiiUAccountBossSize: 0
@@ -259,8 +266,9 @@ PlayerSettings:
   wiiUMainThreadStackSize: 3072
   wiiULoaderThreadStackSize: 1024
   wiiUSystemHeapSize: 128
-  wiiUTVStartupScreen: {fileID: 0}
-  wiiUGamePadStartupScreen: {fileID: 0}
+  wiiUTVStartupScreen: {fileID: 2800000, guid: 004ade10a1476ef44b349ff1a2889bac, type: 3}
+  wiiUGamePadStartupScreen: {fileID: 2800000, guid: 3e97ac7d43baf2545ba6bd798edd4ac6,
+    type: 3}
   wiiUDrcBufferDisabled: 0
   wiiUProfilerLibPath: 
   playModeTestRunnerEnabled: 0
@@ -517,7 +525,7 @@ PlayerSettings:
   webGLDebugSymbols: 0
   webGLEmscriptenArgs: 
   webGLModulesDirectory: 
-  webGLTemplate: APPLICATION:Default
+  webGLTemplate: APPLICATION:Minimal
   webGLAnalyzeBuildSize: 0
   webGLUseEmbeddedResources: 0
   webGLUseWasm: 0

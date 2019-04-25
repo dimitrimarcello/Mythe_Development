@@ -7,10 +7,12 @@ using UnityEngine.WiiU;
 
 public class WiiMoteInput : MonoBehaviour
 {
+
+#if UNITY_WIIU && !UNITY_ENGINE
     [SerializeField] [Range(0,4)] int ID;
 
     UnityEngine.WiiU.Remote thisRemote;
-
+#endif
 
     void Awake()
     {
@@ -21,6 +23,8 @@ public class WiiMoteInput : MonoBehaviour
 #endif
     }
 
+
+#if UNITY_WIIU && !UNITY_ENGINE
     void Start()
     {
         ID = 0;
@@ -33,4 +37,5 @@ public class WiiMoteInput : MonoBehaviour
         UnityEngine.WiiU.RemoteState remoteState = thisRemote.state;
 
     }
+#endif
 }

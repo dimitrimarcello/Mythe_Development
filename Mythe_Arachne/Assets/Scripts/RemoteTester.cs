@@ -1,9 +1,13 @@
 using UnityEngine;
+#if UNITY_WIIU && !UNITY_ENGINE
 using UnityEngine.WiiU;
+#endif
 using System.Collections;
 
 public class RemoteTester : MonoBehaviour
 {
+
+#if UNITY_WIIU && !UNITY_ENGINE
     public int channel;
 
     void Update()
@@ -37,4 +41,5 @@ public class RemoteTester : MonoBehaviour
     {
         transform.Find(name).localScale = new Vector3(1.0f, 1.0f, input);
     }
+#endif
 }

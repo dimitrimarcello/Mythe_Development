@@ -20,6 +20,8 @@ public class PlayerMovement : MonoBehaviour
     SpriteRenderer sides;
     public LayerMask layerMask, swingMask; //Give values with what the raycasts can interract(in this case excluding player layer)
 
+    float direC = 1;
+
     public bool Grounded { get; private set; }
     [SerializeField] bool Swing;
 
@@ -55,12 +57,16 @@ public class PlayerMovement : MonoBehaviour
 
         if(movementInput.x < 0)
         {
-            sides.flipX = true;
+            //sides.flipX = true;
+            direC = -1;
         }
         else if(movementInput.x > 0)
         {
-            sides.flipX = false;
+            direC = 1;
+            //sides.flipX = false;
         }
+
+        transform.localScale = new Vector2(Mathf.Lerp(transform.localScale.x, direC, .25f), 1);
 
 
         if (Swing)
