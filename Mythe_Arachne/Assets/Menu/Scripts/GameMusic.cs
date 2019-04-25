@@ -1,5 +1,8 @@
 ﻿using UnityEngine;
+
+#if UNITY_WIIU && !UNITY_ENGINE
 using WiiU = UnityEngine.WiiU;
+#endif
 
 public class GameMusic : MonoBehaviour {
 
@@ -22,8 +25,11 @@ public class GameMusic : MonoBehaviour {
 
         audioSource.volume = PlayerPrefs.GetFloat("settings_music");
 
+
+#if UNITY_WIIU && !UNITY_ENGINE
         WiiU.AudioSourceOutput.Assign(audioSource, WiiU.AudioOutput.GamePad);
         WiiU.AudioSourceOutput.Assign(audioSource, WiiU.AudioOutput.TV);
+#endif
 
         audioSource.Play();
 

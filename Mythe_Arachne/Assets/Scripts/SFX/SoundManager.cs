@@ -1,7 +1,10 @@
 ﻿using System;
 using UnityEngine;
 using UnityEngine.Audio;
+
+#if UNITY_WIIU && !UNITY_ENGINE
 using WiiU = UnityEngine.WiiU;
+#endif
 
 public class SoundManager : MonoBehaviour {
 
@@ -30,8 +33,11 @@ public class SoundManager : MonoBehaviour {
         {
             AudioSource audioSource = gameObject.AddComponent<AudioSource>();
 
+
+#if UNITY_WIIU && !UNITY_ENGINE
             WiiU.AudioSourceOutput.Assign(audioSource, WiiU.AudioOutput.GamePad);
             WiiU.AudioSourceOutput.Assign(audioSource, WiiU.AudioOutput.TV);
+#endif
 
             s.source = audioSource;
 
