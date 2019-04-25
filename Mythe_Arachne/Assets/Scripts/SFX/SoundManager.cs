@@ -1,6 +1,7 @@
 ﻿using System;
 using UnityEngine;
 using UnityEngine.Audio;
+using WiiU = UnityEngine.WiiU;
 
 public class SoundManager : MonoBehaviour {
 
@@ -27,7 +28,12 @@ public class SoundManager : MonoBehaviour {
 
         foreach (Sound s in sounds)
         {
-            s.source = gameObject.AddComponent<AudioSource>();
+            AudioSource audioSource = gameObject.AddComponent<AudioSource>();
+
+            WiiU.AudioSourceOutput.Assign(audioSource, WiiU.AudioOutput.GamePad);
+
+            s.source = audioSource;
+
             s.source.clip = s.clip;
 
             s.source.volume = s.volume;

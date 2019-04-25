@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using WiiU = UnityEngine.WiiU;
 
 public class GameMusic : MonoBehaviour {
 
@@ -15,12 +16,11 @@ public class GameMusic : MonoBehaviour {
             return;
         }
 
-        foreach (GameObject obj in GetDontDestroyOnLoadObjects())
-        {
-            if (obj.GetComponent<GameMusic>() != null) return;
-        }
+        AudioSource audioSource = gameObject.GetComponent<AudioSource>();
 
-        gameObject.GetComponent<AudioSource>().Play();
+        WiiU.AudioSourceOutput.Assign(audioSource, WiiU.AudioOutput.GamePad);
+
+        audioSource.Play();
 
         DontDestroyOnLoad(gameObject);
 
