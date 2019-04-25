@@ -31,6 +31,7 @@ public class SoundManager : MonoBehaviour {
             AudioSource audioSource = gameObject.AddComponent<AudioSource>();
 
             WiiU.AudioSourceOutput.Assign(audioSource, WiiU.AudioOutput.GamePad);
+            WiiU.AudioSourceOutput.Assign(audioSource, WiiU.AudioOutput.TV);
 
             s.source = audioSource;
 

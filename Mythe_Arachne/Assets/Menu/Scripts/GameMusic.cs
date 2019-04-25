@@ -23,6 +23,7 @@ public class GameMusic : MonoBehaviour {
         audioSource.volume = PlayerPrefs.GetFloat("settings_music");
 
         WiiU.AudioSourceOutput.Assign(audioSource, WiiU.AudioOutput.GamePad);
+        WiiU.AudioSourceOutput.Assign(audioSource, WiiU.AudioOutput.TV);
 
         audioSource.Play();
 
