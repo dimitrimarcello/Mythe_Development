@@ -62,7 +62,7 @@ public class EnemyAttack : MonoBehaviour {
         anim.SetBool("Dive", false);
         if (IsPlayer) 
         {
-            GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerHealth>().TakeDamage();
+            GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerHealth>().TakeDamage(999);
         }
     }
 
@@ -93,5 +93,12 @@ public class EnemyAttack : MonoBehaviour {
     {
         if(transform.position.y < prevY) { return true; }
         return diving;
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.layer != 12) return;
+        
+        HitPlayer(true);
     }
 }

@@ -3092,7 +3092,7 @@ BoxCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
@@ -13220,12 +13220,12 @@ Prefab:
     - target: {fileID: 224546109231607628, guid: fa845d88c903d6a4eb25deb8cd4223fb,
         type: 2}
       propertyPath: m_AnchoredPosition.x
-      value: 20
+      value: -161.5
       objectReference: {fileID: 0}
     - target: {fileID: 224546109231607628, guid: fa845d88c903d6a4eb25deb8cd4223fb,
         type: 2}
       propertyPath: m_AnchoredPosition.y
-      value: -20
+      value: 72.3
       objectReference: {fileID: 0}
     - target: {fileID: 224546109231607628, guid: fa845d88c903d6a4eb25deb8cd4223fb,
         type: 2}
@@ -13270,16 +13270,16 @@ Prefab:
     - target: {fileID: 224460287134676144, guid: fa845d88c903d6a4eb25deb8cd4223fb,
         type: 2}
       propertyPath: m_AnchorMax.x
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 224460287134676144, guid: fa845d88c903d6a4eb25deb8cd4223fb,
         type: 2}
       propertyPath: m_AnchorMax.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1234357215738876, guid: fa845d88c903d6a4eb25deb8cd4223fb, type: 2}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: fa845d88c903d6a4eb25deb8cd4223fb, type: 2}
@@ -13987,12 +13987,12 @@ Prefab:
     - target: {fileID: 224887312440877010, guid: a3be4b3c304dc674a8a158cbd16d4fac,
         type: 2}
       propertyPath: m_AnchoredPosition.x
-      value: 31.1
+      value: -150.40002
       objectReference: {fileID: 0}
     - target: {fileID: 224887312440877010, guid: a3be4b3c304dc674a8a158cbd16d4fac,
         type: 2}
       propertyPath: m_AnchoredPosition.y
-      value: 0
+      value: 92.29999
       objectReference: {fileID: 0}
     - target: {fileID: 224887312440877010, guid: a3be4b3c304dc674a8a158cbd16d4fac,
         type: 2}
