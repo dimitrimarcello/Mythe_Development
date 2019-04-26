@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Checkpoint : MonoBehaviour {
 
-	public Vector3 checkPointPos { get { return transform.position; } }
+//	public Vector3 checkPointPos { get { return transform.position; } }
     private Animator playAnimations;
     [SerializeField]
     private Sprite broken;
